@@ -1,7 +1,6 @@
 out.*
 .gradle
 .idea
-out
 build
 .DS_Store
 .claude/*
