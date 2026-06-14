@@ -153,6 +153,75 @@ directives as concrete initial parameter values in the scaffolded code.
 | Recursive rects | ≤25% canvas filled; no cell >12% of canvas; background dominates | Fill ≥80% of cells; tight subdivision; small residual rects | Black borders ≥3 px; flat color fill; no texture | Rounded corners; semi-transparent fills; thin or no border |
 | Shape packing | ≤30 circles; large radii; generous whitespace | ≥300 circles; small minimum radius; full coverage | Circles on grid with fixed size increments; crisp outlines | Jittered centers; Gaussian radius distribution; soft fill with alpha |
 
+## Finishing pass (gallery-grade) — apply to most pieces
+
+Stock "draw shapes on a flat background" output reads as a clean-but-dull vector.
+What makes a piece look like the gȧrt gallery is the **finishing pass**. Apply it to
+line / particle / flow / curve / simulation pieces **unless** the brief explicitly
+wants flat, minimal, or hard-edge geometric. Four levers, in order of impact:
+
+1. **Dark ground + luminous strokes** ("light drawn in the dark"). Default to a dark
+   ground with bright, low-alpha strokes that *accumulate* — overlaps build to bright
+   cores, sparse areas stay dim. This one choice beats dark-on-light for most
+   line/flow work. (Even a "monochrome / ink" brief reads far richer as white-on-dark
+   than grey-on-cream.) Reserve flat-on-light for hard-edge geometric (Mondrian,
+   low-poly).
+
+2. **Bloom via SCREEN-blend + blur.** Render strokes to a *transparent* buffer, then
+   composite over the ground through 1–2 Gaussian-blur passes so dense areas glow:
+
+   ```kotlin
+   import org.jetbrains.skia.BlendMode
+   import org.jetbrains.skia.FilterTileMode
+   import org.jetbrains.skia.ImageFilter
+   import org.jetbrains.skia.Paint
+   import dev.oblac.gart.shader.createNoiseGrainFilter
+
+   val buf = gart.gartvas()            // transparent — do NOT clear()
+   // ... draw bright, low-alpha strokes into buf.canvas (default SRC_OVER) ...
+   val sharp = buf.snapshot()
+
+   val out = gart.gartvas()
+   out.canvas.clear(GROUND)            // dark ground (an Int color)
+   val s = SIZE / 170f                 // blur sigma scales with canvas size
+   listOf(s, s / 2.5f).forEach { sigma ->
+       out.canvas.drawImage(sharp, 0f, 0f, Paint().apply {
+           imageFilter = ImageFilter.makeBlur(sigma, sigma, FilterTileMode.DECAL)
+           blendMode = BlendMode.SCREEN
+       })
+   }
+   out.canvas.drawImage(sharp, 0f, 0f, Paint().apply { blendMode = BlendMode.SCREEN }) // crisp top
+
+   // 3) grain texture pass
+   val finalv = gart.gartvas()
+   finalv.canvas.drawImage(out.snapshot(), 0f, 0f, Paint().apply {
+       imageFilter = createNoiseGrainFilter(0.10f, gart.d)
+   })
+   gart.saveImage(finalv)             // save the FINAL gartvas, not the raw buffer
+   ```
+
+3. **Texture pass** — the final `createNoiseGrainFilter(0.05f–0.15f, d)` overlay above
+   gives a printed, non-flat feel. Alternatives in `dev.oblac.gart.shader`:
+   `createNoiseGrain2Filter`, `createSketchingPaperFilter` (light grounds),
+   `createMarbledFilter`. **Avoid `createRisographFilter`** unless verified — it sets an
+   `intensity` uniform its SKSL doesn't declare. `applyGaussianBlur(gartmap)` is a cheap
+   3×3 alternative if you don't want the buffer-composite.
+
+4. **One accent + restrained palette, and fill the frame.** Keep the palette
+   restrained (e.g. white ink on dark) and give ONE saturated accent to a *subset* of
+   elements — the accent glows hardest through the bloom. For colour pieces use the
+   rich ramps: `Palettes.colormapNNN.expand(256)`. **Auto-fit** the figure so it spans
+   the canvas (measure max excursion, scale to ~0.46·SIZE) instead of floating small in
+   empty space.
+
+Confirmed helpers (grep `dev/oblac/gart/shader/` + `pixels/` before reaching for
+others): `createNoiseGrainFilter`, `createNoiseGrain2Filter`, `createSketchingPaperFilter`,
+`createMarbledFilter`, `applyGaussianBlur`; skia `ImageFilter.makeBlur`,
+`ImageFilter.makeDropShadow`, `BlendMode.SCREEN`. Proven in gallery:
+`arts/cotton/src/cotton/circles2/CottonCircles2.kt`,
+`arts/palecircles/src/palecircles/around/Around.kt`. Full worked example (multi-harmonic
+curves + bloom + grain + accent): `arts/gen/src/gen/HarmonInk.kt`.
+
 ## Confirm before building
 
 > **Wizard mode only.** If invoked with a description (complement mode), skip this
@@ -282,6 +351,12 @@ Imports live under `dev.oblac.gart.*`. Common building blocks:
 - **Geometry**: `d.center`, `d.w`, `d.h` from the `Dimension`.
 - **Math/noise**: `dev.oblac.gart.math` — `map(v, inLo, inHi, outLo, outHi)`,
   noise functions, vectors, complex numbers, etc.
+- **Post-processing / FX** (see *Finishing pass* above): shader filters in
+  `dev.oblac.gart.shader` (`createNoiseGrainFilter`, `createSketchingPaperFilter`,
+  `createMarbledFilter`), `applyGaussianBlur` in `dev.oblac.gart.pixels`, and skia
+  `ImageFilter.makeBlur` / `makeDropShadow` + `BlendMode.SCREEN` applied via a `Paint`
+  on `canvas.drawImage(image, 0f, 0f, paint)`. `gartvas.snapshot()` returns the `Image`
+  to composite.
 
 When unsure which helper exists, grep `gart/src/main/kotlin/dev/oblac/gart/gfx/`,
 `.../color/`, and `.../math/` rather than guessing names.
@@ -289,6 +364,9 @@ When unsure which helper exists, grep `gart/src/main/kotlin/dev/oblac/gart/gfx/`
 ## Reference examples
 
 - `arts/gen/src/gen/Template.kt` — minimal skeleton with SIZE and SEED blocks.
+- `arts/gen/src/gen/HarmonInk.kt` — the *Finishing pass* applied end-to-end: bespoke
+  multi-harmonic curves, auto-fit, transparent buffer → SCREEN-blend bloom → grain, on
+  a dark ground with one accent. Copy this structure for any glowing line/curve piece.
 - Per technique: the gallery example named in the Stage-2 table above. See the ⚠️
   annotations for which call patterns to imitate and which to restructure or drop.
 
