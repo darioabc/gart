@@ -32,12 +32,14 @@ nothing else. Every piece shares the same visual DNA so the whole set reads as c
 
 ## Subject catalog
 
-Each subject already has a finished reference piece in `arts/gen/src/gen/`. For a listed
-subject, **copy its reference file and adapt** (change the `Gart.of` name + tweak as the
-user asks). For an unlisted/custom subject, **write a new piece from the template** and
-implement the subject only in the luminance-field loop + tint expression.
+**Always create a NEW piece — never copy or replicate a reference file.** Every
+invocation writes a fresh `.kt` from the template below, with a luminance field and tint
+expression you author for *this* run. The catalog is **inspiration only**: it lists
+shading ideas (and a same-family reference you may *read for technique*), but you must not
+duplicate a reference's field/tint — invent your own variation (different geometry,
+lighting, warp, banding, or tint mapping) so no two pieces come out identical.
 
-| Subject (synonyms) | Reference piece | Shading idea |
+| Subject (synonyms) | Read for technique | Shading idea (make it your own) |
 |---|---|---|
 | shaded sphere / orb / planet | `VoronoiOrb.kt` | Lambert-shaded sphere + simplex relief |
 | eclipse / crescent / moon | `VoronoiEclipse.kt` | grazing light → thin lit crescent + faint corona |
@@ -47,9 +49,11 @@ implement the subject only in the luminance-field loop + tint expression.
 | nested orbs / concentric / agate / rings | `VoronoiNested.kt` | banded `sin(rr·K·π)` shells, ramp cycles per ring |
 | cracked stone / boulder / crackle | `VoronoiCracked.kt` | Lambert stone darkened along a Worley F2−F1 crack net |
 
-For a **custom subject**, build its grayscale luminance field however the subject
-demands (DARK where you want dense dots, near-white where you want bare cream ground),
-then tint dots by local brightness or radius — keep everything else identical.
+You may **read** a listed reference to learn the technique, but always **write a new
+file** with your own take. For **any subject** (listed or custom), build its grayscale
+luminance field however the subject demands (DARK where you want dense dots, near-white
+where you want bare cream ground), then tint dots by local brightness or radius — keep
+everything else (params, ground, finish) identical so the set stays cohesive.
 
 ## The family template (write this, vary only the marked regions)
 
@@ -123,6 +127,9 @@ fun main() {
 
 ### Hard rules (mandatory — keep the set cohesive)
 
+- **Always author a new piece.** Never copy a reference file wholesale or reproduce its
+  luminance field / tint — read references only to learn the technique, then write your
+  own variation so the result is a distinct artwork.
 - Keep the package `gen`, the `SIZE`/`SEED` blocks, the `println("seed=$SEED")`, the
   `stippleVoronoi(...)` params, the `c.clear(0xFFFDF0D5...)` ground, the `grainOnly`
   finish, and `saveImage` **exactly** as above. Vary **only** the luminance-field loop
@@ -139,8 +146,11 @@ fun main() {
 
 ## Build → render → show
 
-1. **Write** `arts/gen/src/gen/Voronoi<Subject>.kt` (copy the matching reference for a
-   listed subject; otherwise the template above). Main class is `gen.Voronoi<Subject>Kt`.
+1. **Write a new** `arts/gen/src/gen/Voronoi<Subject>.kt` from the template above — never
+   copy a reference. For a listed subject you may read its reference for technique, but
+   author your own luminance field + tint. Main class is `gen.Voronoi<Subject>Kt`.
+   (If a file of that name already exists, pick a fresh variant name so you don't
+   overwrite an existing piece.)
 
 2. **Render one image at 1920×1920** with the self-contained wrapper (it temporarily
    pins skiko to a Maven-Central version, compiles, renders, and reverts the pin — you
@@ -166,7 +176,8 @@ fun main() {
 
 - After rendering, confirm `git diff gart/build.gradle.kts` is empty — the wrapper
   reverts the skiko pin automatically, so the swap must never appear in your changes.
-- Reference pieces to read/copy live in `arts/gen/src/gen/Voronoi*.kt`; the palette is
+- Reference pieces to read **for technique only** (never copy) live in
+  `arts/gen/src/gen/Voronoi*.kt`; the palette is
   `arts/gen/src/gen/Coolors.kt` (`molten`); `grainOnly` is in
   `arts/gen/src/gen/WildFx.kt`.
 - This skill (SKILL.md + render-voronoi.sh) is read at startup and cached; if you edit
