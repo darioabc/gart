@@ -56,22 +56,9 @@ Keep a running checklist in the chat so context stays legible.
    GART_SIZE=1920 .claude/skills/generate-art/render.sh arts:gen gen.<Name>Kt out/
    ```
    for each `<Name>`. A piece is done when the render exits 0 and writes its PNG.
-   (Heavy sims — per-pixel ODE basins, 60k-agent physarum — are slow at 1920²; let them
-   run. If one is impractically slow, cap its internal grid/agent/iteration counts in code
-   rather than dropping resolution.)
 
 ## 4. Ship
 - **Revert** `gart/build.gradle.kts` to `0.148.3` and confirm `git diff` shows it clean.
 - Commit the new `.kt` files **and** their `out/*.png` (the `out/` gallery is tracked)
   to the dev branch named in the task. Open a **draft PR**. Show the images to the user
   (SendUserFile), grouped, with a one-line technique+palette caption each.
-
-## Tips learned the hard way
-- Differential growth: springs need a **rest length** (not pull-to-midpoint) or the
-  curve never grows. Magnetic-pendulum basins: capture by **proximity** with moderate
-  friction — too much friction = uniform, too little = nothing settles. Space-filling /
-  weave images: keep stroke width **below the cell pitch** and skip bloom or it melts to
-  a blob. Excitable-media spirals are finicky; circle packing / sandpile / DLA are
-  reliable crowd-pleasers. Since there's no review pass, lean on systems known to work
-  and on the cheat-sheet so the first 1920² render lands solid; heavy sims (per-pixel ODE,
-  60k-agent physarum) can take minutes at that size — that's expected, let them run.
