@@ -81,6 +81,7 @@ pinned `0.148.3` lives only on the network-blocked `compose-dev` repo). **Revert
 committing.**
 ```
 ./gradlew :arts:gen:classes :arts:gen:writeClasspath -q --no-configuration-cache
-GART_SIZE=512 .claude/skills/generate-art/render.sh arts:gen gen.<Name>Kt out/   # draft
-.claude/skills/generate-art/render.sh arts:gen gen.<Name>Kt out/                 # full 1024
+GART_SIZE=1920 .claude/skills/generate-art/render.sh arts:gen gen.<Name>Kt out/   # high-res, no draft
 ```
+`render.sh` reads `GART_SIZE` and pieces use it for the canvas (`SIZE`), so the same code
+renders at any size; `wild-batch` always uses 1920.

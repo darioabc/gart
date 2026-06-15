@@ -1,6 +1,6 @@
 ---
 name: wild-batch
-description: Generate a BATCH of bold, distinct generative-art pieces in the gȧrt repo, each a different generative SYSTEM, using a multi-agent orchestration pass. Use when the user wants several/many pieces at once, says "go wild", "make it madder / more complex", "explore new styles", "a batch", "ten more", or wants variety rather than a single render. Orchestrates subagents to write the pieces in parallel, then compiles/renders/reviews centrally. For a single one-off image, prefer the `generate-art` skill instead.
+description: Generate a BATCH of bold, distinct generative-art pieces in the gȧrt repo, each a different generative SYSTEM, using a multi-agent orchestration pass. Use when the user wants several/many pieces at once, says "go wild", "make it madder / more complex", "explore new styles", "a batch", "ten more", or wants variety rather than a single render. Orchestrates subagents to write the pieces in parallel, then compiles and renders them straight to high-res (1920²) centrally — no draft pass, no per-image review. For a single one-off image, prefer the `generate-art` skill instead.
 ---
 
 # Wild Batch — orchestrated generative-art drops
@@ -8,7 +8,9 @@ description: Generate a BATCH of bold, distinct generative-art pieces in the gȧ
 Produce N pieces (default **5–10**) for the gȧrt repo, where **every piece is a
 DISTINCT generative system and a different visual world**. You act as the
 **orchestrator**: keep the main chat as a clean control loop, fan the piece-writing
-out to subagents, then compile / render / judge / fix centrally.
+out to subagents, then compile and render them straight to high-res centrally. This
+is a **fire-and-forget** flow — render at full 1920² with **no draft pass and no
+per-image review**; the only gate is that each piece compiles and renders.
 
 This skill assumes the `arts/gen` sandbox, `Coolors.kt` (palettes), and `WildFx.kt`
 (finishing helpers) already exist (see `references/gart-api.md`). If they don't, read
@@ -43,18 +45,20 @@ per-piece specs with concrete algorithm hints). Hard rules for agents:
 - They return a concise summary (files, one-liner each, palette, API doubts) — not dumps.
 Keep a running checklist in the chat so context stays legible.
 
-## 3. Compile + render + judge (you, centrally)
+## 3. Compile + render at 1920² (you, centrally — no review)
 1. Apply the skiko render workaround: set `val version = "0.148.1"` in
    `gart/build.gradle.kts` (Maven Central; the pinned `0.148.3` is network-blocked).
 2. Compile once: `./gradlew :arts:gen:classes :arts:gen:writeClasspath -q --no-configuration-cache`.
-   Fix compile errors (usually missing imports — see cheat-sheet) inline.
-3. Draft-render each at 512: `GART_SIZE=512 .claude/skills/generate-art/render.sh arts:gen gen.<Name>Kt out/`.
-4. **Read every draft PNG yourself** and judge it against its intent. For any miss,
-   diagnose precisely (e.g. "simulation collapsed to a point", "bloom washed it out",
-   "params too damped") and fix — re-dispatch to the authoring subagent if SendMessage
-   is available, else edit inline. Re-render until each piece earns its place.
-5. Full-res render at 1024 (no `GART_SIZE`). Spot-check the full-res images (new seeds
-   can shift composition).
+   Fix any compile errors (usually missing imports — see cheat-sheet) inline; re-compile
+   until clean. This is the **only** correctness gate.
+3. Render every piece straight to **high-res 1920²** — no draft pass, no per-image review:
+   ```
+   GART_SIZE=1920 .claude/skills/generate-art/render.sh arts:gen gen.<Name>Kt out/
+   ```
+   for each `<Name>`. A piece is done when the render exits 0 and writes its PNG.
+   (Heavy sims — per-pixel ODE basins, 60k-agent physarum — are slow at 1920²; let them
+   run. If one is impractically slow, cap its internal grid/agent/iteration counts in code
+   rather than dropping resolution.)
 
 ## 4. Ship
 - **Revert** `gart/build.gradle.kts` to `0.148.3` and confirm `git diff` shows it clean.
@@ -68,5 +72,6 @@ Keep a running checklist in the chat so context stays legible.
   friction — too much friction = uniform, too little = nothing settles. Space-filling /
   weave images: keep stroke width **below the cell pitch** and skip bloom or it melts to
   a blob. Excitable-media spirals are finicky; circle packing / sandpile / DLA are
-  reliable crowd-pleasers. Always draft at 512 before committing to 1024 — the heavy
-  sims (per-pixel ODE, 60k-agent physarum) are slow.
+  reliable crowd-pleasers. Since there's no review pass, lean on systems known to work
+  and on the cheat-sheet so the first 1920² render lands solid; heavy sims (per-pixel ODE,
+  60k-agent physarum) can take minutes at that size — that's expected, let them run.

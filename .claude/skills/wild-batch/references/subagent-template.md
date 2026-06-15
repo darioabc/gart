@@ -25,7 +25,8 @@ canvas, gfx imports, color/Palette (expand needs steps>size), noise, math (max/m
 kotlin.math), Gartmap, bloom/grainOnly/darken, save, skia types}}.
 
 Make each piece MAD, complex, and COMPOSED — strong structure/silhouette/density, NOT a
-centered soft blob. Tune for 1024px; must also run at 512. Use a spatial grid
+centered soft blob. Scale everything off the `SIZE` constant (never hard-code px) so it
+renders correctly at 1920²; keep per-piece cost sane at that size. Use a spatial grid
 (`HashMap<Long,MutableList<Int>>`) for any O(n²) neighbour query. Use a coolors palette
 + a WildFx finish (`bloom` dark / `grainOnly` light).
 
