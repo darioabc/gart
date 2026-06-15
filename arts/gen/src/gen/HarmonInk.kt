@@ -20,8 +20,10 @@ import org.jetbrains.skia.ImageFilter
 import org.jetbrains.skia.Paint
 import org.jetbrains.skia.Point
 
-// Canvas size: set GART_SIZE=512 (shell env var) for a fast draft render.
-private val SIZE: Int = System.getProperty("GART_SIZE")?.toIntOrNull() ?: 1024
+// Canvas: 16:9 wide. GART_SIZE (shell env var) sets the HEIGHT; width is derived.
+// Draft: GART_SIZE=540 -> 960x540. Full-res default: 1080 -> 1920x1080.
+private val HEIGHT: Int = System.getProperty("GART_SIZE")?.toIntOrNull() ?: 1080
+private val WIDTH: Int = HEIGHT * 16 / 9
 
 // Seed: pass GART_SEED=<long> to reproduce. Printed to stdout.
 private val SEED: Long = System.getProperty("GART_SEED")?.toLongOrNull()
@@ -127,12 +129,12 @@ fun main() {
     println("seed=$SEED")
     val master = Random(SEED)
 
-    val gart = Gart.of("harmonInk", SIZE, SIZE)
+    val gart = Gart.of("harmonInk", WIDTH, HEIGHT)
     val d = gart.d
     val center = d.center
-    val targetR = SIZE * 0.46f
-    val wide = SIZE / 170f
-    val tight = SIZE / 430f
+    val targetR = HEIGHT * 0.47f          // height-bound: full motif visible, centered
+    val wide = HEIGHT / 170f
+    val tight = HEIGHT / 430f
 
     PRESETS.forEachIndexed { i, p ->
         val rng = Random(master.nextLong())
