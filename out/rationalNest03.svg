@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<defs>
+<filter id="rationalNest03-t22h14f32s478" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="478" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -8.18" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest03-t29h14f32s479" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="479" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -7.88" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest03-t36h14f32s480" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="480" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -7.59" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest03-t43h14f32s481" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="481" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -7.29" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest03-t50h14f32s482" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="482" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -7" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest03-t57h14f32s483" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="483" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -6.71" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest03-t64h14f32s484" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="484" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -6.41" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest03-t97h14f32s577" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="577" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -5.03" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+</defs>
+<rect x="90" y="90" width="820" height="37" class="gen-i" filter="url(#rationalNest03-t22h14f32s478)"/>
+<rect x="90" y="873" width="820" height="37" class="gen-i" filter="url(#rationalNest03-t22h14f32s478)"/>
+<rect x="90" y="134" width="37" height="732" class="gen-i" filter="url(#rationalNest03-t22h14f32s478)"/>
+<rect x="873" y="134" width="37" height="732" class="gen-i" filter="url(#rationalNest03-t22h14f32s478)"/>
+<rect x="134" y="134" width="732" height="64" class="gen-i" filter="url(#rationalNest03-t29h14f32s479)"/>
+<rect x="134" y="802" width="732" height="64" class="gen-i" filter="url(#rationalNest03-t29h14f32s479)"/>
+<rect x="134" y="205" width="64" height="590" class="gen-i" filter="url(#rationalNest03-t29h14f32s479)"/>
+<rect x="802" y="205" width="64" height="590" class="gen-i" filter="url(#rationalNest03-t29h14f32s479)"/>
+<rect x="205" y="205" width="590" height="28" class="gen-a" filter="url(#rationalNest03-t36h14f32s480)"/>
+<rect x="205" y="767" width="590" height="28" class="gen-a" filter="url(#rationalNest03-t36h14f32s480)"/>
+<rect x="205" y="240" width="28" height="520" class="gen-a" filter="url(#rationalNest03-t36h14f32s480)"/>
+<rect x="767" y="240" width="28" height="520" class="gen-a" filter="url(#rationalNest03-t36h14f32s480)"/>
+<rect x="240" y="240" width="520" height="46" class="gen-i" filter="url(#rationalNest03-t43h14f32s481)"/>
+<rect x="240" y="714" width="520" height="46" class="gen-i" filter="url(#rationalNest03-t43h14f32s481)"/>
+<rect x="240" y="293" width="46" height="414" class="gen-i" filter="url(#rationalNest03-t43h14f32s481)"/>
+<rect x="714" y="293" width="46" height="414" class="gen-i" filter="url(#rationalNest03-t43h14f32s481)"/>
+<rect x="293" y="293" width="414" height="73" class="gen-i" filter="url(#rationalNest03-t50h14f32s482)"/>
+<rect x="293" y="634" width="414" height="73" class="gen-i" filter="url(#rationalNest03-t50h14f32s482)"/>
+<rect x="293" y="373" width="73" height="254" class="gen-i" filter="url(#rationalNest03-t50h14f32s482)"/>
+<rect x="634" y="373" width="73" height="254" class="gen-i" filter="url(#rationalNest03-t50h14f32s482)"/>
+<rect x="373" y="373" width="254" height="28" class="gen-i" filter="url(#rationalNest03-t57h14f32s483)"/>
+<rect x="373" y="599" width="254" height="28" class="gen-i" filter="url(#rationalNest03-t57h14f32s483)"/>
+<rect x="373" y="408" width="28" height="184" class="gen-i" filter="url(#rationalNest03-t57h14f32s483)"/>
+<rect x="599" y="408" width="28" height="184" class="gen-i" filter="url(#rationalNest03-t57h14f32s483)"/>
+<rect x="408" y="408" width="184" height="64" class="gen-i" filter="url(#rationalNest03-t64h14f32s484)"/>
+<rect x="408" y="528" width="184" height="64" class="gen-i" filter="url(#rationalNest03-t64h14f32s484)"/>
+<rect x="408" y="479" width="64" height="42" class="gen-i" filter="url(#rationalNest03-t64h14f32s484)"/>
+<rect x="528" y="479" width="64" height="42" class="gen-i" filter="url(#rationalNest03-t64h14f32s484)"/>
+<rect x="479" y="479" width="42" height="42" class="gen-i" filter="url(#rationalNest03-t97h14f32s577)"/>
+</svg>
