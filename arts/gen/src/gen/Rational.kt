@@ -9,10 +9,12 @@ import org.jetbrains.skia.svg.SVGDOM
 import java.io.File
 import java.util.Locale
 import kotlin.math.abs
+import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.sin
+import kotlin.math.sqrt
 import kotlin.random.Random
 
 // Canvas size of the PNG previews: set GART_SIZE=512 for a fast draft render.
@@ -25,7 +27,7 @@ private val SEED: Long = System.getProperty("GART_SEED")?.toLongOrNull()
 /**
  * Rational: modernist decorations for a website, drawn from the Gaussian primes.
  *
- * Five approaches to the same brief (squares, circles, lines, one warm accent), three
+ * Ten approaches to the same brief (squares, circles, lines, one warm accent), three
  * variants each:
  *  - modules: a grid of Bauhaus tiles. Each tile reads the four Gaussian integers at
  *    its corners, and the prime corners grow it: one prime is a quarter disc from that
@@ -41,6 +43,16 @@ private val SEED: Long = System.getProperty("GART_SEED")?.toLongOrNull()
  *    line are prime, the longest run in the accent. Reads like a score or a timeline.
  *  - nest: squares nested into one corner, each band stippled denser than the last,
  *    band widths from successive Gaussian prime norms.
+ *  - arcs: Truchet tiles, two quarter-arc bands per tile joining its edge midpoints,
+ *    turned by the primes at its corners, so the bands run on into long curves.
+ *  - orbit: one ring per Gaussian prime norm, evenly spaced, with a mark at the true
+ *    argument of every prime of that norm: eight to a ring, four on the axes.
+ *  - division: De Stijl. The square cut again and again on a 12-unit grid, the
+ *    direction, place and depth of every cut read from a stream of primes.
+ *  - halftone: a dot screen over the odd sub-lattice, each dot sized by how prime its
+ *    neighbourhood is, faded across the image so it can sit behind text.
+ *  - stripes: Swiss-poster discs and fields filled with a barcode read off one row of
+ *    the odd sub-lattice, a band for every prime and a hairline for every composite.
  *
  * Variance is the Gaussian primes rather than a random draw: a seed only picks where
  * in the plane to look, and everything placed follows from which integers there are
@@ -159,7 +171,45 @@ private data class Sector(
     override val role: Role = Role.INK, override val alpha: Float = 1f, override val tex: Tex? = null,
 ) : Shape
 
+/** Any filled SVG path: arc bands, rings, ticks. [evenOdd] cuts holes where subpaths
+ *  overlap. */
+private data class Outline(
+    val d: String, val evenOdd: Boolean = false,
+    override val role: Role = Role.INK, override val alpha: Float = 1f, override val tex: Tex? = null,
+) : Shape
+
+/** Shapes drawn only inside the path [clip]. A texture goes on the group as a whole:
+ *  Skia's SVG renderer clips per-shape filters wrongly, browsers do not. */
+private data class ClipGroup(
+    val clip: String, val evenOdd: Boolean, val shapes: List<Shape>, override val tex: Tex? = null,
+) : Shape {
+    override val role: Role = Role.INK
+    override val alpha: Float = 1f
+}
+
 private class Art(val name: String, val shapes: List<Shape>)
+
+private fun pt(cx: Float, cy: Float, r: Float, deg: Float): String {
+    val t = Math.toRadians(deg.toDouble())
+    return "${n(cx + r * cos(t).toFloat())} ${n(cy + r * sin(t).toFloat())}"
+}
+
+/** A band between radii [r0] and [r1], from [start] through [sweep] degrees, clockwise
+ *  from +x. */
+private fun ringSector(cx: Float, cy: Float, r0: Float, r1: Float, start: Float, sweep: Float): String {
+    val large = if (sweep > 180f) 1 else 0
+    return "M${pt(cx, cy, r1, start)}A${n(r1)} ${n(r1)} 0 $large 1 ${pt(cx, cy, r1, start + sweep)}" +
+        "L${pt(cx, cy, r0, start + sweep)}A${n(r0)} ${n(r0)} 0 $large 0 ${pt(cx, cy, r0, start)}Z"
+}
+
+private fun circlePath(cx: Float, cy: Float, r: Float) =
+    "M${n(cx + r)} ${n(cy)}A${n(r)} ${n(r)} 0 1 1 ${n(cx - r)} ${n(cy)}A${n(r)} ${n(r)} 0 1 1 ${n(cx + r)} ${n(cy)}Z"
+
+/** A full ring; draw it with evenOdd so the inner circle is a hole. */
+private fun ring(cx: Float, cy: Float, r0: Float, r1: Float) = circlePath(cx, cy, r1) + circlePath(cx, cy, r0)
+
+private fun polygon(pts: List<Pair<Float, Float>>) =
+    pts.mapIndexed { i, (x, y) -> (if (i == 0) "M" else "L") + "${n(x)} ${n(y)}" }.joinToString("") + "Z"
 
 // ---- the five approaches ----
 
@@ -354,6 +404,261 @@ private fun nest(name: String, rng: Random, corner: Int, concentric: Boolean): A
     return Art(name, shapes)
 }
 
+/** Truchet tiles: two quarter-arc bands per tile, centred on opposite corners, so each
+ *  joins the midpoints of two edges. The tile turns when the primality of its corner
+ *  integer and the one diagonally across differ. [lines] concentric bands per arc. */
+private fun arcs(name: String, rng: Random, cols: Int, lines: Int, texMode: Int): Art {
+    val margin = 90f
+    val m = (U - 2 * margin) / cols
+    val grid = oddGrid(rng, 200)
+    val ts = rng.nextInt(1, 999)
+    // Radii symmetric about m / 2, so a band leaves one tile where the next picks it up.
+    val bands: List<Pair<Float, Float>> = if (lines == 1) {
+        val w = m * (if (texMode == 1) 0.2f else 0.15f)
+        listOf(m / 2 - w to m / 2 + w)
+    } else {
+        (0 until lines).map { k ->
+            val r = m * (0.5f + (k - (lines - 1) / 2f) * 0.48f / lines)
+            r - m * 0.03f to r + m * 0.03f
+        }
+    }
+    val shapes = mutableListOf<Shape>()
+    for (r in 0 until cols) for (c in 0 until cols) {
+        val x = margin + c * m
+        val y = margin + r * m
+        val turned = grid.prime(c, r) != grid.prime(c + 1, r + 1)
+        val role = if (grid.norm(c, r) % 13 == 0L) Role.ACCENT else Role.INK
+        val tex = if (texMode == 1) stipple(if (grid.prime(c, r)) 0.92f else 0.58f, ts) else null
+        val corners = if (turned) listOf(Triple(x + m, y, 90f), Triple(x, y + m, 270f))
+        else listOf(Triple(x, y, 0f), Triple(x + m, y + m, 180f))
+        for ((cx, cy, start) in corners) for ((r0, r1) in bands) {
+            shapes += Outline(ringSector(cx, cy, r0, r1, start, 90f), role = role, tex = tex)
+        }
+    }
+    return Art(name, shapes)
+}
+
+/** One ring per Gaussian prime norm, smallest first and evenly spaced, with a mark at
+ *  the true argument of every prime of that norm. A seed picks how far out to start.
+ *  [quarter] draws the first quadrant from the bottom left corner. */
+private fun orbit(name: String, rng: Random, quarter: Boolean, ticks: Boolean): Art {
+    val cx = if (quarter) 90f else U / 2
+    val cy = if (quarter) U - 90f else U / 2
+    val rMax = if (quarter) U - 170f else U / 2 - 70f
+    val rings = if (quarter) 44 else 32
+    val skip = rng.nextInt(0, 40)
+    val byNorm = sortedMapOf<Long, MutableList<Pair<Int, Int>>>()
+    for (a in -64..64) for (b in -64..64) if (gaussianPrime(a, b)) byNorm.getOrPut(gnorm(a, b)) { mutableListOf() } += a to b
+    val norms = byNorm.keys.drop(skip).take(rings)
+    val r0 = rMax * 0.14f
+    val pitch = (rMax - r0) / (rings - 1)
+    val shapes = mutableListOf<Shape>()
+    norms.forEachIndexed { k, nm ->
+        val r = r0 + k * pitch
+        if (!ticks) {
+            shapes += if (quarter) Outline(ringSector(cx, cy, r - 0.8f, r + 0.8f, 270f, 90f), alpha = 0.3f)
+            else Outline(ring(cx, cy, r - 0.8f, r + 0.8f), evenOdd = true, alpha = 0.3f)
+        }
+        for ((a, b) in byNorm.getValue(nm)) {
+            if (quarter && (a < 0 || b < 0)) continue
+            val t = atan2(b.toDouble(), a.toDouble())
+            val ux = cos(t).toFloat()
+            val uy = -sin(t).toFloat()
+            val px = cx + r * ux
+            val py = cy + r * uy
+            val onAxis = a == 0 || b == 0
+            if (ticks && !onAxis) {
+                val h = pitch * 0.42f
+                val w = pitch * 0.2f
+                shapes += Outline(polygon(listOf(
+                    px - h * ux - w * uy to py - h * uy + w * ux,
+                    px + h * ux - w * uy to py + h * uy + w * ux,
+                    px + h * ux + w * uy to py + h * uy - w * ux,
+                    px - h * ux + w * uy to py - h * uy - w * ux,
+                )))
+            } else {
+                shapes += Disc(px, py, pitch * (if (onAxis) 0.42f else 0.34f), if (onAxis) Role.ACCENT else Role.INK)
+            }
+        }
+    }
+    return Art(name, shapes)
+}
+
+/** De Stijl division: the square cut again and again on a grid, the direction, place
+ *  and depth of every cut read from a stream of Gaussian primes. Mode 0 is thick rules
+ *  and a few solid cells, 1 grained cells with no rules, 2 a finer cut with hairlines
+ *  and stippled cells. */
+private fun division(name: String, rng: Random, mode: Int): Art {
+    val margin = 90f
+    val units = if (mode == 2) 24 else 12
+    val g = (U - 2 * margin) / units
+    val primes = primesNear(rng.nextInt(-300, 300), rng.nextInt(-300, 300), 300)
+    val ts = rng.nextInt(1, 999)
+    var next = 0
+    fun draw() = primes[next++ % primes.size]
+    data class Cell(val x: Int, val y: Int, val w: Int, val h: Int, val depth: Int)
+    data class Cut(val vertical: Boolean, val at: Int, val from: Int, val to: Int)
+    val leaves = mutableListOf<Cell>()
+    val cuts = mutableListOf<Cut>()
+    val maxDepth = if (mode == 2) 7 else 4
+    val fractions = floatArrayOf(1 / 3f, 1 / 2f, 2 / 3f, 1 / 4f, 3 / 4f, 2 / 5f, 3 / 5f)
+    fun split(c: Cell) {
+        val (a, b) = draw()
+        if (c.depth >= maxDepth || (c.depth >= 2 && gnorm(a, b) % 3 == 0L)) { leaves += c; return }
+        val vertical = when {
+            c.w >= 2 * c.h -> true
+            c.h >= 2 * c.w -> false
+            else -> Math.floorMod(a, 2) == 0
+        }
+        val len = if (vertical) c.w else c.h
+        if (len < 2) { leaves += c; return }
+        val at = (fractions[Math.floorMod(b, fractions.size)] * len).toInt().coerceIn(1, len - 1)
+        if (vertical) {
+            cuts += Cut(true, c.x + at, c.y, c.y + c.h)
+            split(Cell(c.x, c.y, at, c.h, c.depth + 1)); split(Cell(c.x + at, c.y, c.w - at, c.h, c.depth + 1))
+        } else {
+            cuts += Cut(false, c.y + at, c.x, c.x + c.w)
+            split(Cell(c.x, c.y, c.w, at, c.depth + 1)); split(Cell(c.x, c.y + at, c.w, c.h - at, c.depth + 1))
+        }
+    }
+    split(Cell(0, 0, units, units, 0))
+    fun u(v: Int) = margin + v * g
+    val shapes = mutableListOf<Shape>()
+    // Fills: the largest cell whose prime falls right takes the accent, a few others ink.
+    val picks = leaves.map { it to gnorm(draw().first, draw().second) % 9 }
+    val accent = picks.filter { it.second < 2L }.maxByOrNull { it.first.w * it.first.h }?.first
+        ?: leaves.maxBy { it.w * it.h }
+    val alphas = floatArrayOf(0.1f, 0.18f, 0.3f, 0.46f, 0.66f, 0.86f)
+    picks.forEachIndexed { i, (c, k) ->
+        val inset = if (mode == 1) 5f else 0f
+        val x = u(c.x) + inset; val y = u(c.y) + inset
+        val w = c.w * g - 2 * inset; val h = c.h * g - 2 * inset
+        when {
+            c == accent -> shapes += Box(x, y, w, h, Role.ACCENT, tex = if (mode == 0) null else grain(ts))
+            mode == 0 && k == 3L -> shapes += Box(x, y, w, h, Role.INK)
+            mode == 1 && k != 8L -> shapes += Box(x, y, w, h, Role.INK, alphas[(k % 6).toInt()], grain(ts + i % 5))
+            mode == 2 && k in 3L..6L -> shapes += Box(x, y, w, h, Role.INK, tex = stipple(0.25f + 0.17f * (k - 3), ts + i % 5))
+        }
+    }
+    if (mode != 1) {
+        val t = if (mode == 0) 12f else 3f
+        for (cut in cuts) {
+            val from = u(cut.from) - t / 2; val len = (cut.to - cut.from) * g + t
+            shapes += if (cut.vertical) Box(u(cut.at) - t / 2, from, t, len) else Box(from, u(cut.at) - t / 2, len, t)
+        }
+        val side = U - 2 * margin + t
+        shapes += Box(margin - t / 2, margin - t / 2, side, t)
+        shapes += Box(margin - t / 2, U - margin - t / 2, side, t)
+        shapes += Box(margin - t / 2, margin - t / 2, t, side)
+        shapes += Box(U - margin - t / 2, margin - t / 2, t, side)
+    }
+    return Art(name, shapes)
+}
+
+/** A halftone screen over the odd sub-lattice. A prime is a full dot; any other point
+ *  is sized by how many of its four nearest odd neighbours are prime. The tone is then
+ *  faded across the image: [fade] 0 left to right, 1 out from the top right corner, 2
+ *  out from the centre. [diamond] puts the dots at the lattice's true positions, a grid
+ *  turned 45 degrees. */
+private fun halftone(name: String, rng: Random, cols: Int, fade: Int, square: Boolean, diamond: Boolean): Art {
+    val margin = 90f
+    val a0 = rng.nextInt(-300, 300)
+    var b0 = rng.nextInt(-300, 300)
+    if (Math.floorMod(a0 + b0, 2) == 0) b0 += 1
+    fun tone(a: Int, b: Int): Float {
+        if (gaussianPrime(a, b)) return 1f
+        val near = listOf(a + 1 to b + 1, a + 1 to b - 1, a - 1 to b + 1, a - 1 to b - 1).count { (x, y) -> gaussianPrime(x, y) }
+        return 0.12f + 0.6f * near / 4f
+    }
+    fun shade(x: Float, y: Float): Float = when (fade) {
+        0 -> 1f - (x - margin) / (U - 2 * margin) * 0.92f
+        1 -> 1f - min(1f, sqrt((U - margin - x) * (U - margin - x) + (y - margin) * (y - margin)) / (U * 1.15f))
+        else -> 1f - min(1f, sqrt((x - U / 2) * (x - U / 2) + (y - U / 2) * (y - U / 2)) / (U * 0.6f))
+    }
+    val shapes = mutableListOf<Shape>()
+    fun dot(x: Float, y: Float, a: Int, b: Int, maxR: Float) {
+        val r = maxR * sqrt(tone(a, b) * shade(x, y))
+        if (r < 0.8f) return
+        val role = if (gaussianPrime(a, b) && gnorm(a, b) % 13 == 0L) Role.ACCENT else Role.INK
+        shapes += if (square) Box(x - r, y - r, 2 * r, 2 * r, role) else Disc(x, y, r, role)
+    }
+    if (diamond) {
+        val step = (U - 2 * margin) / (2 * cols)
+        for (v in 0..2 * cols) for (u in 0..2 * cols) {
+            if ((u + v) % 2 != 0) continue
+            dot(margin + u * step, margin + v * step, a0 + u, b0 - v, step * 0.7f)
+        }
+    } else {
+        val grid = OddGrid(a0, b0)
+        val m = (U - 2 * margin) / cols
+        for (j in 0 until cols) for (i in 0 until cols) {
+            dot(margin + (i + 0.5f) * m, margin + (j + 0.5f) * m, grid.a(i, j), grid.b(i, j), m * (if (square) 0.46f else 0.5f))
+        }
+    }
+    return Art(name, shapes)
+}
+
+/** Bands across [from, to] along one axis, read off one row of the odd sub-lattice: a
+ *  band for every prime and a hairline for every composite, the longest run of primes
+ *  in the accent. Each band spans [x0, x1] the other way. */
+private fun barcode(
+    grid: OddGrid, row: Int, count: Int, vertical: Boolean,
+    from: Float, to: Float, x0: Float, x1: Float, accent: Boolean, tex: Tex?,
+): List<Shape> {
+    val pitch = (to - from) / count
+    val bits = (0 until count).map { grid.prime(row, it) }
+    var best = 0 to -1; var k = 0
+    while (k < count) {
+        if (!bits[k]) { k++; continue }
+        var e = k
+        while (e + 1 < count && bits[e + 1]) e++
+        if (e - k > best.second - best.first) best = k to e
+        k = e + 1
+    }
+    return (0 until count).map { i ->
+        val (off, thick) = if (bits[i]) pitch * 0.1f to pitch * 0.8f else pitch * 0.44f to pitch * 0.12f
+        val role = if (accent && i in best.first..best.second) Role.ACCENT else Role.INK
+        val p = from + i * pitch + off
+        if (vertical) Box(p, x0, thick, x1 - x0, role, tex = tex) else Box(x0, p, x1 - x0, thick, role, tex = tex)
+    }
+}
+
+/** Swiss-poster forms filled with barcodes. Mode 0 is one disc of horizontal bands, 1
+ *  two half discs, one banded each way, 2 a square of bands with a disc cut out of it
+ *  and banded across in the accent, all with printed grain. */
+private fun stripes(name: String, rng: Random, mode: Int): Art {
+    val grid = oddGrid(rng, 300)
+    val ts = rng.nextInt(1, 999)
+    val shapes = mutableListOf<Shape>()
+    when (mode) {
+        0 -> {
+            val r = 360f
+            shapes += ClipGroup(circlePath(U / 2, U / 2, r), false,
+                barcode(grid, 0, 64, false, U / 2 - r, U / 2 + r, U / 2 - r, U / 2 + r, true, null))
+        }
+        1 -> {
+            val r = 300f
+            val left = "M${n(U / 2)} ${n(380f - r)}A${n(r)} ${n(r)} 0 0 0 ${n(U / 2)} ${n(380f + r)}Z"
+            val right = "M${n(U / 2)} ${n(620f - r)}A${n(r)} ${n(r)} 0 0 1 ${n(U / 2)} ${n(620f + r)}Z"
+            shapes += ClipGroup(left, false, barcode(grid, 0, 30, true, U / 2 - r, U / 2, 80f, 680f, true, null))
+            shapes += ClipGroup(right, false, barcode(grid, 1, 54, false, 620f - r, 620f + r, U / 2, U / 2 + r, false, null))
+        }
+        else -> {
+            val s0 = 110f; val s1 = U - 110f
+            val cr = 230f
+            val cx = s0 + 2 * (s1 - s0) / 3 - 40f
+            val cy = s0 + (s1 - s0) / 3 + 40f
+            val field = "M${n(s0)} ${n(s0)}H${n(s1)}V${n(s1)}H${n(s0)}Z" + circlePath(cx, cy, cr)
+            shapes += ClipGroup(field, true, barcode(grid, 0, 40, false, s0, s1, s0, s1, false, null), grain(ts))
+            shapes += ClipGroup(circlePath(cx, cy, cr), false,
+                barcode(grid, 1, 18, true, cx - cr, cx + cr, cy - cr, cy + cr, false, null).map {
+                    (it as Box).copy(role = Role.ACCENT)
+                }, grain(ts + 1))
+        }
+    }
+    return Art(name, shapes)
+}
+
 // ---- vector ----
 
 /** The SVG. Themable (no ink given): no background, colours as classes reading CSS
@@ -369,8 +674,10 @@ private fun svg(art: Art, baked: PaperInk? = null): String {
     } else {
         sb.appendLine("""<rect width="${U.toInt()}" height="${U.toInt()}" fill="${baked.ground}"/>""")
     }
-    val texes = art.shapes.mapNotNull { it.tex }.distinct()
-    if (texes.isNotEmpty()) {
+    fun flat(list: List<Shape>): List<Shape> = list.flatMap { if (it is ClipGroup) flat(it.shapes) + it else listOf(it) }
+    val texes = flat(art.shapes).mapNotNull { it.tex }.distinct()
+    val clips = art.shapes.filterIsInstance<ClipGroup>()
+    if (texes.isNotEmpty() || clips.isNotEmpty()) {
         sb.appendLine("<defs>")
         texes.forEach { t ->
             val cut = 0.5f + 0.3f * (0.5f - t.keep)
@@ -381,9 +688,20 @@ private fun svg(art: Art, baked: PaperInk? = null): String {
                     """<feComposite in="SourceGraphic" in2="m" operator="in"/></filter>"""
             )
         }
+        clips.forEachIndexed { i, c ->
+            val rule = if (c.evenOdd) """ clip-rule="evenodd"""" else ""
+            sb.appendLine("""<clipPath id="${art.name}-c$i"><path d="${c.clip}"$rule/></clipPath>""")
+        }
         sb.appendLine("</defs>")
     }
-    art.shapes.forEach { s ->
+    fun draw(s: Shape) {
+        if (s is ClipGroup) {
+            val filter = s.tex?.let { """<g filter="url(#${art.name}-${it.id})">""" } ?: ""
+            sb.appendLine("""<g clip-path="url(#${art.name}-c${clips.indexOf(s)})">$filter""")
+            s.shapes.forEach(::draw)
+            sb.appendLine(if (s.tex != null) "</g></g>" else "</g>")
+            return
+        }
         val paint = if (baked == null) {
             """class="${if (s.role == Role.ACCENT) "gen-a" else "gen-i"}""""
         } else {
@@ -397,9 +715,12 @@ private fun svg(art: Art, baked: PaperInk? = null): String {
                 is Box -> """<rect x="${n(s.x)}" y="${n(s.y)}" width="${n(s.w)}" height="${n(s.h)}" $attrs/>"""
                 is Disc -> """<circle cx="${n(s.cx)}" cy="${n(s.cy)}" r="${n(s.r)}" $attrs/>"""
                 is Sector -> """<path d="${sectorPath(s)}" $attrs/>"""
+                is Outline -> """<path d="${s.d}"${if (s.evenOdd) """ fill-rule="evenodd"""" else ""} $attrs/>"""
+                is ClipGroup -> ""
             }
         )
     }
+    art.shapes.forEach(::draw)
     sb.appendLine("</svg>")
     return sb.toString()
 }
@@ -441,6 +762,21 @@ fun main() {
         "rationalNest01" to { nm, r -> nest(nm, r, 0, false) },
         "rationalNest02" to { nm, r -> nest(nm, r, 2, false) },
         "rationalNest03" to { nm, r -> nest(nm, r, 0, true) },
+        "rationalArcs01" to { nm, r -> arcs(nm, r, 8, 1, 0) },
+        "rationalArcs02" to { nm, r -> arcs(nm, r, 10, 3, 0) },
+        "rationalArcs03" to { nm, r -> arcs(nm, r, 6, 1, 1) },
+        "rationalOrbit01" to { nm, r -> orbit(nm, r, false, false) },
+        "rationalOrbit02" to { nm, r -> orbit(nm, r, true, false) },
+        "rationalOrbit03" to { nm, r -> orbit(nm, r, false, true) },
+        "rationalDivision01" to { nm, r -> division(nm, r, 0) },
+        "rationalDivision02" to { nm, r -> division(nm, r, 1) },
+        "rationalDivision03" to { nm, r -> division(nm, r, 2) },
+        "rationalHalftone01" to { nm, r -> halftone(nm, r, 36, 0, false, false) },
+        "rationalHalftone02" to { nm, r -> halftone(nm, r, 28, 1, true, false) },
+        "rationalHalftone03" to { nm, r -> halftone(nm, r, 24, 2, false, true) },
+        "rationalStripes01" to { nm, r -> stripes(nm, r, 0) },
+        "rationalStripes02" to { nm, r -> stripes(nm, r, 1) },
+        "rationalStripes03" to { nm, r -> stripes(nm, r, 2) },
     )
 
     makers.forEachIndexed { i, (name, make) ->
