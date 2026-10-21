@@ -56,7 +56,8 @@ private val SEED: Long = System.getProperty("GART_SEED")?.toLongOrNull()
  *
  * Then eight process illustrations in the same vocabulary, for the folio's "How I
  * work" steps: journey, rounds, versions and drafts (iterating on journeys and
- * designs), parts, assembly, tree and kit (building components in the repo).
+ * designs), parts, assembly, tree and kit (building components in the repo); and six
+ * loose readings of the double diamond: pulse, fan, branches, rhombs, twin, knots.
  *
  * Variance is the Gaussian primes rather than a random draw: a seed only picks where
  * in the plane to look, and everything placed follows from which integers there are
@@ -217,6 +218,14 @@ private fun rectPath(x: Float, y: Float, w: Float, h: Float) = "M${n(x)} ${n(y)}
 /** A rectangular frame [t] thick; draw it with evenOdd. */
 private fun framePath(x: Float, y: Float, w: Float, h: Float, t: Float) =
     rectPath(x, y, w, h) + rectPath(x + t, y + t, w - 2 * t, h - 2 * t)
+
+/** A straight stroke [w] wide from (x1, y1) to (x2, y2), as a filled quad. */
+private fun segment(x1: Float, y1: Float, x2: Float, y2: Float, w: Float): String {
+    val l = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))
+    val nx = -(y2 - y1) / l * w / 2
+    val ny = (x2 - x1) / l * w / 2
+    return polygon(listOf(x1 + nx to y1 + ny, x2 + nx to y2 + ny, x2 - nx to y2 - ny, x1 - nx to y1 - ny))
+}
 
 private fun polygon(pts: List<Pair<Float, Float>>) =
     pts.mapIndexed { i, (x, y) -> (if (i == 0) "M" else "L") + "${n(x)} ${n(y)}" }.joinToString("") + "Z"
@@ -605,11 +614,6 @@ private fun halftone(name: String, rng: Random, cols: Int, fade: Int, square: Bo
     val a0 = rng.nextInt(-300, 300)
     var b0 = rng.nextInt(-300, 300)
     if (Math.floorMod(a0 + b0, 2) == 0) b0 += 1
-    fun tone(a: Int, b: Int): Float {
-        if (gaussianPrime(a, b)) return 1f
-        val near = listOf(a + 1 to b + 1, a + 1 to b - 1, a - 1 to b + 1, a - 1 to b - 1).count { (x, y) -> gaussianPrime(x, y) }
-        return 0.12f + 0.6f * near / 4f
-    }
     fun shade(x: Float, y: Float): Float = when (fade) {
         0 -> 1f - (x - margin) / (U - 2 * margin) * 0.92f
         1 -> 1f - min(1f, sqrt((U - margin - x) * (U - margin - x) + (y - margin) * (y - margin)) / (U * 1.15f))
@@ -617,7 +621,7 @@ private fun halftone(name: String, rng: Random, cols: Int, fade: Int, square: Bo
     }
     val shapes = mutableListOf<Shape>()
     fun dot(x: Float, y: Float, a: Int, b: Int, maxR: Float) {
-        val r = maxR * sqrt(tone(a, b) * shade(x, y))
+        val r = maxR * sqrt(primeTone(a, b) * shade(x, y))
         if (r < 0.8f) return
         val role = if (gaussianPrime(a, b) && gnorm(a, b) % 13 == 0L) Role.ACCENT else Role.INK
         shapes += if (square) Box(x - r, y - r, 2 * r, 2 * r, role) else Disc(x, y, r, role)
@@ -636,6 +640,14 @@ private fun halftone(name: String, rng: Random, cols: Int, fade: Int, square: Bo
         }
     }
     return Art(name, shapes)
+}
+
+/** How prime a point's neighbourhood is: 1 for a prime, otherwise a share of its four
+ *  nearest odd neighbours (the diagonal ones) that are prime. */
+private fun primeTone(a: Int, b: Int): Float {
+    if (gaussianPrime(a, b)) return 1f
+    val near = listOf(a + 1 to b + 1, a + 1 to b - 1, a - 1 to b + 1, a - 1 to b - 1).count { (x, y) -> gaussianPrime(x, y) }
+    return 0.12f + 0.6f * near / 4f
 }
 
 /** Bands across [from, to] along one axis, read off one row of the odd sub-lattice: a
@@ -997,6 +1009,173 @@ private fun kit(name: String, rng: Random): Art {
     return Art(name, shapes)
 }
 
+// ---- the double diamond (folio "How I work" intro) ----
+// Loose readings of discover, define, develop, deliver: two openings and closings that
+// meet at one point. All share the same shape: two diamonds side by side across the
+// middle of the square, the pinch between them at the centre.
+
+private const val DD_X0 = 90f
+private const val DD_X1 = U - 90f
+private const val DD_Y = U / 2
+
+/** How far inside the double diamond a point is: 1 at a diamond's centre, 0 on its
+ *  edge and outside. Each diamond is a quarter of [DD_X0, DD_X1] each side of its
+ *  centre and [h] tall. */
+private fun inDiamonds(x: Float, y: Float, h: Float): Float {
+    val w = (DD_X1 - DD_X0) / 4
+    fun one(cx: Float) = 1f - (abs(x - cx) / w + abs(y - DD_Y) / (h / 2))
+    return max(0f, max(one(DD_X0 + w), one(DD_X1 - w)))
+}
+
+/** Pulse: a row of bars like a waveform, each as tall as the double diamond is at
+ *  that point, scaled by how prime its lattice neighbourhood is. An accent dot holds
+ *  the pinch. */
+private fun pulse(name: String, rng: Random, bars: Int): Art {
+    val grid = oddGrid(rng, 200)
+    val step = (DD_X1 - DD_X0) / bars
+    val h = 720f
+    val shapes = mutableListOf<Shape>()
+    for (i in 0 until bars) {
+        val x = DD_X0 + (i + 0.5f) * step
+        val env = inDiamonds(x, DD_Y, h) * h
+        val len = max(step * 0.55f, env * primeTone(grid.a(0, i), grid.b(0, i)))
+        shapes += Box(x - step * 0.28f, DD_Y - len / 2, step * 0.56f, len)
+    }
+    shapes += Disc(U / 2, DD_Y, step * 0.9f, Role.ACCENT)
+    return Art(name, shapes)
+}
+
+/** Fan: strings that open from a point and close on the next, twice. Each diamond has
+ *  a row of candidate strings and keeps the ones whose lattice point is prime, with a
+ *  node where each turns. The meeting point between the two is the accent. */
+private fun fan(name: String, rng: Random, count: Int): Art {
+    val grid = oddGrid(rng, 200)
+    val w = (DD_X1 - DD_X0) / 4
+    val pts = listOf(DD_X0 + 20f, U / 2, DD_X1 - 20f)
+    val spread = 330f
+    val shapes = mutableListOf<Shape>()
+    shapes += Outline(segment(pts[0], DD_Y, pts[2], DD_Y, 3f), alpha = 0.35f)
+    for (d in 0 until 2) {
+        val mx = DD_X0 + w + d * 2 * w
+        for (j in 0 until count) {
+            if (!grid.prime(d, j)) continue
+            val y = DD_Y + (j - (count - 1) / 2f) / ((count - 1) / 2f) * spread
+            shapes += Outline(segment(pts[d], DD_Y, mx, y, 4f))
+            shapes += Outline(segment(mx, y, pts[d + 1], DD_Y, 4f))
+            shapes += Disc(mx, y, 8f)
+        }
+    }
+    shapes += Disc(pts[0], DD_Y, 16f)
+    shapes += Disc(pts[2], DD_Y, 16f)
+    shapes += Disc(pts[1], DD_Y, 26f, Role.ACCENT)
+    return Art(name, shapes)
+}
+
+/** Branches: a bracket that splits one into two into four and joins back, twice, in
+ *  square elbows. Prime nodes are discs, the rest small squares; the one node in the
+ *  middle is the accent. */
+private fun branches(name: String, rng: Random): Art {
+    val grid = oddGrid(rng, 200)
+    val counts = intArrayOf(1, 2, 4, 2, 1, 2, 4, 2, 1)
+    val dx = (DD_X1 - DD_X0) / (counts.size - 1)
+    val t = 8f
+    fun x(c: Int) = DD_X0 + c * dx
+    // Four nodes sit 200 apart; a pair sits at the middle of the two it splits into.
+    fun y(c: Int, i: Int) = DD_Y + (i - (counts[c] - 1) / 2f) * (800f / counts[c])
+    val shapes = mutableListOf<Shape>()
+    fun elbow(x1: Float, y1: Float, x2: Float, y2: Float) {
+        val xm = (x1 + x2) / 2
+        shapes += Box(x1, y1 - t / 2, xm - x1, t)
+        shapes += Box(xm - t / 2, min(y1, y2) - t / 2, t, abs(y2 - y1) + t)
+        shapes += Box(xm, y2 - t / 2, x2 - xm, t)
+    }
+    for (c in 0 until counts.size - 1) {
+        for (i in 0 until counts[c]) {
+            if (counts[c + 1] > counts[c]) {
+                elbow(x(c), y(c, i), x(c + 1), y(c + 1, 2 * i)); elbow(x(c), y(c, i), x(c + 1), y(c + 1, 2 * i + 1))
+            } else {
+                elbow(x(c), y(c, i), x(c + 1), y(c + 1, i / 2))
+            }
+        }
+    }
+    for (c in counts.indices) for (i in 0 until counts[c]) {
+        val (nx, ny) = x(c) to y(c, i)
+        shapes += when {
+            c == counts.size / 2 -> Box(nx - 26f, ny - 26f, 52f, 52f, Role.ACCENT)
+            grid.prime(c, i) -> Disc(nx, ny, 22f)
+            else -> Box(nx - 14f, ny - 14f, 28f, 28f)
+        }
+    }
+    return Art(name, shapes)
+}
+
+/** Rhombs: two lozenges overprinted in grain on a ruled axis, overlapping where one
+ *  phase hands over to the next, with the axis ticked at every prime along a lattice
+ *  row and an accent square where they meet. Heights from prime norms. */
+private fun rhombs(name: String, rng: Random): Art {
+    val primes = primesNear(rng.nextInt(20, 300), rng.nextInt(1, 300), 4)
+    val grid = oddGrid(rng, 200)
+    val ts = rng.nextInt(1, 999)
+    val shapes = mutableListOf<Shape>()
+    val w = 235f
+    val overlap = 40f + (gnorm(primes[0].first, primes[0].second) % 4) * 20f
+    val c1 = U / 2 - w + overlap / 2
+    val c2 = U / 2 + w - overlap / 2
+    val h1 = 240f + (gnorm(primes[1].first, primes[1].second) % 5) * 22f
+    val h2 = 240f + (gnorm(primes[2].first, primes[2].second) % 5) * 22f
+    fun lozenge(cx: Float, h: Float) = polygon(listOf(cx - w to DD_Y, cx to DD_Y - h, cx + w to DD_Y, cx to DD_Y + h))
+    shapes += Outline(lozenge(c1, h1), alpha = 0.2f, tex = grain(ts))
+    shapes += Outline(lozenge(c2, h2), alpha = 0.42f, tex = grain(ts + 1))
+    val ticks = 40
+    val step = (DD_X1 - DD_X0) / ticks
+    shapes += Box(DD_X0, DD_Y - 1.5f, DD_X1 - DD_X0, 3f, Role.INK, 0.6f)
+    for (j in 0..ticks) if (grid.prime(0, j)) shapes += Box(DD_X0 + j * step - 2f, DD_Y - 14f, 4f, 28f)
+    shapes += Box(U / 2 - 24f, DD_Y - 24f, 48f, 48f, Role.ACCENT)
+    return Art(name, shapes)
+}
+
+/** Twin: a halftone over the true odd lattice (a grid turned 45 degrees) whose tone is
+ *  the double diamond: dots swell toward each diamond's centre and are gone outside.
+ *  Primes are full dots; a few take the accent. */
+private fun twin(name: String, rng: Random, cols: Int): Art {
+    val a0 = rng.nextInt(-300, 300)
+    var b0 = rng.nextInt(-300, 300)
+    if (Math.floorMod(a0 + b0, 2) == 0) b0 += 1
+    val step = (DD_X1 - DD_X0) / (2 * cols)
+    val shapes = mutableListOf<Shape>()
+    for (v in 0..2 * cols) for (u in 0..2 * cols) {
+        if ((u + v) % 2 != 0) continue
+        val x = DD_X0 + u * step
+        val y = DD_X0 + v * step
+        val a = a0 + u
+        val b = b0 - v
+        val r = step * 0.72f * sqrt(primeTone(a, b) * min(1f, inDiamonds(x, y, 780f) * 1.5f))
+        if (r < 0.8f) continue
+        shapes += Disc(x, y, r, if (gaussianPrime(a, b) && gnorm(a, b) % 13 == 0L) Role.ACCENT else Role.INK)
+    }
+    return Art(name, shapes)
+}
+
+/** Knots: Truchet arcs only inside the double diamond, the band swelling toward each
+ *  diamond's centre, so the curves gather into two knots joined at the pinch. */
+private fun knots(name: String, rng: Random, cols: Int): Art {
+    val m = (DD_X1 - DD_X0) / cols
+    val grid = oddGrid(rng, 200)
+    val shapes = mutableListOf<Shape>()
+    for (r in 0 until cols) for (c in 0 until cols) {
+        val x = DD_X0 + c * m
+        val y = DD_X0 + r * m
+        val inside = inDiamonds(x + m / 2, y + m / 2, 820f)
+        if (inside <= 0.04f) continue
+        val band = m * (0.05f + 0.13f * min(1f, inside * 1.4f))
+        val role = if (grid.norm(c, r) % 13 == 0L) Role.ACCENT else Role.INK
+        val corners = if (grid.prime(c, r) != grid.prime(c + 1, r + 1)) listOf(Triple(x + m, y, 90f), Triple(x, y + m, 270f))
+        else listOf(Triple(x, y, 0f), Triple(x + m, y + m, 180f))
+        for ((cx, cy, start) in corners) shapes += Outline(ringSector(cx, cy, m / 2 - band, m / 2 + band, start, 90f), role = role)
+    }
+    return Art(name, shapes)
+}
+
 // ---- vector ----
 
 /** The SVG. Themable (no ink given): no background, colours as classes reading CSS
@@ -1123,6 +1302,12 @@ fun main() {
         "rationalAssembly01" to { nm, r -> assembly(nm, r) },
         "rationalTree01" to { nm, r -> tree(nm, r, 15) },
         "rationalKit01" to { nm, r -> kit(nm, r) },
+        "rationalPulse01" to { nm, r -> pulse(nm, r, 56) },
+        "rationalFan01" to { nm, r -> fan(nm, r, 36) },
+        "rationalBranches01" to { nm, r -> branches(nm, r) },
+        "rationalRhombs01" to { nm, r -> rhombs(nm, r) },
+        "rationalTwin01" to { nm, r -> twin(nm, r, 22) },
+        "rationalKnots01" to { nm, r -> knots(nm, r, 12) },
     )
 
     // GART_ONLY=Journey,Kit renders only the makers whose names contain one of those

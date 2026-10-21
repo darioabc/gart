@@ -1,23 +1,217 @@
 {
   "about": "The Rational family (arts/gen/src/gen/Rational.kt). One entry per style: the file prefix is rational<name>, variants are 01, 02, ... in order. Used by sheet.mjs and review.mjs for captions.",
   "styles": [
-    { "name": "Modules", "group": "decoration", "description": "Bauhaus tiles. Each tile reads the four Gaussian integers at its corners: one prime grows a quarter disc, two adjacent a half disc, two opposite two small quarters, three a disc, four an accent disc.", "variants": ["flat, 8×8", "grain, 10×10", "stipple shaded by tile kind, 6×6"] },
-    { "name": "Lattice", "group": "decoration", "description": "The Gaussian primes themselves, one mark per prime. Centred on 0 they keep their eightfold symmetry; the axis primes take the accent.", "variants": ["centred, squares", "off centre, stippled squares", "centred, dots, wider window"] },
-    { "name": "Overlay", "group": "decoration", "description": "Overprinted fields, small blocks, a bar and a disc on a 12-column grid, placed and sized by the primes nearest a seeded point. Printed grain on every fill.", "variants": ["rectangles and bar", "with a disc", "bar breaking the frame"] },
-    { "name": "Score", "group": "decoration", "description": "Ruled lines with a mark for every run of consecutive primes along each line, the longest run in the accent, bar lines every eight steps.", "variants": ["12 lines", "18 lines, single primes as dots", "8 lines, bold"] },
-    { "name": "Nest", "group": "decoration", "description": "Squares nested into a corner, each band stippled denser than the last, band widths from successive prime norms.", "variants": ["nested to the bottom right", "nested to the top left", "concentric"] },
-    { "name": "Arcs", "group": "decoration", "description": "Truchet tiles: two quarter-arc bands per tile join its edge midpoints. A tile turns when the primality of its corner and the one diagonally across differ, so the bands run on into long curves.", "variants": ["one band, 8×8", "three lines, 10×10", "stippled band, 6×6"] },
-    { "name": "Orbit", "group": "decoration", "description": "One ring per Gaussian prime norm, evenly spaced, with a mark at the true argument of every prime of that norm: eight to a ring, four on the axes in the accent.", "variants": ["rings and dots", "quarter from the corner", "radial ticks"] },
-    { "name": "Division", "group": "decoration", "description": "De Stijl: the square cut again and again on a grid, the direction, place and depth of every cut read from a stream of primes.", "variants": ["rules and solid cells", "grained cells, no rules", "finer cut, stippled"] },
-    { "name": "Halftone", "group": "decoration", "description": "A dot screen over the odd sub-lattice. A prime is a full dot, anything else is sized by its prime neighbours, and the tone fades across the image so it can sit behind text.", "variants": ["dots fading left to right", "squares from the corner", "true lattice, from the centre"] },
-    { "name": "Stripes", "group": "decoration", "description": "Swiss-poster forms filled with a barcode read off one row of the lattice: a band for every prime, a hairline for every composite, the longest run in the accent.", "variants": ["banded disc", "two half discs", "field with a disc cut out, grain"] },
-    { "name": "Journey", "group": "iterating", "description": "The Truchet arcs as fine lines, and the longest open path through them, edge to edge, as a wide accent band with a dot at each end.", "variants": ["9×9"] },
-    { "name": "Rounds", "group": "iterating", "description": "Square frames, each the last one shrunk toward a point the primes pick, stippled denser round by round, ending on a solid accent square.", "variants": ["7 rounds"] },
-    { "name": "Versions", "group": "iterating", "description": "A contact sheet of nine panels, each the same window of Bauhaus tiles moved one step along the lattice, so shapes walk from panel to panel. The last panel, the one kept, is in the accent.", "variants": ["3×3 panels"] },
-    { "name": "Drafts", "group": "iterating", "description": "The same square laid down again and again in translucent grain, each draft nearer the final place, the final one in the accent.", "variants": ["6 drafts"] },
-    { "name": "Parts", "group": "building", "description": "Truchet tiles pulled apart into separate pieces, each in a hairline slot. A few lift out of their slots, the first in the accent.", "variants": ["5×5"] },
-    { "name": "Assembly", "group": "building", "description": "A De Stijl division whose cells hold parts fitted to their shape: a disc, a quarter from a corner, a half on the long side, a solid or stippled block.", "variants": ["12-unit grid"] },
-    { "name": "Tree", "group": "building", "description": "Rows of a file tree, indented as the primes along each lattice row say. Folders are squares, files discs, each with a bar for its name; the deepest file, the new component, is in the accent.", "variants": ["15 rows"] },
-    { "name": "Kit", "group": "building", "description": "A specimen sheet of the parts, a family to a row (discs, halves, quarters, blocks), each in a hairline cell. The primes turn each row, stipple some parts and pick the one accent.", "variants": ["4×4"] }
+    {
+      "name": "Modules",
+      "group": "decoration",
+      "description": "Bauhaus tiles. Each tile reads the four Gaussian integers at its corners: one prime grows a quarter disc, two adjacent a half disc, two opposite two small quarters, three a disc, four an accent disc.",
+      "variants": [
+        "flat, 8×8",
+        "grain, 10×10",
+        "stipple shaded by tile kind, 6×6"
+      ]
+    },
+    {
+      "name": "Lattice",
+      "group": "decoration",
+      "description": "The Gaussian primes themselves, one mark per prime. Centred on 0 they keep their eightfold symmetry; the axis primes take the accent.",
+      "variants": [
+        "centred, squares",
+        "off centre, stippled squares",
+        "centred, dots, wider window"
+      ]
+    },
+    {
+      "name": "Overlay",
+      "group": "decoration",
+      "description": "Overprinted fields, small blocks, a bar and a disc on a 12-column grid, placed and sized by the primes nearest a seeded point. Printed grain on every fill.",
+      "variants": [
+        "rectangles and bar",
+        "with a disc",
+        "bar breaking the frame"
+      ]
+    },
+    {
+      "name": "Score",
+      "group": "decoration",
+      "description": "Ruled lines with a mark for every run of consecutive primes along each line, the longest run in the accent, bar lines every eight steps.",
+      "variants": [
+        "12 lines",
+        "18 lines, single primes as dots",
+        "8 lines, bold"
+      ]
+    },
+    {
+      "name": "Nest",
+      "group": "decoration",
+      "description": "Squares nested into a corner, each band stippled denser than the last, band widths from successive prime norms.",
+      "variants": [
+        "nested to the bottom right",
+        "nested to the top left",
+        "concentric"
+      ]
+    },
+    {
+      "name": "Arcs",
+      "group": "decoration",
+      "description": "Truchet tiles: two quarter-arc bands per tile join its edge midpoints. A tile turns when the primality of its corner and the one diagonally across differ, so the bands run on into long curves.",
+      "variants": [
+        "one band, 8×8",
+        "three lines, 10×10",
+        "stippled band, 6×6"
+      ]
+    },
+    {
+      "name": "Orbit",
+      "group": "decoration",
+      "description": "One ring per Gaussian prime norm, evenly spaced, with a mark at the true argument of every prime of that norm: eight to a ring, four on the axes in the accent.",
+      "variants": [
+        "rings and dots",
+        "quarter from the corner",
+        "radial ticks"
+      ]
+    },
+    {
+      "name": "Division",
+      "group": "decoration",
+      "description": "De Stijl: the square cut again and again on a grid, the direction, place and depth of every cut read from a stream of primes.",
+      "variants": [
+        "rules and solid cells",
+        "grained cells, no rules",
+        "finer cut, stippled"
+      ]
+    },
+    {
+      "name": "Halftone",
+      "group": "decoration",
+      "description": "A dot screen over the odd sub-lattice. A prime is a full dot, anything else is sized by its prime neighbours, and the tone fades across the image so it can sit behind text.",
+      "variants": [
+        "dots fading left to right",
+        "squares from the corner",
+        "true lattice, from the centre"
+      ]
+    },
+    {
+      "name": "Stripes",
+      "group": "decoration",
+      "description": "Swiss-poster forms filled with a barcode read off one row of the lattice: a band for every prime, a hairline for every composite, the longest run in the accent.",
+      "variants": [
+        "banded disc",
+        "two half discs",
+        "field with a disc cut out, grain"
+      ]
+    },
+    {
+      "name": "Journey",
+      "group": "iterating",
+      "description": "The Truchet arcs as fine lines, and the longest open path through them, edge to edge, as a wide accent band with a dot at each end.",
+      "variants": [
+        "9×9"
+      ]
+    },
+    {
+      "name": "Rounds",
+      "group": "iterating",
+      "description": "Square frames, each the last one shrunk toward a point the primes pick, stippled denser round by round, ending on a solid accent square.",
+      "variants": [
+        "7 rounds"
+      ]
+    },
+    {
+      "name": "Versions",
+      "group": "iterating",
+      "description": "A contact sheet of nine panels, each the same window of Bauhaus tiles moved one step along the lattice, so shapes walk from panel to panel. The last panel, the one kept, is in the accent.",
+      "variants": [
+        "3×3 panels"
+      ]
+    },
+    {
+      "name": "Drafts",
+      "group": "iterating",
+      "description": "The same square laid down again and again in translucent grain, each draft nearer the final place, the final one in the accent.",
+      "variants": [
+        "6 drafts"
+      ]
+    },
+    {
+      "name": "Parts",
+      "group": "building",
+      "description": "Truchet tiles pulled apart into separate pieces, each in a hairline slot. A few lift out of their slots, the first in the accent.",
+      "variants": [
+        "5×5"
+      ]
+    },
+    {
+      "name": "Assembly",
+      "group": "building",
+      "description": "A De Stijl division whose cells hold parts fitted to their shape: a disc, a quarter from a corner, a half on the long side, a solid or stippled block.",
+      "variants": [
+        "12-unit grid"
+      ]
+    },
+    {
+      "name": "Tree",
+      "group": "building",
+      "description": "Rows of a file tree, indented as the primes along each lattice row say. Folders are squares, files discs, each with a bar for its name; the deepest file, the new component, is in the accent.",
+      "variants": [
+        "15 rows"
+      ]
+    },
+    {
+      "name": "Kit",
+      "group": "building",
+      "description": "A specimen sheet of the parts, a family to a row (discs, halves, quarters, blocks), each in a hairline cell. The primes turn each row, stipple some parts and pick the one accent.",
+      "variants": [
+        "4×4"
+      ]
+    },
+    {
+      "name": "Pulse",
+      "group": "diamond",
+      "description": "A row of bars like a waveform, each as tall as the double diamond is at that point, scaled by how prime its lattice neighbourhood is. An accent dot holds the pinch.",
+      "variants": [
+        "56 bars"
+      ]
+    },
+    {
+      "name": "Fan",
+      "group": "diamond",
+      "description": "Strings that open from a point and close on the next, twice. Each diamond keeps the candidate strings whose lattice point is prime, with a node where each turns; the meeting point is the accent.",
+      "variants": [
+        "36 candidates a side"
+      ]
+    },
+    {
+      "name": "Branches",
+      "group": "diamond",
+      "description": "A bracket that splits one into two into four and joins back, twice, in square elbows. Prime nodes are discs, the rest small squares; the single middle node is the accent.",
+      "variants": [
+        "1-2-4-2-1-2-4-2-1"
+      ]
+    },
+    {
+      "name": "Rhombs",
+      "group": "diamond",
+      "description": "Two lozenges overprinted in grain on a ruled axis, overlapping where one phase hands over to the next, the axis ticked at every prime along a lattice row, an accent square where they meet.",
+      "variants": [
+        "two lozenges"
+      ]
+    },
+    {
+      "name": "Twin",
+      "group": "diamond",
+      "description": "A halftone over the true odd lattice whose tone is the double diamond: dots swell toward each diamond's centre and are gone outside. Primes are full dots.",
+      "variants": [
+        "22 columns"
+      ]
+    },
+    {
+      "name": "Knots",
+      "group": "diamond",
+      "description": "Truchet arcs only inside the double diamond, the band swelling toward each diamond's centre, so the curves gather into two knots joined at the pinch.",
+      "variants": [
+        "12×12"
+      ]
+    }
   ]
 }

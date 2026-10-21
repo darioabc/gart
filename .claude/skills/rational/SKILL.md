@@ -39,6 +39,13 @@ Process illustrations, one each, made for the folio's "How I work" steps:
   cell), **Tree** (a file tree whose depth walks with the primes), **Kit** (a specimen
   sheet of the parts, a family to a row).
 
+Double diamond, one each, loose readings of the process that diverges and converges
+twice (the "How I work" intro). They share `inDiamonds()`, two diamonds side by side
+with the pinch at the centre: **Pulse** (waveform bars), **Fan** (strings opening and
+closing on three points), **Branches** (a 1-2-4-2-1 bracket, twice), **Rhombs** (two
+grained lozenges on a ticked axis), **Twin** (a halftone shaped like the two
+diamonds), **Knots** (Truchet arcs gathered into the two diamonds).
+
 `catalogue.json` holds the full description of every style and its variants; keep it
 in step with the makers in `main()`.
 
@@ -67,7 +74,12 @@ and stays in the light fallback. Figma imports it in the light fallback too.
 `Box`, `Disc`, `Sector` (a pie slice, degrees clockwise from +x), `Outline` (any path,
 with `evenOdd` for holes) and `ClipGroup` (shapes drawn inside a clip path, with an
 optional texture on the group). Path helpers: `ringSector`, `ring`, `circlePath`,
-`rectPath`, `framePath`, `polygon`, `sectorPath`.
+`rectPath`, `framePath`, `segment` (a straight stroke as a quad), `polygon`,
+`sectorPath`.
+
+Size marks for where the piece will be shown. The folio's process slots are about
+216 to 332 px for the 1000-unit square, so one unit is 0.2 to 0.33 px: strokes under
+about 5 units (Fan's strings) go faint at the smallest size.
 
 Texture is an SVG filter on the shape's own colour, so it themes too: feTurbulence,
 thresholded into an alpha mask, composited `in` the shape. `stipple(keep, seed)` is
