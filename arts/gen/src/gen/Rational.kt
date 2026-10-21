@@ -195,21 +195,44 @@ private data class ClipGroup(
 /** Shapes that move in the motion SVG (<name>-motion.svg): a CSS animation on their
  *  group, off under prefers-reduced-motion. The still SVG and the PNG draw [shapes]
  *  where they stand at time zero and leave the group out, so they are unchanged.
- *  [extra] is drawn only in motion, for the copy a loop scrolls in from. */
-private data class Motion(val anim: Anim, val shapes: List<Shape>, val extra: List<Shape> = emptyList()) : Shape {
+ *  Only in motion: [copy] draws the shapes a second time at that offset, for the copy
+ *  a scrolling loop brings in, and [clip] keeps the moving group inside a path.
+ *  [hiDpi] keeps the group still on screens under 1.5 device pixels per CSS pixel:
+ *  there a hairline thinner than a pixel, moving slowly, flips between a crisp line and
+ *  a two-row smear each time it crosses a pixel, and a field of them flickers. */
+private data class Motion(
+    val anim: Anim, val shapes: List<Shape>, val copy: Pair<Float, Float>? = null, val clip: String? = null,
+    val hiDpi: Boolean = false,
+) : Shape {
     override val role: Role = Role.INK
     override val alpha: Float = 1f
     override val tex: Tex? = null
 }
 
-private sealed interface Anim { val seconds: Float }
+/** [delay] is how far into its cycle an animation already is when the page opens. */
+private sealed interface Anim { val seconds: Float; val delay: Float }
 
 /** A full turn about (cx, cy) every [seconds], clockwise unless [reverse]. */
-private data class Spin(val cx: Float, val cy: Float, override val seconds: Float, val reverse: Boolean) : Anim
+private data class Spin(
+    val cx: Float, val cy: Float, override val seconds: Float, val reverse: Boolean, override val delay: Float = 0f,
+) : Anim
 
 /** A slide by (dx, dy) every [seconds], then a jump back: seamless when the group
  *  carries a copy of itself one (dx, dy) behind. */
-private data class Drift(val dx: Float, val dy: Float, override val seconds: Float) : Anim
+private data class Drift(val dx: Float, val dy: Float, override val seconds: Float, override val delay: Float = 0f) : Anim
+
+/** A quarter turn about (cx, cy), a hold, another quarter turn, a hold, every
+ *  [seconds]. Made for Truchet tiles: a tile turned 90 degrees is the other tile and
+ *  still joins its neighbours, and one turned 180 is itself, so the loop is seamless. */
+private data class Turn(val cx: Float, val cy: Float, override val seconds: Float, override val delay: Float) : Anim
+
+/** Eases to scale (sx, sy) about (cx, cy) and back every [seconds]. */
+private data class Breathe(
+    val cx: Float, val cy: Float, val sx: Float, val sy: Float, override val seconds: Float, override val delay: Float,
+) : Anim
+
+/** Eases to opacity [low] and back every [seconds]. */
+private data class Fade(val low: Float, override val seconds: Float, override val delay: Float) : Anim
 
 private class Art(val name: String, val shapes: List<Shape>)
 
@@ -404,14 +427,18 @@ private fun score(name: String, rng: Random, lines: Int, cols: Int, withDots: Bo
     }
     val longest = runs.maxByOrNull { it.to - it.from }
     val thick = pitch * 0.26f
-    runs.forEach { r ->
+    val marks = runs.map { r ->
         val y = my + r.line * pitch
         val x0 = mx + r.from * step
         val len = (r.to - r.from + 1) * step
         val role = if (r == longest) Role.ACCENT else Role.INK
-        if (withDots && r.from == r.to) shapes += Disc(x0 + step / 2, y, thick * 0.62f, role)
-        else shapes += Box(x0 + step * 0.12f, y - thick / 2, len - step * 0.24f, thick, role)
+        if (withDots && r.from == r.to) Disc(x0 + step / 2, y, thick * 0.62f, role)
+        else Box(x0 + step * 0.12f, y - thick / 2, len - step * 0.24f, thick, role)
     }
+    // In motion the marks scroll left along their lines, about 11 units a second, like
+    // a score being played; the ruled lines and bar lines stay put.
+    val span = U - 2 * mx
+    shapes += Motion(Drift(-span, 0f, span / 11f), marks, copy = span to 0f, clip = rectPath(mx, 0f, span, U))
     // Bar lines every eight steps, as in a score.
     for (c in 0..cols step 8) shapes += Box(mx + c * step - 0.75f, my - pitch * 0.4f, 1.5f, U - 2 * my + pitch * 0.8f, Role.INK, 0.18f)
     return Art(name, shapes)
@@ -480,9 +507,15 @@ private fun arcs(name: String, rng: Random, cols: Int, lines: Int, texMode: Int)
         val tex = if (texMode == 1) stipple(if (grid.prime(c, r)) 0.92f else 0.58f, ts) else null
         val corners = if (turned) listOf(Triple(x + m, y, 90f), Triple(x, y + m, 270f))
         else listOf(Triple(x, y, 0f), Triple(x + m, y + m, 180f))
+        val tile = mutableListOf<Shape>()
         for ((cx, cy, start) in corners) for ((r0, r1) in bands) {
-            shapes += Outline(ringSector(cx, cy, r0, r1, start, 90f), role = role, tex = tex)
+            tile += Outline(ringSector(cx, cy, r0, r1, start, 90f), role = role, tex = tex)
         }
+        // In motion the tiles on a prime turn a quarter at a time, so the curves keep
+        // re-routing: scattered by norm with three lines, as a diagonal sweep with one.
+        shapes += if (!grid.prime(c, r)) tile
+        else if (lines > 1) listOf(Motion(Turn(x + m / 2, y + m / 2, 16f, (grid.norm(c, r) % 32) * 0.5f), tile))
+        else listOf(Motion(Turn(x + m / 2, y + m / 2, 14f, 14f - (c + r) * 0.4f), tile))
     }
     return Art(name, shapes)
 }
@@ -659,6 +692,18 @@ private fun halftone(name: String, rng: Random, cols: Int, fade: Int, square: Bo
             if ((u + v) % 2 != 0) continue
             dot(margin + u * step, margin + v * step, a0 + u, b0 - v, step * 0.7f)
         }
+        // In motion a slow wave of light runs out from the centre: the dots are grouped
+        // in rings by distance, each ring fading a little later than the one inside it.
+        // The grouping reorders the dots in the still SVG too; they do not overlap, so it
+        // draws the same.
+        val rings = 12
+        val period = 7f
+        val byRing = shapes.groupBy {
+            val d = it as Disc
+            min(rings - 1, (sqrt((d.cx - U / 2) * (d.cx - U / 2) + (d.cy - U / 2) * (d.cy - U / 2)) / (U * 0.6f) * rings).toInt())
+        }.toSortedMap()
+        shapes.clear()
+        byRing.forEach { (k, dots) -> shapes += Motion(Fade(0.28f, period, (period - k * 0.45f).mod(period)), dots) }
     } else {
         val grid = OddGrid(a0, b0)
         val m = (U - 2 * margin) / cols
@@ -705,7 +750,7 @@ private fun barcode(
 /** Bands that, in motion, scroll by one span (dx, dy) at 10 units a second and loop,
  *  with a copy of themselves one span behind. */
 private fun scroll(bands: List<Shape>, dx: Float, dy: Float): Motion =
-    Motion(Drift(dx, dy, sqrt(dx * dx + dy * dy) / 10f), bands, bands.map { (it as Box).copy(x = it.x - dx, y = it.y - dy) })
+    Motion(Drift(dx, dy, sqrt(dx * dx + dy * dy) / 10f), bands, copy = -dx to -dy, hiDpi = true)
 
 /** Swiss-poster forms filled with barcodes. Mode 0 is one disc of horizontal bands, 1
  *  two half discs, one banded each way, 2 a square of bands with a disc cut out of it
@@ -1156,8 +1201,9 @@ private fun rhombs(name: String, rng: Random): Art {
     val h1 = 240f + (gnorm(primes[1].first, primes[1].second) % 5) * 22f
     val h2 = 240f + (gnorm(primes[2].first, primes[2].second) % 5) * 22f
     fun lozenge(cx: Float, h: Float) = polygon(listOf(cx - w to DD_Y, cx to DD_Y - h, cx + w to DD_Y, cx to DD_Y + h))
-    shapes += Outline(lozenge(c1, h1), alpha = 0.2f, tex = grain(ts))
-    shapes += Outline(lozenge(c2, h2), alpha = 0.42f, tex = grain(ts + 1))
+    // In motion the two lozenges open and close in turn, half a cycle apart.
+    shapes += Motion(Breathe(c1, DD_Y, 0.94f, 0.82f, 9f, 0f), listOf(Outline(lozenge(c1, h1), alpha = 0.2f, tex = grain(ts))))
+    shapes += Motion(Breathe(c2, DD_Y, 0.94f, 0.82f, 9f, 4.5f), listOf(Outline(lozenge(c2, h2), alpha = 0.42f, tex = grain(ts + 1))))
     val ticks = 40
     val step = (DD_X1 - DD_X0) / ticks
     shapes += Box(DD_X0, DD_Y - 1.5f, DD_X1 - DD_X0, 3f, Role.INK, 0.6f)
@@ -1228,14 +1274,15 @@ private fun svg(art: Art, baked: PaperInk? = null, motion: Boolean = false): Str
     fun flat(list: List<Shape>): List<Shape> = list.flatMap {
         when (it) {
             is ClipGroup -> flat(it.shapes) + it
-            is Motion -> flat(it.shapes) + (if (motion) flat(it.extra) else emptyList())
+            is Motion -> flat(it.shapes)
             else -> listOf(it)
         }
     }
     val moving = motions(art.shapes)
     val texes = flat(art.shapes).mapNotNull { it.tex }.distinct()
     val clips = art.shapes.filterIsInstance<ClipGroup>()
-    if (texes.isNotEmpty() || clips.isNotEmpty()) {
+    val motionClips = if (motion) moving.filter { it.clip != null } else emptyList()
+    if (texes.isNotEmpty() || clips.isNotEmpty() || motionClips.isNotEmpty()) {
         sb.appendLine("<defs>")
         texes.forEach { t ->
             val cut = 0.5f + 0.3f * (0.5f - t.keep)
@@ -1250,15 +1297,24 @@ private fun svg(art: Art, baked: PaperInk? = null, motion: Boolean = false): Str
             val rule = if (c.evenOdd) """ clip-rule="evenodd"""" else ""
             sb.appendLine("""<clipPath id="${art.name}-c$i"><path d="${c.clip}"$rule/></clipPath>""")
         }
+        motionClips.forEach { m ->
+            sb.appendLine("""<clipPath id="${art.name}-mc${moving.indexOf(m)}"><path d="${m.clip}"/></clipPath>""")
+        }
         sb.appendLine("</defs>")
     }
     fun draw(s: Shape) {
         if (s is Motion) {
             if (!motion) { s.shapes.forEach(::draw); return }
-            sb.appendLine("""<g class="${art.name}-m ${art.name}-m${moving.indexOf(s)}">""")
+            val i = moving.indexOf(s)
+            if (s.clip != null) sb.appendLine("""<g clip-path="url(#${art.name}-mc$i)">""")
+            sb.appendLine("""<g class="${art.name}-m ${art.name}-m$i">""")
             s.shapes.forEach(::draw)
-            s.extra.forEach(::draw)
-            sb.appendLine("</g>")
+            s.copy?.let { (x, y) ->
+                sb.appendLine("""<g transform="translate(${n(x)} ${n(y)})">""")
+                s.shapes.forEach(::draw)
+                sb.appendLine("</g>")
+            }
+            sb.appendLine(if (s.clip != null) "</g></g>" else "</g>")
             return
         }
         if (s is ClipGroup) {
@@ -1307,16 +1363,34 @@ private fun motionCss(art: Art): String {
     val name = art.name
     val moving = motions(art.shapes)
     if (moving.any { it.anim is Spin }) sb.append("@keyframes $name-spin{to{transform:rotate(360deg)}}")
+    if (moving.any { it.anim is Turn }) {
+        sb.append("@keyframes $name-turn{0%,40%{transform:rotate(0)}50%,90%{transform:rotate(90deg)}to{transform:rotate(180deg)}}")
+    }
+    val lows = moving.mapNotNull { (it.anim as? Fade)?.low }.distinct()
+    lows.forEachIndexed { k, low -> sb.append("@keyframes $name-fade$k{50%{opacity:${n(low)}}}") }
     moving.forEachIndexed { i, m ->
         val a = m.anim
+        // A negative delay starts the cycle part way through, so nothing waits to move.
+        val at = if (a.delay > 0f) " ${n(-a.delay)}s" else ""
         sb.append(".$name-m$i{transform-box:view-box;")
         when (a) {
-            is Spin -> sb.append("transform-origin:${n(a.cx)}px ${n(a.cy)}px;animation:$name-spin ${n(a.seconds)}s linear infinite${if (a.reverse) " reverse" else ""}}")
+            is Spin -> sb.append("transform-origin:${n(a.cx)}px ${n(a.cy)}px;animation:$name-spin ${n(a.seconds)}s linear$at infinite${if (a.reverse) " reverse" else ""}}")
             is Drift -> {
-                sb.append("animation:$name-d$i ${n(a.seconds)}s linear infinite}")
+                sb.append("animation:$name-d$i ${n(a.seconds)}s linear$at infinite}")
                 sb.append("@keyframes $name-d$i{to{transform:translate(${n(a.dx)}px,${n(a.dy)}px)}}")
             }
+            is Turn -> sb.append("transform-origin:${n(a.cx)}px ${n(a.cy)}px;animation:$name-turn ${n(a.seconds)}s ease-in-out$at infinite}")
+            is Breathe -> {
+                sb.append("transform-origin:${n(a.cx)}px ${n(a.cy)}px;animation:$name-b$i ${n(a.seconds)}s ease-in-out$at infinite}")
+                sb.append("@keyframes $name-b$i{50%{transform:scale(${n(a.sx)},${n(a.sy)})}}")
+            }
+            is Fade -> sb.append("animation:$name-fade${lows.indexOf(a.low)} ${n(a.seconds)}s ease-in-out$at infinite}")
         }
+    }
+    val lowDpi = moving.indices.filter { moving[it].hiDpi }
+    if (lowDpi.isNotEmpty()) {
+        sb.append("@media (max-resolution:1.5dppx),(-webkit-max-device-pixel-ratio:1.5){")
+        sb.append(lowDpi.joinToString(",") { ".$name-m$it" }).append("{animation:none}}")
     }
     sb.append("@media (prefers-reduced-motion:reduce){.$name-m{animation:none}}")
     return sb.toString()

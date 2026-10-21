@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}@keyframes rationalArcs01-turn{0%,40%{transform:rotate(0)}50%,90%{transform:rotate(90deg)}to{transform:rotate(180deg)}}.rationalArcs01-m0{transform-box:view-box;transform-origin:243.75px 141.25px;animation:rationalArcs01-turn 14s ease-in-out -13.6s infinite}.rationalArcs01-m1{transform-box:view-box;transform-origin:756.25px 141.25px;animation:rationalArcs01-turn 14s ease-in-out -11.6s infinite}.rationalArcs01-m2{transform-box:view-box;transform-origin:653.75px 243.75px;animation:rationalArcs01-turn 14s ease-in-out -11.6s infinite}.rationalArcs01-m3{transform-box:view-box;transform-origin:243.75px 346.25px;animation:rationalArcs01-turn 14s ease-in-out -12.8s infinite}.rationalArcs01-m4{transform-box:view-box;transform-origin:448.75px 346.25px;animation:rationalArcs01-turn 14s ease-in-out -12s infinite}.rationalArcs01-m5{transform-box:view-box;transform-origin:756.25px 346.25px;animation:rationalArcs01-turn 14s ease-in-out -10.8s infinite}.rationalArcs01-m6{transform-box:view-box;transform-origin:551.25px 448.75px;animation:rationalArcs01-turn 14s ease-in-out -11.2s infinite}.rationalArcs01-m7{transform-box:view-box;transform-origin:653.75px 448.75px;animation:rationalArcs01-turn 14s ease-in-out -10.8s infinite}.rationalArcs01-m8{transform-box:view-box;transform-origin:858.75px 448.75px;animation:rationalArcs01-turn 14s ease-in-out -10s infinite}.rationalArcs01-m9{transform-box:view-box;transform-origin:141.25px 551.25px;animation:rationalArcs01-turn 14s ease-in-out -12.4s infinite}.rationalArcs01-m10{transform-box:view-box;transform-origin:551.25px 551.25px;animation:rationalArcs01-turn 14s ease-in-out -10.8s infinite}.rationalArcs01-m11{transform-box:view-box;transform-origin:243.75px 653.75px;animation:rationalArcs01-turn 14s ease-in-out -11.6s infinite}.rationalArcs01-m12{transform-box:view-box;transform-origin:141.25px 756.25px;animation:rationalArcs01-turn 14s ease-in-out -11.6s infinite}.rationalArcs01-m13{transform-box:view-box;transform-origin:448.75px 756.25px;animation:rationalArcs01-turn 14s ease-in-out -10.4s infinite}.rationalArcs01-m14{transform-box:view-box;transform-origin:551.25px 756.25px;animation:rationalArcs01-turn 14s ease-in-out -10s infinite}.rationalArcs01-m15{transform-box:view-box;transform-origin:756.25px 756.25px;animation:rationalArcs01-turn 14s ease-in-out -9.2s infinite}.rationalArcs01-m16{transform-box:view-box;transform-origin:346.25px 858.75px;animation:rationalArcs01-turn 14s ease-in-out -10.4s infinite}.rationalArcs01-m17{transform-box:view-box;transform-origin:756.25px 858.75px;animation:rationalArcs01-turn 14s ease-in-out -8.8s infinite}.rationalArcs01-m18{transform-box:view-box;transform-origin:858.75px 858.75px;animation:rationalArcs01-turn 14s ease-in-out -8.4s infinite}@media (prefers-reduced-motion:reduce){.rationalArcs01-m{animation:none}}</style>
+<path d="M156.63 90A66.63 66.63 0 0 1 90 156.63L90 125.88A35.88 35.88 0 0 0 125.88 90Z" class="gen-i"/>
+<path d="M125.88 192.5A66.63 66.63 0 0 1 192.5 125.88L192.5 156.63A35.88 35.88 0 0 0 156.63 192.5Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m0">
+<path d="M295 156.63A66.63 66.63 0 0 1 228.38 90L259.13 90A35.88 35.88 0 0 0 295 125.88Z" class="gen-i"/>
+<path d="M192.5 125.88A66.63 66.63 0 0 1 259.13 192.5L228.38 192.5A35.88 35.88 0 0 0 192.5 156.63Z" class="gen-i"/>
+</g>
+<path d="M361.63 90A66.63 66.63 0 0 1 295 156.63L295 125.88A35.88 35.88 0 0 0 330.88 90Z" class="gen-i"/>
+<path d="M330.88 192.5A66.63 66.63 0 0 1 397.5 125.88L397.5 156.63A35.88 35.88 0 0 0 361.63 192.5Z" class="gen-i"/>
+<path d="M464.13 90A66.63 66.63 0 0 1 397.5 156.63L397.5 125.88A35.88 35.88 0 0 0 433.38 90Z" class="gen-i"/>
+<path d="M433.38 192.5A66.63 66.63 0 0 1 500 125.88L500 156.63A35.88 35.88 0 0 0 464.13 192.5Z" class="gen-i"/>
+<path d="M602.5 156.63A66.63 66.63 0 0 1 535.88 90L566.63 90A35.88 35.88 0 0 0 602.5 125.88Z" class="gen-i"/>
+<path d="M500 125.88A66.63 66.63 0 0 1 566.63 192.5L535.88 192.5A35.88 35.88 0 0 0 500 156.63Z" class="gen-i"/>
+<path d="M669.13 90A66.63 66.63 0 0 1 602.5 156.63L602.5 125.88A35.88 35.88 0 0 0 638.38 90Z" class="gen-a"/>
+<path d="M638.38 192.5A66.63 66.63 0 0 1 705 125.88L705 156.63A35.88 35.88 0 0 0 669.13 192.5Z" class="gen-a"/>
+<g class="rationalArcs01-m rationalArcs01-m1">
+<path d="M807.5 156.63A66.63 66.63 0 0 1 740.88 90L771.63 90A35.88 35.88 0 0 0 807.5 125.88Z" class="gen-i"/>
+<path d="M705 125.88A66.63 66.63 0 0 1 771.63 192.5L740.88 192.5A35.88 35.88 0 0 0 705 156.63Z" class="gen-i"/>
+</g>
+<path d="M910 156.63A66.63 66.63 0 0 1 843.38 90L874.13 90A35.88 35.88 0 0 0 910 125.88Z" class="gen-i"/>
+<path d="M807.5 125.88A66.63 66.63 0 0 1 874.13 192.5L843.38 192.5A35.88 35.88 0 0 0 807.5 156.63Z" class="gen-i"/>
+<path d="M192.5 259.13A66.63 66.63 0 0 1 125.88 192.5L156.63 192.5A35.88 35.88 0 0 0 192.5 228.38Z" class="gen-a"/>
+<path d="M90 228.38A66.63 66.63 0 0 1 156.63 295L125.88 295A35.88 35.88 0 0 0 90 259.13Z" class="gen-a"/>
+<path d="M259.13 192.5A66.63 66.63 0 0 1 192.5 259.13L192.5 228.38A35.88 35.88 0 0 0 228.38 192.5Z" class="gen-i"/>
+<path d="M228.38 295A66.63 66.63 0 0 1 295 228.38L295 259.13A35.88 35.88 0 0 0 259.13 295Z" class="gen-i"/>
+<path d="M397.5 259.13A66.63 66.63 0 0 1 330.88 192.5L361.63 192.5A35.88 35.88 0 0 0 397.5 228.38Z" class="gen-i"/>
+<path d="M295 228.38A66.63 66.63 0 0 1 361.63 295L330.88 295A35.88 35.88 0 0 0 295 259.13Z" class="gen-i"/>
+<path d="M464.13 192.5A66.63 66.63 0 0 1 397.5 259.13L397.5 228.38A35.88 35.88 0 0 0 433.38 192.5Z" class="gen-i"/>
+<path d="M433.38 295A66.63 66.63 0 0 1 500 228.38L500 259.13A35.88 35.88 0 0 0 464.13 295Z" class="gen-i"/>
+<path d="M566.63 192.5A66.63 66.63 0 0 1 500 259.13L500 228.38A35.88 35.88 0 0 0 535.88 192.5Z" class="gen-i"/>
+<path d="M535.88 295A66.63 66.63 0 0 1 602.5 228.38L602.5 259.13A35.88 35.88 0 0 0 566.63 295Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m2">
+<path d="M669.13 192.5A66.63 66.63 0 0 1 602.5 259.13L602.5 228.38A35.88 35.88 0 0 0 638.38 192.5Z" class="gen-i"/>
+<path d="M638.38 295A66.63 66.63 0 0 1 705 228.38L705 259.13A35.88 35.88 0 0 0 669.13 295Z" class="gen-i"/>
+</g>
+<path d="M771.63 192.5A66.63 66.63 0 0 1 705 259.13L705 228.38A35.88 35.88 0 0 0 740.88 192.5Z" class="gen-i"/>
+<path d="M740.88 295A66.63 66.63 0 0 1 807.5 228.38L807.5 259.13A35.88 35.88 0 0 0 771.63 295Z" class="gen-i"/>
+<path d="M874.13 192.5A66.63 66.63 0 0 1 807.5 259.13L807.5 228.38A35.88 35.88 0 0 0 843.38 192.5Z" class="gen-i"/>
+<path d="M843.38 295A66.63 66.63 0 0 1 910 228.38L910 259.13A35.88 35.88 0 0 0 874.13 295Z" class="gen-i"/>
+<path d="M156.63 295A66.63 66.63 0 0 1 90 361.63L90 330.88A35.88 35.88 0 0 0 125.88 295Z" class="gen-i"/>
+<path d="M125.88 397.5A66.63 66.63 0 0 1 192.5 330.88L192.5 361.63A35.88 35.88 0 0 0 156.63 397.5Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m3">
+<path d="M295 361.63A66.63 66.63 0 0 1 228.38 295L259.13 295A35.88 35.88 0 0 0 295 330.88Z" class="gen-i"/>
+<path d="M192.5 330.88A66.63 66.63 0 0 1 259.13 397.5L228.38 397.5A35.88 35.88 0 0 0 192.5 361.63Z" class="gen-i"/>
+</g>
+<path d="M361.63 295A66.63 66.63 0 0 1 295 361.63L295 330.88A35.88 35.88 0 0 0 330.88 295Z" class="gen-i"/>
+<path d="M330.88 397.5A66.63 66.63 0 0 1 397.5 330.88L397.5 361.63A35.88 35.88 0 0 0 361.63 397.5Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m4">
+<path d="M464.13 295A66.63 66.63 0 0 1 397.5 361.63L397.5 330.88A35.88 35.88 0 0 0 433.38 295Z" class="gen-i"/>
+<path d="M433.38 397.5A66.63 66.63 0 0 1 500 330.88L500 361.63A35.88 35.88 0 0 0 464.13 397.5Z" class="gen-i"/>
+</g>
+<path d="M602.5 361.63A66.63 66.63 0 0 1 535.88 295L566.63 295A35.88 35.88 0 0 0 602.5 330.88Z" class="gen-i"/>
+<path d="M500 330.88A66.63 66.63 0 0 1 566.63 397.5L535.88 397.5A35.88 35.88 0 0 0 500 361.63Z" class="gen-i"/>
+<path d="M669.13 295A66.63 66.63 0 0 1 602.5 361.63L602.5 330.88A35.88 35.88 0 0 0 638.38 295Z" class="gen-a"/>
+<path d="M638.38 397.5A66.63 66.63 0 0 1 705 330.88L705 361.63A35.88 35.88 0 0 0 669.13 397.5Z" class="gen-a"/>
+<g class="rationalArcs01-m rationalArcs01-m5">
+<path d="M771.63 295A66.63 66.63 0 0 1 705 361.63L705 330.88A35.88 35.88 0 0 0 740.88 295Z" class="gen-i"/>
+<path d="M740.88 397.5A66.63 66.63 0 0 1 807.5 330.88L807.5 361.63A35.88 35.88 0 0 0 771.63 397.5Z" class="gen-i"/>
+</g>
+<path d="M874.13 295A66.63 66.63 0 0 1 807.5 361.63L807.5 330.88A35.88 35.88 0 0 0 843.38 295Z" class="gen-i"/>
+<path d="M843.38 397.5A66.63 66.63 0 0 1 910 330.88L910 361.63A35.88 35.88 0 0 0 874.13 397.5Z" class="gen-i"/>
+<path d="M156.63 397.5A66.63 66.63 0 0 1 90 464.13L90 433.38A35.88 35.88 0 0 0 125.88 397.5Z" class="gen-i"/>
+<path d="M125.88 500A66.63 66.63 0 0 1 192.5 433.38L192.5 464.13A35.88 35.88 0 0 0 156.63 500Z" class="gen-i"/>
+<path d="M259.13 397.5A66.63 66.63 0 0 1 192.5 464.13L192.5 433.38A35.88 35.88 0 0 0 228.38 397.5Z" class="gen-i"/>
+<path d="M228.38 500A66.63 66.63 0 0 1 295 433.38L295 464.13A35.88 35.88 0 0 0 259.13 500Z" class="gen-i"/>
+<path d="M361.63 397.5A66.63 66.63 0 0 1 295 464.13L295 433.38A35.88 35.88 0 0 0 330.88 397.5Z" class="gen-i"/>
+<path d="M330.88 500A66.63 66.63 0 0 1 397.5 433.38L397.5 464.13A35.88 35.88 0 0 0 361.63 500Z" class="gen-i"/>
+<path d="M500 464.13A66.63 66.63 0 0 1 433.38 397.5L464.13 397.5A35.88 35.88 0 0 0 500 433.38Z" class="gen-a"/>
+<path d="M397.5 433.38A66.63 66.63 0 0 1 464.13 500L433.38 500A35.88 35.88 0 0 0 397.5 464.13Z" class="gen-a"/>
+<g class="rationalArcs01-m rationalArcs01-m6">
+<path d="M602.5 464.13A66.63 66.63 0 0 1 535.88 397.5L566.63 397.5A35.88 35.88 0 0 0 602.5 433.38Z" class="gen-i"/>
+<path d="M500 433.38A66.63 66.63 0 0 1 566.63 500L535.88 500A35.88 35.88 0 0 0 500 464.13Z" class="gen-i"/>
+</g>
+<g class="rationalArcs01-m rationalArcs01-m7">
+<path d="M705 464.13A66.63 66.63 0 0 1 638.38 397.5L669.13 397.5A35.88 35.88 0 0 0 705 433.38Z" class="gen-i"/>
+<path d="M602.5 433.38A66.63 66.63 0 0 1 669.13 500L638.38 500A35.88 35.88 0 0 0 602.5 464.13Z" class="gen-i"/>
+</g>
+<path d="M771.63 397.5A66.63 66.63 0 0 1 705 464.13L705 433.38A35.88 35.88 0 0 0 740.88 397.5Z" class="gen-i"/>
+<path d="M740.88 500A66.63 66.63 0 0 1 807.5 433.38L807.5 464.13A35.88 35.88 0 0 0 771.63 500Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m8">
+<path d="M910 464.13A66.63 66.63 0 0 1 843.38 397.5L874.13 397.5A35.88 35.88 0 0 0 910 433.38Z" class="gen-i"/>
+<path d="M807.5 433.38A66.63 66.63 0 0 1 874.13 500L843.38 500A35.88 35.88 0 0 0 807.5 464.13Z" class="gen-i"/>
+</g>
+<g class="rationalArcs01-m rationalArcs01-m9">
+<path d="M156.63 500A66.63 66.63 0 0 1 90 566.63L90 535.88A35.88 35.88 0 0 0 125.88 500Z" class="gen-i"/>
+<path d="M125.88 602.5A66.63 66.63 0 0 1 192.5 535.88L192.5 566.63A35.88 35.88 0 0 0 156.63 602.5Z" class="gen-i"/>
+</g>
+<path d="M259.13 500A66.63 66.63 0 0 1 192.5 566.63L192.5 535.88A35.88 35.88 0 0 0 228.38 500Z" class="gen-i"/>
+<path d="M228.38 602.5A66.63 66.63 0 0 1 295 535.88L295 566.63A35.88 35.88 0 0 0 259.13 602.5Z" class="gen-i"/>
+<path d="M361.63 500A66.63 66.63 0 0 1 295 566.63L295 535.88A35.88 35.88 0 0 0 330.88 500Z" class="gen-a"/>
+<path d="M330.88 602.5A66.63 66.63 0 0 1 397.5 535.88L397.5 566.63A35.88 35.88 0 0 0 361.63 602.5Z" class="gen-a"/>
+<path d="M464.13 500A66.63 66.63 0 0 1 397.5 566.63L397.5 535.88A35.88 35.88 0 0 0 433.38 500Z" class="gen-i"/>
+<path d="M433.38 602.5A66.63 66.63 0 0 1 500 535.88L500 566.63A35.88 35.88 0 0 0 464.13 602.5Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m10">
+<path d="M602.5 566.63A66.63 66.63 0 0 1 535.88 500L566.63 500A35.88 35.88 0 0 0 602.5 535.88Z" class="gen-i"/>
+<path d="M500 535.88A66.63 66.63 0 0 1 566.63 602.5L535.88 602.5A35.88 35.88 0 0 0 500 566.63Z" class="gen-i"/>
+</g>
+<path d="M669.13 500A66.63 66.63 0 0 1 602.5 566.63L602.5 535.88A35.88 35.88 0 0 0 638.38 500Z" class="gen-i"/>
+<path d="M638.38 602.5A66.63 66.63 0 0 1 705 535.88L705 566.63A35.88 35.88 0 0 0 669.13 602.5Z" class="gen-i"/>
+<path d="M771.63 500A66.63 66.63 0 0 1 705 566.63L705 535.88A35.88 35.88 0 0 0 740.88 500Z" class="gen-i"/>
+<path d="M740.88 602.5A66.63 66.63 0 0 1 807.5 535.88L807.5 566.63A35.88 35.88 0 0 0 771.63 602.5Z" class="gen-i"/>
+<path d="M874.13 500A66.63 66.63 0 0 1 807.5 566.63L807.5 535.88A35.88 35.88 0 0 0 843.38 500Z" class="gen-i"/>
+<path d="M843.38 602.5A66.63 66.63 0 0 1 910 535.88L910 566.63A35.88 35.88 0 0 0 874.13 602.5Z" class="gen-i"/>
+<path d="M156.63 602.5A66.63 66.63 0 0 1 90 669.13L90 638.38A35.88 35.88 0 0 0 125.88 602.5Z" class="gen-i"/>
+<path d="M125.88 705A66.63 66.63 0 0 1 192.5 638.38L192.5 669.13A35.88 35.88 0 0 0 156.63 705Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m11">
+<path d="M295 669.13A66.63 66.63 0 0 1 228.38 602.5L259.13 602.5A35.88 35.88 0 0 0 295 638.38Z" class="gen-i"/>
+<path d="M192.5 638.38A66.63 66.63 0 0 1 259.13 705L228.38 705A35.88 35.88 0 0 0 192.5 669.13Z" class="gen-i"/>
+</g>
+<path d="M397.5 669.13A66.63 66.63 0 0 1 330.88 602.5L361.63 602.5A35.88 35.88 0 0 0 397.5 638.38Z" class="gen-i"/>
+<path d="M295 638.38A66.63 66.63 0 0 1 361.63 705L330.88 705A35.88 35.88 0 0 0 295 669.13Z" class="gen-i"/>
+<path d="M500 669.13A66.63 66.63 0 0 1 433.38 602.5L464.13 602.5A35.88 35.88 0 0 0 500 638.38Z" class="gen-i"/>
+<path d="M397.5 638.38A66.63 66.63 0 0 1 464.13 705L433.38 705A35.88 35.88 0 0 0 397.5 669.13Z" class="gen-i"/>
+<path d="M566.63 602.5A66.63 66.63 0 0 1 500 669.13L500 638.38A35.88 35.88 0 0 0 535.88 602.5Z" class="gen-i"/>
+<path d="M535.88 705A66.63 66.63 0 0 1 602.5 638.38L602.5 669.13A35.88 35.88 0 0 0 566.63 705Z" class="gen-i"/>
+<path d="M705 669.13A66.63 66.63 0 0 1 638.38 602.5L669.13 602.5A35.88 35.88 0 0 0 705 638.38Z" class="gen-i"/>
+<path d="M602.5 638.38A66.63 66.63 0 0 1 669.13 705L638.38 705A35.88 35.88 0 0 0 602.5 669.13Z" class="gen-i"/>
+<path d="M771.63 602.5A66.63 66.63 0 0 1 705 669.13L705 638.38A35.88 35.88 0 0 0 740.88 602.5Z" class="gen-a"/>
+<path d="M740.88 705A66.63 66.63 0 0 1 807.5 638.38L807.5 669.13A35.88 35.88 0 0 0 771.63 705Z" class="gen-a"/>
+<path d="M874.13 602.5A66.63 66.63 0 0 1 807.5 669.13L807.5 638.38A35.88 35.88 0 0 0 843.38 602.5Z" class="gen-a"/>
+<path d="M843.38 705A66.63 66.63 0 0 1 910 638.38L910 669.13A35.88 35.88 0 0 0 874.13 705Z" class="gen-a"/>
+<g class="rationalArcs01-m rationalArcs01-m12">
+<path d="M192.5 771.63A66.63 66.63 0 0 1 125.88 705L156.63 705A35.88 35.88 0 0 0 192.5 740.88Z" class="gen-i"/>
+<path d="M90 740.88A66.63 66.63 0 0 1 156.63 807.5L125.88 807.5A35.88 35.88 0 0 0 90 771.63Z" class="gen-i"/>
+</g>
+<path d="M295 771.63A66.63 66.63 0 0 1 228.38 705L259.13 705A35.88 35.88 0 0 0 295 740.88Z" class="gen-a"/>
+<path d="M192.5 740.88A66.63 66.63 0 0 1 259.13 807.5L228.38 807.5A35.88 35.88 0 0 0 192.5 771.63Z" class="gen-a"/>
+<path d="M361.63 705A66.63 66.63 0 0 1 295 771.63L295 740.88A35.88 35.88 0 0 0 330.88 705Z" class="gen-i"/>
+<path d="M330.88 807.5A66.63 66.63 0 0 1 397.5 740.88L397.5 771.63A35.88 35.88 0 0 0 361.63 807.5Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m13">
+<path d="M500 771.63A66.63 66.63 0 0 1 433.38 705L464.13 705A35.88 35.88 0 0 0 500 740.88Z" class="gen-i"/>
+<path d="M397.5 740.88A66.63 66.63 0 0 1 464.13 807.5L433.38 807.5A35.88 35.88 0 0 0 397.5 771.63Z" class="gen-i"/>
+</g>
+<g class="rationalArcs01-m rationalArcs01-m14">
+<path d="M602.5 771.63A66.63 66.63 0 0 1 535.88 705L566.63 705A35.88 35.88 0 0 0 602.5 740.88Z" class="gen-i"/>
+<path d="M500 740.88A66.63 66.63 0 0 1 566.63 807.5L535.88 807.5A35.88 35.88 0 0 0 500 771.63Z" class="gen-i"/>
+</g>
+<path d="M705 771.63A66.63 66.63 0 0 1 638.38 705L669.13 705A35.88 35.88 0 0 0 705 740.88Z" class="gen-i"/>
+<path d="M602.5 740.88A66.63 66.63 0 0 1 669.13 807.5L638.38 807.5A35.88 35.88 0 0 0 602.5 771.63Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m15">
+<path d="M771.63 705A66.63 66.63 0 0 1 705 771.63L705 740.88A35.88 35.88 0 0 0 740.88 705Z" class="gen-i"/>
+<path d="M740.88 807.5A66.63 66.63 0 0 1 807.5 740.88L807.5 771.63A35.88 35.88 0 0 0 771.63 807.5Z" class="gen-i"/>
+</g>
+<path d="M874.13 705A66.63 66.63 0 0 1 807.5 771.63L807.5 740.88A35.88 35.88 0 0 0 843.38 705Z" class="gen-i"/>
+<path d="M843.38 807.5A66.63 66.63 0 0 1 910 740.88L910 771.63A35.88 35.88 0 0 0 874.13 807.5Z" class="gen-i"/>
+<path d="M156.63 807.5A66.63 66.63 0 0 1 90 874.13L90 843.38A35.88 35.88 0 0 0 125.88 807.5Z" class="gen-i"/>
+<path d="M125.88 910A66.63 66.63 0 0 1 192.5 843.38L192.5 874.13A35.88 35.88 0 0 0 156.63 910Z" class="gen-i"/>
+<path d="M259.13 807.5A66.63 66.63 0 0 1 192.5 874.13L192.5 843.38A35.88 35.88 0 0 0 228.38 807.5Z" class="gen-i"/>
+<path d="M228.38 910A66.63 66.63 0 0 1 295 843.38L295 874.13A35.88 35.88 0 0 0 259.13 910Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m16">
+<path d="M397.5 874.13A66.63 66.63 0 0 1 330.88 807.5L361.63 807.5A35.88 35.88 0 0 0 397.5 843.38Z" class="gen-i"/>
+<path d="M295 843.38A66.63 66.63 0 0 1 361.63 910L330.88 910A35.88 35.88 0 0 0 295 874.13Z" class="gen-i"/>
+</g>
+<path d="M464.13 807.5A66.63 66.63 0 0 1 397.5 874.13L397.5 843.38A35.88 35.88 0 0 0 433.38 807.5Z" class="gen-i"/>
+<path d="M433.38 910A66.63 66.63 0 0 1 500 843.38L500 874.13A35.88 35.88 0 0 0 464.13 910Z" class="gen-i"/>
+<path d="M566.63 807.5A66.63 66.63 0 0 1 500 874.13L500 843.38A35.88 35.88 0 0 0 535.88 807.5Z" class="gen-a"/>
+<path d="M535.88 910A66.63 66.63 0 0 1 602.5 843.38L602.5 874.13A35.88 35.88 0 0 0 566.63 910Z" class="gen-a"/>
+<path d="M669.13 807.5A66.63 66.63 0 0 1 602.5 874.13L602.5 843.38A35.88 35.88 0 0 0 638.38 807.5Z" class="gen-i"/>
+<path d="M638.38 910A66.63 66.63 0 0 1 705 843.38L705 874.13A35.88 35.88 0 0 0 669.13 910Z" class="gen-i"/>
+<g class="rationalArcs01-m rationalArcs01-m17">
+<path d="M807.5 874.13A66.63 66.63 0 0 1 740.88 807.5L771.63 807.5A35.88 35.88 0 0 0 807.5 843.38Z" class="gen-i"/>
+<path d="M705 843.38A66.63 66.63 0 0 1 771.63 910L740.88 910A35.88 35.88 0 0 0 705 874.13Z" class="gen-i"/>
+</g>
+<g class="rationalArcs01-m rationalArcs01-m18">
+<path d="M910 874.13A66.63 66.63 0 0 1 843.38 807.5L874.13 807.5A35.88 35.88 0 0 0 910 843.38Z" class="gen-i"/>
+<path d="M807.5 843.38A66.63 66.63 0 0 1 874.13 910L843.38 910A35.88 35.88 0 0 0 807.5 874.13Z" class="gen-i"/>
+</g>
+</svg>

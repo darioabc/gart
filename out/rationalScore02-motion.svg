@@ -1,0 +1,472 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}.rationalScore02-m0{transform-box:view-box;animation:rationalScore02-d0 78.18s linear infinite}@keyframes rationalScore02-d0{to{transform:translate(-860px,0px)}}@media (prefers-reduced-motion:reduce){.rationalScore02-m{animation:none}}</style>
+<defs>
+<clipPath id="rationalScore02-mc0"><path d="M70 0h860v1000h-860Z"/></clipPath>
+</defs>
+<rect x="70" y="109.25" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="155.13" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="201.01" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="246.9" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="292.78" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="338.66" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="384.54" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="430.43" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="476.31" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="522.19" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="568.07" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="613.96" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="659.84" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="705.72" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="751.6" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="797.49" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="843.37" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<rect x="70" y="889.25" width="860" height="1.5" class="gen-i" fill-opacity="0.32"/>
+<g clip-path="url(#rationalScore02-mc0)">
+<g class="rationalScore02-m rationalScore02-m0">
+<circle cx="211.09" cy="110" r="7.4" class="gen-i"/>
+<circle cx="318.59" cy="110" r="7.4" class="gen-i"/>
+<circle cx="412.66" cy="110" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="110" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="110" r="7.4" class="gen-i"/>
+<rect x="635.99" y="104.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="775.47" cy="110" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="110" r="7.4" class="gen-i"/>
+<circle cx="76.72" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="143.91" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="237.97" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="305.16" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="385.78" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="412.66" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="479.84" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="547.03" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="641.09" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="708.28" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="748.59" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="788.91" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="76.72" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="130.47" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="345.47" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="426.09" cy="201.76" r="7.4" class="gen-i"/>
+<rect x="461.3" y="195.8" width="37.09" height="11.93" class="gen-i"/>
+<rect x="528.49" y="195.8" width="37.09" height="11.93" class="gen-i"/>
+<circle cx="627.66" cy="201.76" r="7.4" class="gen-i"/>
+<rect x="662.86" y="195.8" width="37.09" height="11.93" class="gen-i"/>
+<circle cx="748.59" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="802.34" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="896.41" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="117.03" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="157.34" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="251.41" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="291.72" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="358.91" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="399.22" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="452.97" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="493.28" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="573.91" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="641.09" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="694.84" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="735.16" cy="247.65" r="7.4" class="gen-i"/>
+<rect x="837.55" y="241.68" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="143.91" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="332.03" cy="293.53" r="7.4" class="gen-i"/>
+<rect x="394.11" y="287.56" width="37.09" height="11.93" class="gen-i"/>
+<rect x="662.86" y="287.56" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="735.16" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="802.34" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="117.03" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="318.59" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="372.34" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="452.97" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="547.03" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="573.91" cy="339.41" r="7.4" class="gen-i"/>
+<rect x="635.99" y="333.45" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="681.41" cy="339.41" r="7.4" class="gen-i"/>
+<rect x="703.17" y="333.45" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="748.59" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="775.47" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="815.78" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="909.84" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="76.72" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="237.97" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="318.59" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="372.34" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="412.66" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="479.84" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="641.09" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="815.78" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="882.97" cy="385.29" r="7.4" class="gen-i"/>
+<rect x="125.36" y="425.21" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="291.72" cy="431.18" r="7.4" class="gen-i"/>
+<rect x="340.36" y="425.21" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="412.66" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="493.28" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="533.59" cy="431.18" r="7.4" class="gen-i"/>
+<rect x="595.67" y="425.21" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="667.97" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="694.84" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="735.16" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="815.78" cy="431.18" r="7.4" class="gen-i"/>
+<rect x="864.42" y="425.21" width="23.65" height="11.93" class="gen-i"/>
+<rect x="85.05" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<rect x="152.24" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="197.66" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="224.53" cy="477.06" r="7.4" class="gen-i"/>
+<rect x="246.3" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="305.16" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="332.03" cy="477.06" r="7.4" class="gen-i"/>
+<rect x="434.42" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="493.28" cy="477.06" r="7.4" class="gen-i"/>
+<rect x="568.8" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="667.97" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="694.84" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="721.72" cy="477.06" r="7.4" class="gen-i"/>
+<rect x="756.92" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="802.34" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="869.53" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="90.16" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="130.47" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="291.72" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="332.03" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="735.16" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="762.03" cy="522.94" r="7.4" class="gen-i"/>
+<rect x="797.24" y="516.98" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="117.03" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="143.91" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="184.22" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="237.97" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="318.59" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="452.97" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="547.03" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="573.91" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="654.53" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="681.41" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="748.59" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="815.78" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="882.97" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="103.59" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="237.97" cy="614.71" r="7.4" class="gen-i"/>
+<rect x="367.24" y="608.74" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="412.66" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="479.84" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="547.03" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="614.71" r="7.4" class="gen-i"/>
+<rect x="635.99" y="608.74" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="748.59" cy="614.71" r="7.4" class="gen-i"/>
+<rect x="770.36" y="608.74" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="856.09" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="923.28" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="76.72" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="157.34" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="660.59" r="7.4" class="gen-i"/>
+<rect x="394.11" y="654.62" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="479.84" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="660.59" r="7.4" class="gen-i"/>
+<rect x="676.3" y="654.62" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="802.34" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="896.41" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="90.16" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="111.93" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<rect x="152.24" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="197.66" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="286.61" y="700.51" width="50.53" height="11.93" class="gen-a"/>
+<rect x="353.8" y="700.51" width="37.09" height="11.93" class="gen-i"/>
+<circle cx="439.53" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="488.17" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="560.47" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="582.24" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="667.97" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="716.61" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<rect x="756.92" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="842.66" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="891.3" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="90.16" cy="752.35" r="7.4" class="gen-i"/>
+<rect x="125.36" y="746.39" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="224.53" cy="752.35" r="7.4" class="gen-i"/>
+<rect x="259.74" y="746.39" width="37.09" height="11.93" class="gen-i"/>
+<rect x="541.92" y="746.39" width="23.65" height="11.93" class="gen-i"/>
+<rect x="595.67" y="746.39" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="748.59" cy="752.35" r="7.4" class="gen-i"/>
+<rect x="877.86" y="746.39" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="76.72" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="117.03" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="372.34" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="452.97" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="654.53" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="681.41" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="882.97" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="923.28" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="103.59" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="170.78" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="844.12" r="7.4" class="gen-i"/>
+<rect x="232.86" y="838.15" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="385.78" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="412.66" cy="844.12" r="7.4" class="gen-i"/>
+<rect x="434.42" y="838.15" width="23.65" height="11.93" class="gen-i"/>
+<rect x="501.61" y="838.15" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="681.41" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="708.28" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="788.91" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="844.12" r="7.4" class="gen-i"/>
+<rect x="904.74" y="838.15" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="90.16" cy="890" r="7.4" class="gen-i"/>
+<rect x="138.8" y="884.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="224.53" cy="890" r="7.4" class="gen-i"/>
+<circle cx="264.84" cy="890" r="7.4" class="gen-i"/>
+<rect x="340.36" y="884.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="426.09" cy="890" r="7.4" class="gen-i"/>
+<circle cx="533.59" cy="890" r="7.4" class="gen-i"/>
+<circle cx="560.47" cy="890" r="7.4" class="gen-i"/>
+<rect x="595.67" y="884.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="667.97" cy="890" r="7.4" class="gen-i"/>
+<rect x="743.49" y="884.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="802.34" cy="890" r="7.4" class="gen-i"/>
+<circle cx="869.53" cy="890" r="7.4" class="gen-i"/>
+<g transform="translate(860 0)">
+<circle cx="211.09" cy="110" r="7.4" class="gen-i"/>
+<circle cx="318.59" cy="110" r="7.4" class="gen-i"/>
+<circle cx="412.66" cy="110" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="110" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="110" r="7.4" class="gen-i"/>
+<rect x="635.99" y="104.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="775.47" cy="110" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="110" r="7.4" class="gen-i"/>
+<circle cx="76.72" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="143.91" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="237.97" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="305.16" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="385.78" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="412.66" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="479.84" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="547.03" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="641.09" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="708.28" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="748.59" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="788.91" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="155.88" r="7.4" class="gen-i"/>
+<circle cx="76.72" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="130.47" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="345.47" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="426.09" cy="201.76" r="7.4" class="gen-i"/>
+<rect x="461.3" y="195.8" width="37.09" height="11.93" class="gen-i"/>
+<rect x="528.49" y="195.8" width="37.09" height="11.93" class="gen-i"/>
+<circle cx="627.66" cy="201.76" r="7.4" class="gen-i"/>
+<rect x="662.86" y="195.8" width="37.09" height="11.93" class="gen-i"/>
+<circle cx="748.59" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="802.34" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="896.41" cy="201.76" r="7.4" class="gen-i"/>
+<circle cx="117.03" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="157.34" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="251.41" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="291.72" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="358.91" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="399.22" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="452.97" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="493.28" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="573.91" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="641.09" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="694.84" cy="247.65" r="7.4" class="gen-i"/>
+<circle cx="735.16" cy="247.65" r="7.4" class="gen-i"/>
+<rect x="837.55" y="241.68" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="143.91" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="332.03" cy="293.53" r="7.4" class="gen-i"/>
+<rect x="394.11" y="287.56" width="37.09" height="11.93" class="gen-i"/>
+<rect x="662.86" y="287.56" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="735.16" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="802.34" cy="293.53" r="7.4" class="gen-i"/>
+<circle cx="117.03" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="318.59" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="372.34" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="452.97" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="547.03" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="573.91" cy="339.41" r="7.4" class="gen-i"/>
+<rect x="635.99" y="333.45" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="681.41" cy="339.41" r="7.4" class="gen-i"/>
+<rect x="703.17" y="333.45" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="748.59" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="775.47" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="815.78" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="909.84" cy="339.41" r="7.4" class="gen-i"/>
+<circle cx="76.72" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="237.97" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="318.59" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="372.34" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="412.66" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="479.84" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="641.09" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="815.78" cy="385.29" r="7.4" class="gen-i"/>
+<circle cx="882.97" cy="385.29" r="7.4" class="gen-i"/>
+<rect x="125.36" y="425.21" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="291.72" cy="431.18" r="7.4" class="gen-i"/>
+<rect x="340.36" y="425.21" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="412.66" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="493.28" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="533.59" cy="431.18" r="7.4" class="gen-i"/>
+<rect x="595.67" y="425.21" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="667.97" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="694.84" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="735.16" cy="431.18" r="7.4" class="gen-i"/>
+<circle cx="815.78" cy="431.18" r="7.4" class="gen-i"/>
+<rect x="864.42" y="425.21" width="23.65" height="11.93" class="gen-i"/>
+<rect x="85.05" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<rect x="152.24" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="197.66" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="224.53" cy="477.06" r="7.4" class="gen-i"/>
+<rect x="246.3" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="305.16" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="332.03" cy="477.06" r="7.4" class="gen-i"/>
+<rect x="434.42" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="493.28" cy="477.06" r="7.4" class="gen-i"/>
+<rect x="568.8" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="667.97" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="694.84" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="721.72" cy="477.06" r="7.4" class="gen-i"/>
+<rect x="756.92" y="471.09" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="802.34" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="869.53" cy="477.06" r="7.4" class="gen-i"/>
+<circle cx="90.16" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="130.47" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="291.72" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="332.03" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="735.16" cy="522.94" r="7.4" class="gen-i"/>
+<circle cx="762.03" cy="522.94" r="7.4" class="gen-i"/>
+<rect x="797.24" y="516.98" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="117.03" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="143.91" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="184.22" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="237.97" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="318.59" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="452.97" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="547.03" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="573.91" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="654.53" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="681.41" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="748.59" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="815.78" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="882.97" cy="568.82" r="7.4" class="gen-i"/>
+<circle cx="103.59" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="237.97" cy="614.71" r="7.4" class="gen-i"/>
+<rect x="367.24" y="608.74" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="412.66" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="479.84" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="520.16" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="547.03" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="614.71" r="7.4" class="gen-i"/>
+<rect x="635.99" y="608.74" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="748.59" cy="614.71" r="7.4" class="gen-i"/>
+<rect x="770.36" y="608.74" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="856.09" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="923.28" cy="614.71" r="7.4" class="gen-i"/>
+<circle cx="76.72" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="157.34" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="660.59" r="7.4" class="gen-i"/>
+<rect x="394.11" y="654.62" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="479.84" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="614.22" cy="660.59" r="7.4" class="gen-i"/>
+<rect x="676.3" y="654.62" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="802.34" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="896.41" cy="660.59" r="7.4" class="gen-i"/>
+<circle cx="90.16" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="111.93" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<rect x="152.24" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="197.66" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="286.61" y="700.51" width="50.53" height="11.93" class="gen-a"/>
+<rect x="353.8" y="700.51" width="37.09" height="11.93" class="gen-i"/>
+<circle cx="439.53" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="488.17" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="560.47" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="582.24" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="667.97" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="716.61" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<rect x="756.92" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="842.66" cy="706.47" r="7.4" class="gen-i"/>
+<rect x="891.3" y="700.51" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="90.16" cy="752.35" r="7.4" class="gen-i"/>
+<rect x="125.36" y="746.39" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="224.53" cy="752.35" r="7.4" class="gen-i"/>
+<rect x="259.74" y="746.39" width="37.09" height="11.93" class="gen-i"/>
+<rect x="541.92" y="746.39" width="23.65" height="11.93" class="gen-i"/>
+<rect x="595.67" y="746.39" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="748.59" cy="752.35" r="7.4" class="gen-i"/>
+<rect x="877.86" y="746.39" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="76.72" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="117.03" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="278.28" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="372.34" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="452.97" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="654.53" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="681.41" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="882.97" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="923.28" cy="798.24" r="7.4" class="gen-i"/>
+<circle cx="103.59" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="170.78" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="211.09" cy="844.12" r="7.4" class="gen-i"/>
+<rect x="232.86" y="838.15" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="385.78" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="412.66" cy="844.12" r="7.4" class="gen-i"/>
+<rect x="434.42" y="838.15" width="23.65" height="11.93" class="gen-i"/>
+<rect x="501.61" y="838.15" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="681.41" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="708.28" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="788.91" cy="844.12" r="7.4" class="gen-i"/>
+<circle cx="842.66" cy="844.12" r="7.4" class="gen-i"/>
+<rect x="904.74" y="838.15" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="90.16" cy="890" r="7.4" class="gen-i"/>
+<rect x="138.8" y="884.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="224.53" cy="890" r="7.4" class="gen-i"/>
+<circle cx="264.84" cy="890" r="7.4" class="gen-i"/>
+<rect x="340.36" y="884.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="426.09" cy="890" r="7.4" class="gen-i"/>
+<circle cx="533.59" cy="890" r="7.4" class="gen-i"/>
+<circle cx="560.47" cy="890" r="7.4" class="gen-i"/>
+<rect x="595.67" y="884.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="667.97" cy="890" r="7.4" class="gen-i"/>
+<rect x="743.49" y="884.04" width="23.65" height="11.93" class="gen-i"/>
+<circle cx="802.34" cy="890" r="7.4" class="gen-i"/>
+<circle cx="869.53" cy="890" r="7.4" class="gen-i"/>
+</g>
+</g></g>
+<rect x="69.25" y="91.65" width="1.5" height="816.71" class="gen-i" fill-opacity="0.18"/>
+<rect x="176.75" y="91.65" width="1.5" height="816.71" class="gen-i" fill-opacity="0.18"/>
+<rect x="284.25" y="91.65" width="1.5" height="816.71" class="gen-i" fill-opacity="0.18"/>
+<rect x="391.75" y="91.65" width="1.5" height="816.71" class="gen-i" fill-opacity="0.18"/>
+<rect x="499.25" y="91.65" width="1.5" height="816.71" class="gen-i" fill-opacity="0.18"/>
+<rect x="606.75" y="91.65" width="1.5" height="816.71" class="gen-i" fill-opacity="0.18"/>
+<rect x="714.25" y="91.65" width="1.5" height="816.71" class="gen-i" fill-opacity="0.18"/>
+<rect x="821.75" y="91.65" width="1.5" height="816.71" class="gen-i" fill-opacity="0.18"/>
+<rect x="929.25" y="91.65" width="1.5" height="816.71" class="gen-i" fill-opacity="0.18"/>
+</svg>

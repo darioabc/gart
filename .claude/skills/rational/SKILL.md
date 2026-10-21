@@ -84,10 +84,19 @@ the piece, and `@media (prefers-reduced-motion:reduce){.<name>-m{animation:none}
 which leaves the still frame. Classes, not inline styles, so that rule can win.
 Inline in a page the `<style>` applies document-wide, hence the prefixes.
 
+Mind the pixel grid. A hairline thinner than a CSS pixel that drifts slowly flips
+between a crisp line and a two-row smear each time it crosses a pixel, so a field of
+them flickers on 1x screens (Stripes at hero size: 0.6 px bands, about 4 Hz).
+`hiDpi = true` on a Motion keeps it still below 1.5 dppx; `scroll()` sets it. Turns,
+fades and breathing do not have the problem.
+
 Pace it for a background: Orbit's rings move 6 to 14 units a second along the ring
 (a turn takes 30 s to 7 min), neighbours in opposite directions; Stripes scroll 10
-units a second. Today Orbit 01 and 03 (not the quarter, which turning would empty)
-and Stripes 01 and 02 have motion. gart can also record frames to MP4 or GIF
+units a second. Today Orbit 01 and 03 (not the quarter, which turning would empty),
+Stripes 01 and 02, Score (marks scroll along their lines), Arcs (prime tiles turn a
+quarter at a time; `Turn`), Rhombs (lozenges breathe; `Breathe`) and Halftone 03 (a
+wave of light from the centre; `Fade`) have motion. The folio uses only the hero's
+Orbit 01 and Stripes 01 so far. gart can also record frames to MP4 or GIF
 (`Movie.kt`, `video/`), but a video cannot take the page's colours, so the web uses
 the SVG.
 
