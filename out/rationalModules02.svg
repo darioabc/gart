@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<defs>
+<filter id="rationalModules02-t86h4f55s910" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="910" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+</defs>
+<path d="M161.2 161.2L90 161.2A71.2 71.2 0 0 1 161.2 90Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M244.4 90L244.4 125.6A35.6 35.6 0 0 1 208.8 90Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M173.2 161.2L173.2 125.6A35.6 35.6 0 0 1 208.8 161.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M256.4 90L327.6 90A71.2 71.2 0 0 1 256.4 161.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M410.8 90L410.8 161.2A71.2 71.2 0 0 1 339.6 90Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M422.8 90L458.4 90A35.6 35.6 0 0 1 422.8 125.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M494 161.2L458.4 161.2A35.6 35.6 0 0 1 494 125.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M506 161.2L506 90A71.2 71.2 0 0 1 577.2 161.2Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M743.6 125.6L743.6 161.2A35.6 35.6 0 0 1 743.6 90Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="791.2" cy="125.6" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M838.8 90L910 90A71.2 71.2 0 0 1 838.8 161.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="125.6" cy="208.8" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M173.2 208.8L173.2 173.2A35.6 35.6 0 0 1 173.2 244.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M327.6 244.4L256.4 244.4A71.2 71.2 0 0 1 327.6 173.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M339.6 244.4L339.6 173.2A71.2 71.2 0 0 1 410.8 244.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M494 208.8L494 244.4A35.6 35.6 0 0 1 494 173.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M506 208.8L506 173.2A35.6 35.6 0 0 1 506 244.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M743.6 208.8L743.6 244.4A35.6 35.6 0 0 1 743.6 173.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M755.6 208.8L755.6 173.2A35.6 35.6 0 0 1 755.6 244.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M910 244.4L838.8 244.4A71.2 71.2 0 0 1 910 173.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M125.6 256.4L161.2 256.4A35.6 35.6 0 0 1 90 256.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M173.2 256.4L244.4 256.4A71.2 71.2 0 0 1 173.2 327.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M327.6 292L327.6 327.6A35.6 35.6 0 0 1 327.6 256.4Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="375.2" cy="292" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M494 256.4L494 292A35.6 35.6 0 0 1 458.4 256.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M422.8 327.6L422.8 292A35.6 35.6 0 0 1 458.4 327.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M506 256.4L577.2 256.4A71.2 71.2 0 0 1 506 327.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M743.6 292L743.6 327.6A35.6 35.6 0 0 1 743.6 256.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="791.2" cy="292" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M910 256.4L910 292A35.6 35.6 0 0 1 874.4 256.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M838.8 327.6L838.8 292A35.6 35.6 0 0 1 874.4 327.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M161.2 410.8L90 410.8A71.2 71.2 0 0 1 161.2 339.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M208.8 410.8L173.2 410.8A35.6 35.6 0 0 1 244.4 410.8Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M327.6 339.6L327.6 375.2A35.6 35.6 0 0 1 292 339.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M256.4 410.8L256.4 375.2A35.6 35.6 0 0 1 292 410.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="375.2" cy="375.2" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="458.4" cy="375.2" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M506 410.8L506 339.6A71.2 71.2 0 0 1 577.2 410.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M660.4 410.8L589.2 410.8A71.2 71.2 0 0 1 660.4 339.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M743.6 339.6L743.6 375.2A35.6 35.6 0 0 1 708 339.6Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M672.4 410.8L672.4 375.2A35.6 35.6 0 0 1 708 410.8Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M791.2 339.6L826.8 339.6A35.6 35.6 0 0 1 755.6 339.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M838.8 339.6L874.4 339.6A35.6 35.6 0 0 1 838.8 375.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M910 410.8L874.4 410.8A35.6 35.6 0 0 1 910 375.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M161.2 422.8L161.2 494A71.2 71.2 0 0 1 90 422.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="208.8" cy="458.4" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="292" cy="458.4" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M410.8 422.8L410.8 458.4A35.6 35.6 0 0 1 375.2 422.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M339.6 494L339.6 458.4A35.6 35.6 0 0 1 375.2 494Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M458.4 422.8L494 422.8A35.6 35.6 0 0 1 422.8 422.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M506 422.8L577.2 422.8A71.2 71.2 0 0 1 506 494Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M660.4 458.4L660.4 494A35.6 35.6 0 0 1 660.4 422.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="708" cy="458.4" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M791.2 494L755.6 494A35.6 35.6 0 0 1 826.8 494Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M910 422.8L910 458.4A35.6 35.6 0 0 1 874.4 422.8Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M838.8 494L838.8 458.4A35.6 35.6 0 0 1 874.4 494Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M125.6 577.2L90 577.2A35.6 35.6 0 0 1 161.2 577.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M244.4 506L244.4 541.6A35.6 35.6 0 0 1 208.8 506Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M173.2 577.2L173.2 541.6A35.6 35.6 0 0 1 208.8 577.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="292" cy="541.6" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M339.6 541.6L339.6 506A35.6 35.6 0 0 1 339.6 577.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M494 577.2L422.8 577.2A71.2 71.2 0 0 1 494 506Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M541.6 577.2L506 577.2A35.6 35.6 0 0 1 577.2 577.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M660.4 506L660.4 541.6A35.6 35.6 0 0 1 624.8 506Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M589.2 577.2L589.2 541.6A35.6 35.6 0 0 1 624.8 577.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="708" cy="541.6" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="791.2" cy="541.6" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M838.8 506L874.4 506A35.6 35.6 0 0 1 838.8 541.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M910 577.2L874.4 577.2A35.6 35.6 0 0 1 910 541.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M125.6 589.2L161.2 589.2A35.6 35.6 0 0 1 90 589.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M173.2 589.2L244.4 589.2A71.2 71.2 0 0 1 173.2 660.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M327.6 589.2L327.6 660.4A71.2 71.2 0 0 1 256.4 589.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M339.6 589.2L410.8 589.2A71.2 71.2 0 0 1 339.6 660.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M494 624.8L494 660.4A35.6 35.6 0 0 1 494 589.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="541.6" cy="624.8" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M589.2 589.2L660.4 589.2A71.2 71.2 0 0 1 589.2 660.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M743.6 624.8L743.6 660.4A35.6 35.6 0 0 1 743.6 589.2Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M755.6 624.8L755.6 589.2A35.6 35.6 0 0 1 755.6 660.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M910 624.8L910 660.4A35.6 35.6 0 0 1 910 589.2Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M327.6 743.6L256.4 743.6A71.2 71.2 0 0 1 327.6 672.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M375.2 743.6L339.6 743.6A35.6 35.6 0 0 1 410.8 743.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M494 672.4L494 708A35.6 35.6 0 0 1 458.4 672.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M422.8 743.6L422.8 708A35.6 35.6 0 0 1 458.4 743.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M506 672.4L577.2 672.4A71.2 71.2 0 0 1 506 743.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M660.4 743.6L589.2 743.6A71.2 71.2 0 0 1 660.4 672.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="708" cy="708" r="35.6" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="791.2" cy="708" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M910 672.4L910 708A35.6 35.6 0 0 1 874.4 672.4Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M838.8 743.6L838.8 708A35.6 35.6 0 0 1 874.4 743.6Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M125.6 826.8L90 826.8A35.6 35.6 0 0 1 161.2 826.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M208.8 826.8L173.2 826.8A35.6 35.6 0 0 1 244.4 826.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M327.6 755.6L327.6 791.2A35.6 35.6 0 0 1 292 755.6Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M256.4 826.8L256.4 791.2A35.6 35.6 0 0 1 292 826.8Z" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="375.2" cy="791.2" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="458.4" cy="791.2" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M541.6 826.8L506 826.8A35.6 35.6 0 0 1 577.2 826.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="624.8" cy="791.2" r="35.6" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="708" cy="791.2" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="791.2" cy="791.2" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="874.4" cy="791.2" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M125.6 838.8L161.2 838.8A35.6 35.6 0 0 1 90 838.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="208.8" cy="874.4" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M256.4 874.4L256.4 838.8A35.6 35.6 0 0 1 256.4 910Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M410.8 874.4L410.8 910A35.6 35.6 0 0 1 410.8 838.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="458.4" cy="874.4" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<path d="M541.6 838.8L577.2 838.8A35.6 35.6 0 0 1 506 838.8Z" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="624.8" cy="874.4" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="708" cy="874.4" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="791.2" cy="874.4" r="35.6" class="gen-i" filter="url(#rationalModules02-t86h4f55s910)"/>
+<circle cx="874.4" cy="874.4" r="35.6" class="gen-a" filter="url(#rationalModules02-t86h4f55s910)"/>
+</svg>

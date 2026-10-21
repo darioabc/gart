@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<defs>
+<filter id="rationalRhombs01-t86h4f55s954" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="954" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalRhombs01-t86h4f55s955" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="955" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+</defs>
+<path d="M60 500L295 216L530 500L295 784Z" class="gen-i" fill-opacity="0.2" filter="url(#rationalRhombs01-t86h4f55s954)"/>
+<path d="M470 500L705 172L940 500L705 828Z" class="gen-i" fill-opacity="0.42" filter="url(#rationalRhombs01-t86h4f55s955)"/>
+<rect x="90" y="498.5" width="820" height="3" class="gen-i" fill-opacity="0.6"/>
+<rect x="170" y="486" width="4" height="28" class="gen-i"/>
+<rect x="334" y="486" width="4" height="28" class="gen-i"/>
+<rect x="436.5" y="486" width="4" height="28" class="gen-i"/>
+<rect x="477.5" y="486" width="4" height="28" class="gen-i"/>
+<rect x="539" y="486" width="4" height="28" class="gen-i"/>
+<rect x="641.5" y="486" width="4" height="28" class="gen-i"/>
+<rect x="662" y="486" width="4" height="28" class="gen-i"/>
+<rect x="682.5" y="486" width="4" height="28" class="gen-i"/>
+<rect x="785" y="486" width="4" height="28" class="gen-i"/>
+<rect x="846.5" y="486" width="4" height="28" class="gen-i"/>
+<rect x="867" y="486" width="4" height="28" class="gen-i"/>
+<rect x="476" y="476" width="48" height="48" class="gen-a"/>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<rect x="119.2" y="177.41" width="1.6" height="44.01" class="gen-i" fill-opacity="0.45"/>
+<rect x="120" y="220.63" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="119.2" y="288.84" width="1.6" height="44.01" class="gen-i" fill-opacity="0.45"/>
+<rect x="120" y="332.06" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="183.2" y="344.56" width="1.6" height="489.73" class="gen-i" fill-opacity="0.45"/>
+<rect x="184" y="387.77" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="184" y="833.49" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="247.2" y="400.27" width="1.6" height="378.3" class="gen-i" fill-opacity="0.45"/>
+<rect x="248" y="443.49" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="248" y="499.2" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="248" y="610.63" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="248" y="666.34" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="248" y="722.06" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="248" y="777.77" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="311.2" y="511.7" width="1.6" height="44.01" class="gen-i" fill-opacity="0.45"/>
+<rect x="312" y="554.91" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<rect x="247.2" y="845.99" width="1.6" height="44.01" class="gen-i" fill-opacity="0.45"/>
+<rect x="248" y="889.2" width="44.3" height="1.6" class="gen-i" fill-opacity="0.45"/>
+<circle cx="120" cy="110" r="9.36" class="gen-i"/>
+<rect x="145.7" y="103.87" width="378" height="12.26" class="gen-i"/>
+<rect x="108.3" y="154.01" width="23.4" height="23.4" class="gen-i"/>
+<rect x="145.7" y="159.59" width="530" height="12.26" class="gen-i"/>
+<circle cx="184" cy="221.43" r="9.36" class="gen-i"/>
+<rect x="209.7" y="215.3" width="416" height="12.26" class="gen-i"/>
+<rect x="108.3" y="265.44" width="23.4" height="23.4" class="gen-i"/>
+<rect x="145.7" y="271.01" width="454" height="12.26" class="gen-i"/>
+<rect x="172.3" y="321.16" width="23.4" height="23.4" class="gen-i"/>
+<rect x="209.7" y="326.73" width="226" height="12.26" class="gen-i"/>
+<rect x="236.3" y="376.87" width="23.4" height="23.4" class="gen-i"/>
+<rect x="273.7" y="382.44" width="150" height="12.26" class="gen-i"/>
+<circle cx="312" cy="444.29" r="9.36" class="gen-i"/>
+<rect x="337.7" y="438.16" width="226" height="12.26" class="gen-i"/>
+<rect x="300.3" y="488.3" width="23.4" height="23.4" class="gen-i"/>
+<rect x="337.7" y="493.87" width="454" height="12.26" class="gen-i"/>
+<circle cx="376" cy="555.71" r="9.36" class="gen-a"/>
+<rect x="401.7" y="549.59" width="416" height="12.26" class="gen-a"/>
+<circle cx="312" cy="611.43" r="9.36" class="gen-i"/>
+<rect x="337.7" y="605.3" width="530" height="12.26" class="gen-i"/>
+<circle cx="312" cy="667.14" r="9.36" class="gen-i"/>
+<rect x="337.7" y="661.01" width="378" height="12.26" class="gen-i"/>
+<circle cx="312" cy="722.86" r="9.36" class="gen-i"/>
+<rect x="337.7" y="716.73" width="378" height="12.26" class="gen-i"/>
+<circle cx="312" cy="778.57" r="9.36" class="gen-i"/>
+<rect x="337.7" y="772.44" width="530" height="12.26" class="gen-i"/>
+<rect x="236.3" y="822.59" width="23.4" height="23.4" class="gen-i"/>
+<rect x="273.7" y="828.16" width="416" height="12.26" class="gen-i"/>
+<circle cx="312" cy="890" r="9.36" class="gen-i"/>
+<rect x="337.7" y="883.87" width="454" height="12.26" class="gen-i"/>
+</svg>

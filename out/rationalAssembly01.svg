@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<path d="M171.33 103L282 103A110.67 110.67 0 0 1 171.33 213.67Z" class="gen-i"/>
+<path d="M350.33 350.33L308 350.33A42.33 42.33 0 0 1 350.33 308Z" class="gen-i"/>
+<path d="M376.33 103L418.67 103A42.33 42.33 0 0 1 376.33 145.33Z" class="gen-i"/>
+<path d="M555.33 213.67L513 213.67A42.33 42.33 0 0 1 555.33 171.33Z" class="gen-i"/>
+<path d="M555.33 350.33L444.67 350.33A110.67 110.67 0 0 1 555.33 239.67Z" class="gen-i"/>
+<path d="M213.67 487L103 487A110.67 110.67 0 0 1 213.67 376.33Z" class="gen-i"/>
+<path d="M103 513L213.67 513A110.67 110.67 0 0 1 103 623.67Z" class="gen-i"/>
+<path d="M145.33 897L103 897A42.33 42.33 0 0 1 145.33 854.67Z" class="gen-i"/>
+<path d="M171.33 718L213.67 718A42.33 42.33 0 0 1 171.33 760.33Z" class="gen-i"/>
+<path d="M555.33 623.67L308 623.67A247.33 247.33 0 0 1 555.33 376.33Z" class="gen-a"/>
+<path d="M239.67 760.33L239.67 649.67A110.67 110.67 0 0 1 350.33 760.33Z" class="gen-i"/>
+<path d="M308 897L308 786.33A110.67 110.67 0 0 1 418.67 897Z" class="gen-i"/>
+<path d="M623.67 103L623.67 145.33A42.33 42.33 0 0 1 581.33 103Z" class="gen-i"/>
+<path d="M581.33 350.33L581.33 239.67A110.67 110.67 0 0 1 692 350.33Z" class="gen-i"/>
+<path d="M718 145.33L718 103A42.33 42.33 0 0 1 760.33 145.33Z" class="gen-i"/>
+<path d="M718 282L718 171.33A110.67 110.67 0 0 1 828.67 282Z" class="gen-i"/>
+<rect x="565.33" y="87" width="6" height="826" class="gen-i"/>
+<rect x="87" y="360.33" width="484.33" height="6" class="gen-i"/>
+<rect x="360.33" y="87" width="6" height="279.33" class="gen-i"/>
+<rect x="292" y="87" width="6" height="279.33" class="gen-i"/>
+<rect x="155.33" y="87" width="6" height="279.33" class="gen-i"/>
+<rect x="292" y="155.33" width="74.33" height="6" class="gen-i"/>
+<rect x="360.33" y="155.33" width="211" height="6" class="gen-i"/>
+<rect x="428.67" y="87" width="6" height="74.33" class="gen-i"/>
+<rect x="360.33" y="223.67" width="211" height="6" class="gen-i"/>
+<rect x="223.67" y="360.33" width="6" height="552.67" class="gen-i"/>
+<rect x="87" y="702" width="142.67" height="6" class="gen-i"/>
+<rect x="87" y="497" width="142.67" height="6" class="gen-i"/>
+<rect x="155.33" y="702" width="6" height="211" class="gen-i"/>
+<rect x="223.67" y="770.33" width="347.67" height="6" class="gen-i"/>
+<rect x="223.67" y="633.67" width="347.67" height="6" class="gen-i"/>
+<rect x="292" y="770.33" width="6" height="142.67" class="gen-i"/>
+<rect x="565.33" y="360.33" width="347.67" height="6" class="gen-i"/>
+<rect x="702" y="87" width="6" height="279.33" class="gen-i"/>
+<rect x="565.33" y="155.33" width="142.67" height="6" class="gen-i"/>
+<rect x="633.67" y="87" width="6" height="74.33" class="gen-i"/>
+<rect x="565.33" y="223.67" width="142.67" height="6" class="gen-i"/>
+<rect x="702" y="292" width="211" height="6" class="gen-i"/>
+<rect x="702" y="155.33" width="211" height="6" class="gen-i"/>
+<rect x="838.67" y="292" width="6" height="74.33" class="gen-i"/>
+<rect x="770.33" y="360.33" width="6" height="552.67" class="gen-i"/>
+<rect x="565.33" y="633.67" width="211" height="6" class="gen-i"/>
+<rect x="633.67" y="360.33" width="6" height="279.33" class="gen-i"/>
+<rect x="565.33" y="702" width="211" height="6" class="gen-i"/>
+<rect x="770.33" y="702" width="142.67" height="6" class="gen-i"/>
+<rect x="770.33" y="565.33" width="142.67" height="6" class="gen-i"/>
+<rect x="770.33" y="770.33" width="142.67" height="6" class="gen-i"/>
+<rect x="87" y="87" width="826" height="6" class="gen-i"/>
+<rect x="87" y="907" width="826" height="6" class="gen-i"/>
+<rect x="87" y="87" width="6" height="826" class="gen-i"/>
+<rect x="907" y="87" width="6" height="826" class="gen-i"/>
+</svg>

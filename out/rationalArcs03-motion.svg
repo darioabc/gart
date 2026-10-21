@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}@keyframes rationalArcs03-turn{0%,40%{transform:rotate(0)}50%,90%{transform:rotate(90deg)}to{transform:rotate(180deg)}}.rationalArcs03-m0{transform-box:view-box;transform-origin:295px 158.33px;animation:rationalArcs03-turn 14s ease-in-out -13.6s infinite}.rationalArcs03-m1{transform-box:view-box;transform-origin:158.33px 295px;animation:rationalArcs03-turn 14s ease-in-out -13.6s infinite}.rationalArcs03-m2{transform-box:view-box;transform-origin:431.67px 431.67px;animation:rationalArcs03-turn 14s ease-in-out -12.4s infinite}.rationalArcs03-m3{transform-box:view-box;transform-origin:705px 431.67px;animation:rationalArcs03-turn 14s ease-in-out -11.6s infinite}.rationalArcs03-m4{transform-box:view-box;transform-origin:841.67px 431.67px;animation:rationalArcs03-turn 14s ease-in-out -11.2s infinite}.rationalArcs03-m5{transform-box:view-box;transform-origin:295px 568.33px;animation:rationalArcs03-turn 14s ease-in-out -12.4s infinite}.rationalArcs03-m6{transform-box:view-box;transform-origin:431.67px 568.33px;animation:rationalArcs03-turn 14s ease-in-out -12s infinite}.rationalArcs03-m7{transform-box:view-box;transform-origin:568.33px 568.33px;animation:rationalArcs03-turn 14s ease-in-out -11.6s infinite}.rationalArcs03-m8{transform-box:view-box;transform-origin:158.33px 705px;animation:rationalArcs03-turn 14s ease-in-out -12.4s infinite}.rationalArcs03-m9{transform-box:view-box;transform-origin:431.67px 841.67px;animation:rationalArcs03-turn 14s ease-in-out -11.2s infinite}@media (prefers-reduced-motion:reduce){.rationalArcs03-m{animation:none}}</style>
+<defs>
+<filter id="rationalArcs03-t58h14f32s258" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="258" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -6.66" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalArcs03-t92h14f32s258" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="258" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -5.24" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+</defs>
+<path d="M185.67 90A95.67 95.67 0 0 1 90 185.67L90 131A41 41 0 0 0 131 90Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M131 226.67A95.67 95.67 0 0 1 226.67 131L226.67 185.67A41 41 0 0 0 185.67 226.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<g class="rationalArcs03-m rationalArcs03-m0">
+<path d="M363.33 185.67A95.67 95.67 0 0 1 267.67 90L322.33 90A41 41 0 0 0 363.33 131Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M226.67 131A95.67 95.67 0 0 1 322.33 226.67L267.67 226.67A41 41 0 0 0 226.67 185.67Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<path d="M459 90A95.67 95.67 0 0 1 363.33 185.67L363.33 131A41 41 0 0 0 404.33 90Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M404.33 226.67A95.67 95.67 0 0 1 500 131L500 185.67A41 41 0 0 0 459 226.67Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M595.67 90A95.67 95.67 0 0 1 500 185.67L500 131A41 41 0 0 0 541 90Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M541 226.67A95.67 95.67 0 0 1 636.67 131L636.67 185.67A41 41 0 0 0 595.67 226.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M732.33 90A95.67 95.67 0 0 1 636.67 185.67L636.67 131A41 41 0 0 0 677.67 90Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M677.67 226.67A95.67 95.67 0 0 1 773.33 131L773.33 185.67A41 41 0 0 0 732.33 226.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M869 90A95.67 95.67 0 0 1 773.33 185.67L773.33 131A41 41 0 0 0 814.33 90Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M814.33 226.67A95.67 95.67 0 0 1 910 131L910 185.67A41 41 0 0 0 869 226.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<g class="rationalArcs03-m rationalArcs03-m1">
+<path d="M226.67 322.33A95.67 95.67 0 0 1 131 226.67L185.67 226.67A41 41 0 0 0 226.67 267.67Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M90 267.67A95.67 95.67 0 0 1 185.67 363.33L131 363.33A41 41 0 0 0 90 322.33Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<path d="M363.33 322.33A95.67 95.67 0 0 1 267.67 226.67L322.33 226.67A41 41 0 0 0 363.33 267.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M226.67 267.67A95.67 95.67 0 0 1 322.33 363.33L267.67 363.33A41 41 0 0 0 226.67 322.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M459 226.67A95.67 95.67 0 0 1 363.33 322.33L363.33 267.67A41 41 0 0 0 404.33 226.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M404.33 363.33A95.67 95.67 0 0 1 500 267.67L500 322.33A41 41 0 0 0 459 363.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M636.67 322.33A95.67 95.67 0 0 1 541 226.67L595.67 226.67A41 41 0 0 0 636.67 267.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M500 267.67A95.67 95.67 0 0 1 595.67 363.33L541 363.33A41 41 0 0 0 500 322.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M773.33 322.33A95.67 95.67 0 0 1 677.67 226.67L732.33 226.67A41 41 0 0 0 773.33 267.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M636.67 267.67A95.67 95.67 0 0 1 732.33 363.33L677.67 363.33A41 41 0 0 0 636.67 322.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M869 226.67A95.67 95.67 0 0 1 773.33 322.33L773.33 267.67A41 41 0 0 0 814.33 226.67Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M814.33 363.33A95.67 95.67 0 0 1 910 267.67L910 322.33A41 41 0 0 0 869 363.33Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M226.67 459A95.67 95.67 0 0 1 131 363.33L185.67 363.33A41 41 0 0 0 226.67 404.33Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M90 404.33A95.67 95.67 0 0 1 185.67 500L131 500A41 41 0 0 0 90 459Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M363.33 459A95.67 95.67 0 0 1 267.67 363.33L322.33 363.33A41 41 0 0 0 363.33 404.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M226.67 404.33A95.67 95.67 0 0 1 322.33 500L267.67 500A41 41 0 0 0 226.67 459Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<g class="rationalArcs03-m rationalArcs03-m2">
+<path d="M459 363.33A95.67 95.67 0 0 1 363.33 459L363.33 404.33A41 41 0 0 0 404.33 363.33Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M404.33 500A95.67 95.67 0 0 1 500 404.33L500 459A41 41 0 0 0 459 500Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<path d="M595.67 363.33A95.67 95.67 0 0 1 500 459L500 404.33A41 41 0 0 0 541 363.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M541 500A95.67 95.67 0 0 1 636.67 404.33L636.67 459A41 41 0 0 0 595.67 500Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<g class="rationalArcs03-m rationalArcs03-m3">
+<path d="M773.33 459A95.67 95.67 0 0 1 677.67 363.33L732.33 363.33A41 41 0 0 0 773.33 404.33Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M636.67 404.33A95.67 95.67 0 0 1 732.33 500L677.67 500A41 41 0 0 0 636.67 459Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<g class="rationalArcs03-m rationalArcs03-m4">
+<path d="M869 363.33A95.67 95.67 0 0 1 773.33 459L773.33 404.33A41 41 0 0 0 814.33 363.33Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M814.33 500A95.67 95.67 0 0 1 910 404.33L910 459A41 41 0 0 0 869 500Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<path d="M185.67 500A95.67 95.67 0 0 1 90 595.67L90 541A41 41 0 0 0 131 500Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M131 636.67A95.67 95.67 0 0 1 226.67 541L226.67 595.67A41 41 0 0 0 185.67 636.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<g class="rationalArcs03-m rationalArcs03-m5">
+<path d="M363.33 595.67A95.67 95.67 0 0 1 267.67 500L322.33 500A41 41 0 0 0 363.33 541Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M226.67 541A95.67 95.67 0 0 1 322.33 636.67L267.67 636.67A41 41 0 0 0 226.67 595.67Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<g class="rationalArcs03-m rationalArcs03-m6">
+<path d="M500 595.67A95.67 95.67 0 0 1 404.33 500L459 500A41 41 0 0 0 500 541Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M363.33 541A95.67 95.67 0 0 1 459 636.67L404.33 636.67A41 41 0 0 0 363.33 595.67Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<g class="rationalArcs03-m rationalArcs03-m7">
+<path d="M636.67 595.67A95.67 95.67 0 0 1 541 500L595.67 500A41 41 0 0 0 636.67 541Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M500 541A95.67 95.67 0 0 1 595.67 636.67L541 636.67A41 41 0 0 0 500 595.67Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<path d="M732.33 500A95.67 95.67 0 0 1 636.67 595.67L636.67 541A41 41 0 0 0 677.67 500Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M677.67 636.67A95.67 95.67 0 0 1 773.33 541L773.33 595.67A41 41 0 0 0 732.33 636.67Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M869 500A95.67 95.67 0 0 1 773.33 595.67L773.33 541A41 41 0 0 0 814.33 500Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M814.33 636.67A95.67 95.67 0 0 1 910 541L910 595.67A41 41 0 0 0 869 636.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<g class="rationalArcs03-m rationalArcs03-m8">
+<path d="M226.67 732.33A95.67 95.67 0 0 1 131 636.67L185.67 636.67A41 41 0 0 0 226.67 677.67Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M90 677.67A95.67 95.67 0 0 1 185.67 773.33L131 773.33A41 41 0 0 0 90 732.33Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<path d="M363.33 732.33A95.67 95.67 0 0 1 267.67 636.67L322.33 636.67A41 41 0 0 0 363.33 677.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M226.67 677.67A95.67 95.67 0 0 1 322.33 773.33L267.67 773.33A41 41 0 0 0 226.67 732.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M459 636.67A95.67 95.67 0 0 1 363.33 732.33L363.33 677.67A41 41 0 0 0 404.33 636.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M404.33 773.33A95.67 95.67 0 0 1 500 677.67L500 732.33A41 41 0 0 0 459 773.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M595.67 636.67A95.67 95.67 0 0 1 500 732.33L500 677.67A41 41 0 0 0 541 636.67Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M541 773.33A95.67 95.67 0 0 1 636.67 677.67L636.67 732.33A41 41 0 0 0 595.67 773.33Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M732.33 636.67A95.67 95.67 0 0 1 636.67 732.33L636.67 677.67A41 41 0 0 0 677.67 636.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M677.67 773.33A95.67 95.67 0 0 1 773.33 677.67L773.33 732.33A41 41 0 0 0 732.33 773.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M910 732.33A95.67 95.67 0 0 1 814.33 636.67L869 636.67A41 41 0 0 0 910 677.67Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M773.33 677.67A95.67 95.67 0 0 1 869 773.33L814.33 773.33A41 41 0 0 0 773.33 732.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M185.67 773.33A95.67 95.67 0 0 1 90 869L90 814.33A41 41 0 0 0 131 773.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M131 910A95.67 95.67 0 0 1 226.67 814.33L226.67 869A41 41 0 0 0 185.67 910Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M322.33 773.33A95.67 95.67 0 0 1 226.67 869L226.67 814.33A41 41 0 0 0 267.67 773.33Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M267.67 910A95.67 95.67 0 0 1 363.33 814.33L363.33 869A41 41 0 0 0 322.33 910Z" class="gen-a" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<g class="rationalArcs03-m rationalArcs03-m9">
+<path d="M500 869A95.67 95.67 0 0 1 404.33 773.33L459 773.33A41 41 0 0 0 500 814.33Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+<path d="M363.33 814.33A95.67 95.67 0 0 1 459 910L404.33 910A41 41 0 0 0 363.33 869Z" class="gen-i" filter="url(#rationalArcs03-t92h14f32s258)"/>
+</g>
+<path d="M595.67 773.33A95.67 95.67 0 0 1 500 869L500 814.33A41 41 0 0 0 541 773.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M541 910A95.67 95.67 0 0 1 636.67 814.33L636.67 869A41 41 0 0 0 595.67 910Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M732.33 773.33A95.67 95.67 0 0 1 636.67 869L636.67 814.33A41 41 0 0 0 677.67 773.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M677.67 910A95.67 95.67 0 0 1 773.33 814.33L773.33 869A41 41 0 0 0 732.33 910Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M869 773.33A95.67 95.67 0 0 1 773.33 869L773.33 814.33A41 41 0 0 0 814.33 773.33Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+<path d="M814.33 910A95.67 95.67 0 0 1 910 814.33L910 869A41 41 0 0 0 869 910Z" class="gen-i" filter="url(#rationalArcs03-t58h14f32s258)"/>
+</svg>

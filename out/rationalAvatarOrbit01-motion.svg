@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}@keyframes rationalAvatarOrbit01-spin{to{transform:rotate(360deg)}}.rationalAvatarOrbit01-m0{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit01-spin 6s linear infinite}.rationalAvatarOrbit01-m1{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit01-spin 11.95s linear infinite reverse}.rationalAvatarOrbit01-m2{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit01-spin 19.14s linear infinite}.rationalAvatarOrbit01-m3{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit01-spin 27.36s linear infinite reverse}@media (prefers-reduced-motion:reduce){.rationalAvatarOrbit01-m{animation:none}}</style>
+<circle cx="500" cy="500" r="64" class="gen-a"/>
+<path d="M670 500A170 170 0 1 1 330 500A170 170 0 1 1 670 500ZM650 500A150 150 0 1 1 350 500A150 150 0 1 1 650 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalAvatarOrbit01-m rationalAvatarOrbit01-m0">
+<circle cx="356.89" cy="571.55" r="38" class="gen-i"/>
+<circle cx="356.89" cy="428.45" r="38" class="gen-i"/>
+<circle cx="428.45" cy="643.11" r="38" class="gen-i"/>
+<circle cx="428.45" cy="356.89" r="38" class="gen-i"/>
+<circle cx="571.55" cy="643.11" r="38" class="gen-i"/>
+<circle cx="571.55" cy="356.89" r="38" class="gen-i"/>
+<circle cx="643.11" cy="571.55" r="38" class="gen-i"/>
+<circle cx="643.11" cy="428.45" r="38" class="gen-i"/>
+</g>
+<path d="M763.33 500A263.33 263.33 0 1 1 236.67 500A263.33 263.33 0 1 1 763.33 500ZM743.33 500A243.33 243.33 0 1 1 256.67 500A243.33 243.33 0 1 1 743.33 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalAvatarOrbit01-m rationalAvatarOrbit01-m1">
+<circle cx="246.67" cy="500" r="46" class="gen-a"/>
+<circle cx="500" cy="753.33" r="46" class="gen-a"/>
+<circle cx="500" cy="246.67" r="46" class="gen-a"/>
+<circle cx="753.33" cy="500" r="46" class="gen-a"/>
+</g>
+<path d="M856.67 500A356.67 356.67 0 1 1 143.33 500A356.67 356.67 0 1 1 856.67 500ZM836.67 500A336.67 336.67 0 1 1 163.33 500A336.67 336.67 0 1 1 836.67 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalAvatarOrbit01-m rationalAvatarOrbit01-m2">
+<circle cx="211.56" cy="692.3" r="38" class="gen-i"/>
+<circle cx="211.56" cy="307.7" r="38" class="gen-i"/>
+<circle cx="307.7" cy="788.44" r="38" class="gen-i"/>
+<circle cx="307.7" cy="211.56" r="38" class="gen-i"/>
+<circle cx="692.3" cy="788.44" r="38" class="gen-i"/>
+<circle cx="692.3" cy="211.56" r="38" class="gen-i"/>
+<circle cx="788.44" cy="692.3" r="38" class="gen-i"/>
+<circle cx="788.44" cy="307.7" r="38" class="gen-i"/>
+</g>
+<path d="M950 500A450 450 0 1 1 50 500A450 450 0 1 1 950 500ZM930 500A430 430 0 1 1 70 500A430 430 0 1 1 930 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalAvatarOrbit01-m rationalAvatarOrbit01-m3">
+<circle cx="73.14" cy="606.72" r="38" class="gen-i"/>
+<circle cx="73.14" cy="393.28" r="38" class="gen-i"/>
+<circle cx="393.28" cy="926.86" r="38" class="gen-i"/>
+<circle cx="393.28" cy="73.14" r="38" class="gen-i"/>
+<circle cx="606.72" cy="926.86" r="38" class="gen-i"/>
+<circle cx="606.72" cy="73.14" r="38" class="gen-i"/>
+<circle cx="926.86" cy="606.72" r="38" class="gen-i"/>
+<circle cx="926.86" cy="393.28" r="38" class="gen-i"/>
+</g>
+</svg>

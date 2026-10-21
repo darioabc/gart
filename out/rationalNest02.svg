@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<defs>
+<filter id="rationalNest02-t22h14f32s324" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="324" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -8.18" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t29h14f32s325" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="325" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -7.88" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t36h14f32s326" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="326" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -7.59" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t43h14f32s327" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="327" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -7.29" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t50h14f32s328" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="328" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -7" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t57h14f32s329" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="329" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -6.71" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t64h14f32s330" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="330" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -6.41" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t71h14f32s331" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="331" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -6.12" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t78h14f32s332" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="332" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -5.82" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t85h14f32s333" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="333" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -5.53" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t91h14f32s334" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="334" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -5.24" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t97h14f32s335" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="335" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -5.03" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t97h14f32s336" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="336" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -5.03" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t97h14f32s337" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="337" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -5.03" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalNest02-t97h14f32s423" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.32" numOctaves="2" seed="423" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 -5.03" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+</defs>
+<rect x="90" y="90" width="820" height="37" class="gen-i" filter="url(#rationalNest02-t22h14f32s324)"/>
+<rect x="90" y="134" width="37" height="776" class="gen-i" filter="url(#rationalNest02-t22h14f32s324)"/>
+<rect x="134" y="134" width="776" height="64" class="gen-i" filter="url(#rationalNest02-t29h14f32s325)"/>
+<rect x="134" y="205" width="64" height="705" class="gen-i" filter="url(#rationalNest02-t29h14f32s325)"/>
+<rect x="205" y="205" width="705" height="28" class="gen-i" filter="url(#rationalNest02-t36h14f32s326)"/>
+<rect x="205" y="240" width="28" height="670" class="gen-i" filter="url(#rationalNest02-t36h14f32s326)"/>
+<rect x="240" y="240" width="670" height="55" class="gen-i" filter="url(#rationalNest02-t43h14f32s327)"/>
+<rect x="240" y="302" width="55" height="608" class="gen-i" filter="url(#rationalNest02-t43h14f32s327)"/>
+<rect x="302" y="302" width="608" height="73" class="gen-a" filter="url(#rationalNest02-t50h14f32s328)"/>
+<rect x="302" y="382" width="73" height="528" class="gen-a" filter="url(#rationalNest02-t50h14f32s328)"/>
+<rect x="382" y="382" width="528" height="28" class="gen-i" filter="url(#rationalNest02-t57h14f32s329)"/>
+<rect x="382" y="417" width="28" height="493" class="gen-i" filter="url(#rationalNest02-t57h14f32s329)"/>
+<rect x="417" y="417" width="493" height="37" class="gen-i" filter="url(#rationalNest02-t64h14f32s330)"/>
+<rect x="417" y="461" width="37" height="449" class="gen-i" filter="url(#rationalNest02-t64h14f32s330)"/>
+<rect x="461" y="461" width="449" height="46" class="gen-i" filter="url(#rationalNest02-t71h14f32s331)"/>
+<rect x="461" y="514" width="46" height="396" class="gen-i" filter="url(#rationalNest02-t71h14f32s331)"/>
+<rect x="514" y="514" width="396" height="73" class="gen-i" filter="url(#rationalNest02-t78h14f32s332)"/>
+<rect x="514" y="594" width="73" height="316" class="gen-i" filter="url(#rationalNest02-t78h14f32s332)"/>
+<rect x="594" y="594" width="316" height="37" class="gen-i" filter="url(#rationalNest02-t85h14f32s333)"/>
+<rect x="594" y="638" width="37" height="272" class="gen-i" filter="url(#rationalNest02-t85h14f32s333)"/>
+<rect x="638" y="638" width="272" height="64" class="gen-i" filter="url(#rationalNest02-t91h14f32s334)"/>
+<rect x="638" y="709" width="64" height="201" class="gen-i" filter="url(#rationalNest02-t91h14f32s334)"/>
+<rect x="709" y="709" width="201" height="37" class="gen-i" filter="url(#rationalNest02-t97h14f32s335)"/>
+<rect x="709" y="753" width="37" height="157" class="gen-i" filter="url(#rationalNest02-t97h14f32s335)"/>
+<rect x="753" y="753" width="157" height="55" class="gen-i" filter="url(#rationalNest02-t97h14f32s336)"/>
+<rect x="753" y="815" width="55" height="95" class="gen-i" filter="url(#rationalNest02-t97h14f32s336)"/>
+<rect x="815" y="815" width="95" height="46" class="gen-i" filter="url(#rationalNest02-t97h14f32s337)"/>
+<rect x="815" y="868" width="46" height="42" class="gen-i" filter="url(#rationalNest02-t97h14f32s337)"/>
+<rect x="868" y="868" width="42" height="42" class="gen-i" filter="url(#rationalNest02-t97h14f32s423)"/>
+</svg>

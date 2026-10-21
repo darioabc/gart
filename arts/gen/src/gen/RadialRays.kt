@@ -47,7 +47,9 @@ private val SEED: Long = System.getProperty("GART_SEED")?.toLongOrNull()
  * horizontal bands sliding left/right, vertical bands sliding up/down, or both.
  *
  * Every image is written as a vector SVG and as a PNG preview. Both come from the same
- * geometry (ray segments, disc, band cuts); only the PNG gets the grain pass.
+ * geometry (ray segments, disc, band cuts); only the PNG gets the grain pass. Each
+ * shifted piece also gets <name>-motion.svg for the web: themable, no ground, its bands
+ * sliding back and forth ([motionSvg]).
  *
  * All geometry is in units of SIZE, centred on the canvas: (u, v) in [-0.5, 0.5].
  */
@@ -66,6 +68,18 @@ private const val DOT_OFF = 0.0022f
 
 private val TAU = (2 * PI).toFloat()
 
+/** Where the rays run and how they are drawn, in units of SIZE: the ring they fill,
+ *  the sampling step, the four stroke widths and the dot pattern. [FULL] is the set
+ *  every piece uses; [AVATAR] is one that still reads at 32 pixels: fewer, wider rays
+ *  in a fuller ring, and a dot big enough to see. */
+private class RayDims(
+    val rIn: Float, val rOut: Float, val step: Float,
+    val widths: FloatArray, val dotOn: Float, val dotOff: Float,
+)
+
+private val FULL = RayDims(R_IN, R_OUT, STEP, WIDTHS, DOT_ON, DOT_OFF)
+private val AVATAR = RayDims(0.24f, 0.47f, 0.004f, floatArrayOf(0.018f, 0.026f, 0.034f, 0.046f), 0.03f, 0.03f)
+
 /** Signed "how deep inside the shape" at (u, v); r and a are the polar form. */
 private typealias Field = (u: Float, v: Float, r: Float, a: Float) -> Float
 
@@ -78,6 +92,7 @@ private class RayPreset(
     val discR: Float,
     val field: (Random) -> Field,
     val shift: RayShift,
+    val dims: RayDims = FULL,
 )
 
 private enum class RayShift { H, V, HV }
@@ -90,6 +105,7 @@ private val PATRIOT = ink(0xFF003049, 0xFFEAE2B7, 0xFFF77F00)     // Coolors.pat
 private val MOLTEN = ink(0xFFFDF0D5, 0xFF003049, 0xFFC1121F)      // Coolors.molten, light ground
 private val SUNSET = ink(0xFF264653, 0xFFE9C46A, 0xFFE76F51)      // Coolors.sunset
 private val PAPER = ink(0xFFECE5D2, 0xFF2B2B25, 0xFFC94E22)       // OLIVE inverted onto paper
+private val FOLIO = ink(0xFFECE5D1, 0xFF1D1F20, 0xFFC84E22)       // folio's paper, ink and rust
 
 // ---- fields ----
 
@@ -150,6 +166,14 @@ private fun sonar(rng: Random): Field {
     }
 }
 
+/** A field lifted by [by] everywhere, so more of each ray turns solid: at 32 pixels a
+ *  field tuned for the full size leaves too few solid strokes to read. */
+private fun raised(field: (Random) -> Field, by: Float): (Random) -> Field = { rng ->
+    val f = field(rng)
+    val g: Field = { u, v, r, a -> f(u, v, r, a) + by }
+    g
+}
+
 /** Pulls the field down near R_OUT so ray tips stay dotted. */
 private fun fadeOut(r: Float) = 0.3f * max(0f, r - 0.35f)
 
@@ -161,6 +185,46 @@ private val PRESETS = listOf(
     RayPreset("islands", SUNSET, 120, 0.039f, ::islands, RayShift.H),
     RayPreset("sonar", PAPER, 108, 0.034f, ::sonar, RayShift.HV),
 )
+
+/** An avatar (radialRaysAvatarNN): rays at a size that reads at 32 pixels, for the
+ *  portfolio assistant, on paper in ink with a rust disc. [cut] is how it is sliced:
+ *  "H" once across through the disc, so the halves slide and the disc is an S that
+ *  turns over; "V" once down, the halves sliding up and down; "HV" both, four
+ *  quarters; "H4" four bands across with the middle cut through the disc. With no
+ *  cut the whole turns once every [spin] seconds instead. */
+private class RayAvatar(val tag: String, val rays: Int, val field: (Random) -> Field, val cut: String, val spin: Float = 0f)
+
+/** Rendered after the pieces, so their seeds come after every piece's and the pieces
+ *  are unchanged. */
+private val AVATARS = listOf(
+    RayAvatar("islands", 16, raised(::islands, 0.014f), "H"),
+    RayAvatar("islands, four bands", 24, raised(::islands, 0.02f), "H4"),
+    RayAvatar("eclipse", 18, ::eclipse, "H"),
+    RayAvatar("petals", 20, ::petals, "H"),
+    RayAvatar("tide", 18, ::tide, "V"),
+    RayAvatar("islands, quarters", 20, raised(::islands, 0.016f), "HV"),
+    RayAvatar("sonar", 24, ::sonar, "H"),
+    RayAvatar("spiral, turning", 24, ::spiral, "", spin = 14f),
+    RayAvatar("sonar, turning", 24, ::sonar, "", spin = 12f),
+)
+
+/** The cuts for an avatar of side [s] (see [RayAvatar]); offsets are whole pixels. */
+private fun avatarCuts(cut: String, s: Float): List<Cut> {
+    val off = (s * 0.045f).roundToInt().toFloat()
+    fun halves(horizontal: Boolean) = Cut(horizontal, listOf(Band(0f, s / 2, off), Band(s / 2, s / 2, -off)))
+    return when (cut) {
+        "H" -> listOf(halves(true))
+        "V" -> listOf(halves(false))
+        "HV" -> listOf(halves(true), halves(false))
+        "H4" -> {
+            val q = (s * 0.27f).roundToInt().toFloat()
+            val m = s / 2 - q
+            val small = (off * 0.6f).roundToInt().toFloat()
+            listOf(Cut(true, listOf(Band(0f, q, -small), Band(q, m, off), Band(s / 2, m, -off), Band(s / 2 + m, q, small))))
+        }
+        else -> emptyList()
+    }
+}
 
 fun main() {
     println("seed=$SEED")
@@ -190,6 +254,7 @@ fun main() {
         listOf("radialRays" to emptyList(), "radialRaysShift" to cuts).forEach { (base, cs) ->
             val name = "%s%02d".format(base, i + 1)
             File("$name.svg").writeText(svg(art, cs))
+            if (cs.isNotEmpty()) File("$name-motion.svg").writeText(motionSvg(name, art, cs))
 
             val g = gart.gartvas()
             g.canvas.clear(p.ink.ground)
@@ -197,6 +262,26 @@ fun main() {
             gart.saveImage(grainOnly(gart, g.snapshot(), 0.05f), "$name.png")
         }
         println("  [${i + 1}/${PRESETS.size}] ${p.tag}: ${p.rays} rays, ${art.segs.size} strokes, shift ${p.shift}")
+    }
+
+    AVATARS.forEachIndexed { i, p ->
+        val rng = Random(master.nextLong())
+        val field = p.field(rng)
+        // Rays half a step off the axes, so a cut through the middle meets none of them.
+        val art = RayArt(
+            ink = FOLIO,
+            segs = (0 until p.rays).flatMap { k -> raySegments(cx, cy, s, (k + 0.5f) * TAU / p.rays, field, AVATAR) },
+            cx = cx, cy = cy, discR = 0.1f * s, dims = AVATAR,
+        )
+        val cuts = avatarCuts(p.cut, s)
+        val name = "radialRaysAvatar%02d".format(i + 1)
+        File("$name.svg").writeText(svg(art, cuts))
+        File("$name-motion.svg").writeText(motionSvg(name, art, cuts, spin = p.spin, hiDpi = false, pace = 2f))
+        val g = gart.gartvas()
+        g.canvas.clear(FOLIO.ground)
+        withCuts(g.canvas, cuts) { drawArt(it, art) }
+        gart.saveImage(grainOnly(gart, g.snapshot(), 0.05f), "$name.png")
+        println("  avatar ${i + 1}: ${p.tag}, ${p.rays} rays, cut ${p.cut.ifEmpty { "none" }}, ${art.segs.size} strokes")
     }
     println("done: ${PRESETS.size * 2} svg + png pairs")
 }
@@ -207,25 +292,27 @@ fun main() {
 private class Seg(val x0: Float, val y0: Float, val x1: Float, val y1: Float, val level: Int)
 
 /** Everything one piece draws, before any cutting. */
-private class RayArt(val ink: RayInk, val segs: List<Seg>, val cx: Float, val cy: Float, val discR: Float)
+private class RayArt(
+    val ink: RayInk, val segs: List<Seg>, val cx: Float, val cy: Float, val discR: Float, val dims: RayDims = FULL,
+)
 
 /**
  * One ray: the full length dotted underneath, then each run of samples that share a
  * solid level laid over it, so the dot pattern stays aligned from R_IN outwards.
  */
-private fun raySegments(cx: Float, cy: Float, s: Float, theta: Float, field: Field): List<Seg> {
+private fun raySegments(cx: Float, cy: Float, s: Float, theta: Float, field: Field, dims: RayDims = FULL): List<Seg> {
     val ca = cos(theta)
     val sa = sin(theta)
     fun seg(r0: Float, r1: Float, level: Int) =
         Seg(cx + ca * r0 * s, cy + sa * r0 * s, cx + ca * r1 * s, cy + sa * r1 * s, level)
 
-    val out = mutableListOf(seg(R_IN, R_OUT, 0))
-    val steps = ((R_OUT - R_IN) / STEP).toInt()
-    val dr = (R_OUT - R_IN) / steps
-    var runStart = R_IN
+    val out = mutableListOf(seg(dims.rIn, dims.rOut, 0))
+    val steps = ((dims.rOut - dims.rIn) / dims.step).toInt()
+    val dr = (dims.rOut - dims.rIn) / steps
+    var runStart = dims.rIn
     var runLevel = 0
     for (i in 0..steps) {
-        val r = R_IN + i * dr
+        val r = dims.rIn + i * dr
         val level = if (i == steps) 0 else {
             val rm = r + dr / 2
             levelOf(field(ca * rm, sa * rm, rm, theta))
@@ -303,8 +390,8 @@ private fun withCuts(c: Canvas, cuts: List<Cut>, draw: (Canvas) -> Unit) {
 private fun drawArt(c: Canvas, art: RayArt) {
     val s = SIZE.toFloat()
     val paints = Array(4) { level ->
-        stroke(art.ink.ink, WIDTHS[level] * s).apply {
-            if (level == 0) pathEffect = PathEffect.makeDash(floatArrayOf(DOT_ON * s, DOT_OFF * s), 0f)
+        stroke(art.ink.ink, art.dims.widths[level] * s).apply {
+            if (level == 0) pathEffect = PathEffect.makeDash(floatArrayOf(art.dims.dotOn * s, art.dims.dotOff * s), 0f)
         }
     }
     art.segs.forEach { c.drawLine(it.x0, it.y0, it.x1, it.y1, paints[it.level]) }
@@ -353,8 +440,8 @@ private fun svg(art: RayArt, cuts: List<Cut>): String {
 private fun StringBuilder.appendArt(art: RayArt, s: Float, id: String?) {
     appendLine("""<g${id?.let { " id=\"$it\"" } ?: ""} fill="none" stroke="${hex(art.ink.ink)}" stroke-linecap="butt">""")
     for (level in 0..3) {
-        val dash = if (level == 0) """ stroke-dasharray="${n(DOT_ON * s)} ${n(DOT_OFF * s)}"""" else ""
-        appendLine("""  <g stroke-width="${n(WIDTHS[level] * s)}"$dash>""")
+        val dash = if (level == 0) """ stroke-dasharray="${n(art.dims.dotOn * s)} ${n(art.dims.dotOff * s)}"""" else ""
+        appendLine("""  <g stroke-width="${n(art.dims.widths[level] * s)}"$dash>""")
         art.segs.filter { it.level == level }.forEach {
             appendLine("""    <line x1="${n(it.x0)}" y1="${n(it.y0)}" x2="${n(it.x1)}" y2="${n(it.y1)}"/>""")
         }
@@ -374,6 +461,99 @@ private fun StringBuilder.appendCuts(cuts: List<Cut>, depth: Int) {
     cut.bands.forEachIndexed { bi, b ->
         appendLine("""<g clip-path="url(#cut${depth}_$bi)"><g transform="translate(${n(cut.dx(b))} ${n(cut.dy(b))})">""")
         appendCuts(cuts, depth - 1)
+        appendLine("</g></g>")
+    }
+}
+
+// ---- motion ----
+
+/**
+ * The shifted piece for a web page, themable and moving (<name>-motion.svg). No ground,
+ * so it sits on whatever is behind it; the rays and the disc read --gen-ink and
+ * --gen-accent, with the preset's own colours as fallback, and every id and class
+ * carries the piece's name so several pieces can sit inline on one page.
+ *
+ * Each band that is shifted slides from where the still has it to the mirror of that
+ * and back, eased, on its own period, so the bands drift out of step and the pattern
+ * never quite repeats; where a cut crosses the disc, its halves pass through each other
+ * and the S turns over. A band the still leaves in place stays put. The first frame is
+ * the still. A piece with no cuts can turn instead, a full turn every [spin] seconds.
+ * [pace] runs every band that many times faster, for an avatar.
+ * Nothing moves under prefers-reduced-motion, nor, with [hiDpi], on screens under 1.5
+ * device pixels per CSS pixel, where the hairline dots would shimmer as they slide; an
+ * avatar's strokes are a pixel or more, so it moves everywhere.
+ */
+private fun motionSvg(name: String, art: RayArt, cuts: List<Cut>, spin: Float = 0f, hiDpi: Boolean = true, pace: Float = 1f): String {
+    val s = SIZE.toFloat()
+    val sb = StringBuilder()
+    sb.appendLine("""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 $SIZE $SIZE">""")
+    sb.append("<style>")
+    sb.append(".$name-i{stroke:var(--gen-ink,${hex(art.ink.ink)})}.$name-a{fill:var(--gen-accent,${hex(art.ink.accent)})}")
+    val moving = mutableListOf<String>()
+    cuts.forEachIndexed { ci, cut ->
+        cut.bands.forEachIndexed { bi, b ->
+            if (b.off == 0f) return@forEachIndexed
+            val id = "$name-m${ci}_$bi"
+            val from = if (cut.horizontal) "${n(b.off)}px,0" else "0,${n(b.off)}px"
+            val to = if (cut.horizontal) "${n(-b.off)}px,0" else "0,${n(-b.off)}px"
+            sb.append(".$id{transform-box:view-box;animation:$id ${n(period(ci, bi) / pace)}s ease-in-out infinite}")
+            sb.append("@keyframes $id{0%,100%{transform:translate($from)}50%{transform:translate($to)}}")
+            moving += ".$id"
+        }
+    }
+    if (spin > 0f) {
+        sb.append(".$name-s{transform-box:view-box;transform-origin:${n(art.cx)}px ${n(art.cy)}px;animation:$name-s ${n(spin)}s linear infinite}")
+        sb.append("@keyframes $name-s{to{transform:rotate(360deg)}}")
+        moving += ".$name-s"
+    }
+    val all = moving.joinToString(",")
+    if (hiDpi) sb.append("@media (max-resolution:1.5dppx),(-webkit-max-device-pixel-ratio:1.5){$all{animation:none}}")
+    sb.append("@media (prefers-reduced-motion:reduce){$all{animation:none}}")
+    sb.appendLine("</style>")
+    sb.appendLine("<defs>")
+    cuts.forEachIndexed { ci, cut ->
+        cut.bands.forEachIndexed { bi, b ->
+            val r = cut.rect(b, s)
+            sb.appendLine("""  <clipPath id="$name-c${ci}_$bi"><rect x="${n(r.left)}" y="${n(r.top)}" width="${n(r.width)}" height="${n(r.height)}"/></clipPath>""")
+        }
+    }
+    sb.appendLine("""<g id="$name-art" class="$name-i" fill="none" stroke-linecap="butt">""")
+    for (level in 0..3) {
+        val dash = if (level == 0) """ stroke-dasharray="${n(art.dims.dotOn * s)} ${n(art.dims.dotOff * s)}"""" else ""
+        sb.appendLine("""  <g stroke-width="${n(art.dims.widths[level] * s)}"$dash>""")
+        art.segs.filter { it.level == level }.forEach {
+            sb.appendLine("""    <line x1="${n(it.x0)}" y1="${n(it.y0)}" x2="${n(it.x1)}" y2="${n(it.y1)}"/>""")
+        }
+        sb.appendLine("  </g>")
+    }
+    sb.appendLine("""  <circle class="$name-a" cx="${n(art.cx)}" cy="${n(art.cy)}" r="${n(art.discR)}" stroke="none"/>""")
+    sb.appendLine("</g>")
+    sb.appendLine("</defs>")
+    if (spin > 0f) sb.appendLine("""<g class="$name-s">""")
+    sb.appendMovingCuts(name, cuts, cuts.size - 1)
+    if (spin > 0f) sb.appendLine("</g>")
+    sb.appendLine("</svg>")
+    return sb.toString()
+}
+
+/** A band's period in seconds: 22 to 36, spread by the golden ratio so no two bands
+ *  near each other keep step. */
+private fun period(ci: Int, bi: Int): Float {
+    val x = (bi + 1 + ci * 7) * 0.618034f
+    return 22f + 14f * (x - x.toInt())
+}
+
+/** [appendCuts] for the motion SVG: the shift sits on a class the CSS can animate. */
+private fun StringBuilder.appendMovingCuts(name: String, cuts: List<Cut>, depth: Int) {
+    if (depth < 0) {
+        appendLine("""<use href="#$name-art"/>""")
+        return
+    }
+    val cut = cuts[depth]
+    cut.bands.forEachIndexed { bi, b ->
+        val cls = if (b.off == 0f) "" else """ class="$name-m${depth}_$bi""""
+        appendLine("""<g clip-path="url(#$name-c${depth}_$bi)"><g$cls transform="translate(${n(cut.dx(b))} ${n(cut.dy(b))})">""")
+        appendMovingCuts(name, cuts, depth - 1)
         appendLine("</g></g>")
     }
 }
