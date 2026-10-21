@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}@keyframes rationalAvatarOrbit03-spin{to{transform:rotate(360deg)}}.rationalAvatarOrbit03-m0{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit03-spin 8s linear infinite}.rationalAvatarOrbit03-m1{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit03-spin 20s linear infinite reverse}.rationalAvatarOrbit03-m2{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit03-spin 17s linear infinite}@media (prefers-reduced-motion:reduce){.rationalAvatarOrbit03-m{animation:none}}</style>
+<circle cx="500" cy="500" r="64" class="gen-a"/>
+<g class="rationalAvatarOrbit03-m rationalAvatarOrbit03-m0">
+<circle cx="356.89" cy="571.55" r="49.4" class="gen-i"/>
+<circle cx="356.89" cy="428.45" r="49.4" class="gen-i"/>
+<circle cx="428.45" cy="643.11" r="49.4" class="gen-i"/>
+<circle cx="428.45" cy="356.89" r="49.4" class="gen-i"/>
+<circle cx="571.55" cy="643.11" r="49.4" class="gen-i"/>
+<circle cx="571.55" cy="356.89" r="49.4" class="gen-i"/>
+<circle cx="643.11" cy="571.55" r="49.4" class="gen-i"/>
+<circle cx="643.11" cy="428.45" r="49.4" class="gen-i"/>
+</g>
+<g class="rationalAvatarOrbit03-m rationalAvatarOrbit03-m1">
+<circle cx="200" cy="500" r="59.8" class="gen-a"/>
+<circle cx="500" cy="800" r="59.8" class="gen-a"/>
+<circle cx="500" cy="200" r="59.8" class="gen-a"/>
+<circle cx="800" cy="500" r="59.8" class="gen-a"/>
+</g>
+<g class="rationalAvatarOrbit03-m rationalAvatarOrbit03-m2">
+<circle cx="133.9" cy="744.07" r="49.4" class="gen-i"/>
+<circle cx="133.9" cy="255.93" r="49.4" class="gen-i"/>
+<circle cx="255.93" cy="866.1" r="49.4" class="gen-i"/>
+<circle cx="255.93" cy="133.9" r="49.4" class="gen-i"/>
+<circle cx="744.07" cy="866.1" r="49.4" class="gen-i"/>
+<circle cx="744.07" cy="133.9" r="49.4" class="gen-i"/>
+<circle cx="866.1" cy="744.07" r="49.4" class="gen-i"/>
+<circle cx="866.1" cy="255.93" r="49.4" class="gen-i"/>
+</g>
+</svg>

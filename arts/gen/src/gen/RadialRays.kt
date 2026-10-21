@@ -78,7 +78,7 @@ private class RayDims(
 )
 
 private val FULL = RayDims(R_IN, R_OUT, STEP, WIDTHS, DOT_ON, DOT_OFF)
-private val AVATAR = RayDims(0.24f, 0.47f, 0.004f, floatArrayOf(0.014f, 0.022f, 0.03f, 0.04f), 0.02f, 0.032f)
+private val AVATAR = RayDims(0.24f, 0.47f, 0.004f, floatArrayOf(0.018f, 0.026f, 0.034f, 0.046f), 0.03f, 0.03f)
 
 /** Signed "how deep inside the shape" at (u, v); r and a are the polar form. */
 private typealias Field = (u: Float, v: Float, r: Float, a: Float) -> Float
@@ -105,8 +105,7 @@ private val PATRIOT = ink(0xFF003049, 0xFFEAE2B7, 0xFFF77F00)     // Coolors.pat
 private val MOLTEN = ink(0xFFFDF0D5, 0xFF003049, 0xFFC1121F)      // Coolors.molten, light ground
 private val SUNSET = ink(0xFF264653, 0xFFE9C46A, 0xFFE76F51)      // Coolors.sunset
 private val PAPER = ink(0xFFECE5D2, 0xFF2B2B25, 0xFFC94E22)       // OLIVE inverted onto paper
-private val QUOTE = ink(0xFF161F5E, 0xFFE9C46A, 0xFFC84E22)       // folio's quote block: navy, gold, rust
-private val NIGHT = ink(0xFF1D1F20, 0xFFF2F0EB, 0xFFEC8F62)       // folio's ink, cream, light rust
+private val FOLIO = ink(0xFFECE5D1, 0xFF1D1F20, 0xFFC84E22)       // folio's paper, ink and rust
 
 // ---- fields ----
 
@@ -187,15 +186,45 @@ private val PRESETS = listOf(
     RayPreset("sonar", PAPER, 108, 0.034f, ::sonar, RayShift.HV),
 )
 
-/** Avatars (radialRaysAvatarNN): the same rays at a size that reads at 32 pixels, for
- *  the portfolio assistant. The islands are cut once, through the disc, and the two
- *  halves slide apart and back, so the disc is an S that turns over; the sonar turns,
- *  so its lit side sweeps round. Rendered after the pieces, so their seeds come after
- *  every piece's and the pieces are unchanged. */
+/** An avatar (radialRaysAvatarNN): rays at a size that reads at 32 pixels, for the
+ *  portfolio assistant, on paper in ink with a rust disc. [cut] is how it is sliced:
+ *  "H" once across through the disc, so the halves slide and the disc is an S that
+ *  turns over; "V" once down, the halves sliding up and down; "HV" both, four
+ *  quarters; "H4" four bands across with the middle cut through the disc. With no
+ *  cut the whole turns once every [spin] seconds instead. */
+private class RayAvatar(val tag: String, val rays: Int, val field: (Random) -> Field, val cut: String, val spin: Float = 0f)
+
+/** Rendered after the pieces, so their seeds come after every piece's and the pieces
+ *  are unchanged. */
 private val AVATARS = listOf(
-    RayPreset("islands", QUOTE, 16, 0.085f, raised(::islands, 0.014f), RayShift.H, AVATAR),
-    RayPreset("sonar", NIGHT, 24, 0.075f, ::sonar, RayShift.HV, AVATAR),
+    RayAvatar("islands", 16, raised(::islands, 0.014f), "H"),
+    RayAvatar("islands, four bands", 24, raised(::islands, 0.02f), "H4"),
+    RayAvatar("eclipse", 18, ::eclipse, "H"),
+    RayAvatar("petals", 20, ::petals, "H"),
+    RayAvatar("tide", 18, ::tide, "V"),
+    RayAvatar("islands, quarters", 20, raised(::islands, 0.016f), "HV"),
+    RayAvatar("sonar", 24, ::sonar, "H"),
+    RayAvatar("spiral, turning", 24, ::spiral, "", spin = 14f),
+    RayAvatar("sonar, turning", 24, ::sonar, "", spin = 12f),
 )
+
+/** The cuts for an avatar of side [s] (see [RayAvatar]); offsets are whole pixels. */
+private fun avatarCuts(cut: String, s: Float): List<Cut> {
+    val off = (s * 0.045f).roundToInt().toFloat()
+    fun halves(horizontal: Boolean) = Cut(horizontal, listOf(Band(0f, s / 2, off), Band(s / 2, s / 2, -off)))
+    return when (cut) {
+        "H" -> listOf(halves(true))
+        "V" -> listOf(halves(false))
+        "HV" -> listOf(halves(true), halves(false))
+        "H4" -> {
+            val q = (s * 0.27f).roundToInt().toFloat()
+            val m = s / 2 - q
+            val small = (off * 0.6f).roundToInt().toFloat()
+            listOf(Cut(true, listOf(Band(0f, q, -small), Band(q, m, off), Band(s / 2, m, -off), Band(s / 2 + m, q, small))))
+        }
+        else -> emptyList()
+    }
+}
 
 fun main() {
     println("seed=$SEED")
@@ -238,22 +267,21 @@ fun main() {
     AVATARS.forEachIndexed { i, p ->
         val rng = Random(master.nextLong())
         val field = p.field(rng)
-        // Rays half a step off the axes, so the cut through the middle meets none of them.
+        // Rays half a step off the axes, so a cut through the middle meets none of them.
         val art = RayArt(
-            ink = p.ink,
-            segs = (0 until p.rays).flatMap { k -> raySegments(cx, cy, s, (k + 0.5f) * TAU / p.rays, field, p.dims) },
-            cx = cx, cy = cy, discR = p.discR * s, dims = p.dims,
+            ink = FOLIO,
+            segs = (0 until p.rays).flatMap { k -> raySegments(cx, cy, s, (k + 0.5f) * TAU / p.rays, field, AVATAR) },
+            cx = cx, cy = cy, discR = 0.1f * s, dims = AVATAR,
         )
-        val off = (s * 0.045f).roundToInt().toFloat()
-        val cuts = if (p.shift == RayShift.H) listOf(Cut(true, listOf(Band(0f, s / 2, off), Band(s / 2, s / 2, -off)))) else emptyList()
+        val cuts = avatarCuts(p.cut, s)
         val name = "radialRaysAvatar%02d".format(i + 1)
         File("$name.svg").writeText(svg(art, cuts))
-        File("$name-motion.svg").writeText(motionSvg(name, art, cuts, spin = if (cuts.isEmpty()) 12f else 0f, hiDpi = false))
+        File("$name-motion.svg").writeText(motionSvg(name, art, cuts, spin = p.spin, hiDpi = false, pace = 2f))
         val g = gart.gartvas()
-        g.canvas.clear(p.ink.ground)
+        g.canvas.clear(FOLIO.ground)
         withCuts(g.canvas, cuts) { drawArt(it, art) }
         gart.saveImage(grainOnly(gart, g.snapshot(), 0.05f), "$name.png")
-        println("  avatar ${i + 1}: ${p.tag}, ${p.rays} rays, ${art.segs.size} strokes")
+        println("  avatar ${i + 1}: ${p.tag}, ${p.rays} rays, cut ${p.cut.ifEmpty { "none" }}, ${art.segs.size} strokes")
     }
     println("done: ${PRESETS.size * 2} svg + png pairs")
 }
@@ -450,11 +478,12 @@ private fun StringBuilder.appendCuts(cuts: List<Cut>, depth: Int) {
  * never quite repeats; where a cut crosses the disc, its halves pass through each other
  * and the S turns over. A band the still leaves in place stays put. The first frame is
  * the still. A piece with no cuts can turn instead, a full turn every [spin] seconds.
+ * [pace] runs every band that many times faster, for an avatar.
  * Nothing moves under prefers-reduced-motion, nor, with [hiDpi], on screens under 1.5
  * device pixels per CSS pixel, where the hairline dots would shimmer as they slide; an
  * avatar's strokes are a pixel or more, so it moves everywhere.
  */
-private fun motionSvg(name: String, art: RayArt, cuts: List<Cut>, spin: Float = 0f, hiDpi: Boolean = true): String {
+private fun motionSvg(name: String, art: RayArt, cuts: List<Cut>, spin: Float = 0f, hiDpi: Boolean = true, pace: Float = 1f): String {
     val s = SIZE.toFloat()
     val sb = StringBuilder()
     sb.appendLine("""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 $SIZE $SIZE">""")
@@ -467,7 +496,7 @@ private fun motionSvg(name: String, art: RayArt, cuts: List<Cut>, spin: Float = 
             val id = "$name-m${ci}_$bi"
             val from = if (cut.horizontal) "${n(b.off)}px,0" else "0,${n(b.off)}px"
             val to = if (cut.horizontal) "${n(-b.off)}px,0" else "0,${n(-b.off)}px"
-            sb.append(".$id{transform-box:view-box;animation:$id ${n(period(ci, bi))}s ease-in-out infinite}")
+            sb.append(".$id{transform-box:view-box;animation:$id ${n(period(ci, bi) / pace)}s ease-in-out infinite}")
             sb.append("@keyframes $id{0%,100%{transform:translate($from)}50%{transform:translate($to)}}")
             moving += ".$id"
         }

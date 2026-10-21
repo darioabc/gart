@@ -573,12 +573,15 @@ private fun orbit(name: String, rng: Random, quarter: Boolean, ticks: Boolean): 
 }
 
 /** Orbit at avatar size, to read at 32 pixels: the same rule, a ring per Gaussian
- *  prime norm with a mark at the true argument of each prime of that norm, but four
+ *  prime norm with a mark at the true argument of each prime of that norm, but a few
  *  rings from the smallest norms, marks two pixels across, the origin in the accent,
- *  and each ring turning in 8 to 20 seconds, neighbours in opposite directions. */
-private fun orbitAvatar(name: String, rng: Random): Art {
+ *  and each ring turning in 8 to 20 seconds, neighbours in opposite directions.
+ *  [lines] draws each ring faintly under its marks; [mark] scales the marks; [ticks]
+ *  draws each as a short radial bar instead of a dot. */
+private fun orbitAvatar(
+    name: String, rng: Random, rings: Int = 4, lines: Boolean = true, mark: Float = 1f, ticks: Boolean = false,
+): Art {
     val c = U / 2
-    val rings = 4
     val byNorm = sortedMapOf<Long, MutableList<Pair<Int, Int>>>()
     for (a in -12..12) for (b in -12..12) if (gaussianPrime(a, b)) byNorm.getOrPut(gnorm(a, b)) { mutableListOf() } += a to b
     val norms = byNorm.keys.drop(rng.nextInt(0, 3)).take(rings)
@@ -587,11 +590,27 @@ private fun orbitAvatar(name: String, rng: Random): Art {
     val shapes = mutableListOf<Shape>(Disc(c, c, 64f, Role.ACCENT))
     norms.forEachIndexed { k, nm ->
         val r = r0 + k * pitch
-        shapes += Outline(ring(c, c, r - 10f, r + 10f), evenOdd = true, alpha = 0.3f)
+        if (lines) shapes += Outline(ring(c, c, r - 10f, r + 10f), evenOdd = true, alpha = 0.3f)
         val marks = byNorm.getValue(nm).map { (a, b) ->
             val t = atan2(b.toDouble(), a.toDouble())
             val onAxis = a == 0 || b == 0
-            Disc(c + r * cos(t).toFloat(), c - r * sin(t).toFloat(), if (onAxis) 46f else 38f, if (onAxis) Role.ACCENT else Role.INK)
+            val role = if (onAxis) Role.ACCENT else Role.INK
+            val ux = cos(t).toFloat()
+            val uy = -sin(t).toFloat()
+            val px = c + r * ux
+            val py = c + r * uy
+            if (ticks) {
+                val h = pitch * 0.3f * mark
+                val w = 22f * mark
+                Outline(polygon(listOf(
+                    px - h * ux - w * uy to py - h * uy + w * ux,
+                    px + h * ux - w * uy to py + h * uy + w * ux,
+                    px + h * ux + w * uy to py + h * uy - w * ux,
+                    px - h * ux + w * uy to py - h * uy - w * ux,
+                )), role = role)
+            } else {
+                Disc(px, py, (if (onAxis) 46f else 38f) * mark, role)
+            }
         }
         shapes += Motion(Spin(c, c, 8f + (nm % 5) * 3f, k % 2 == 1), marks)
     }
@@ -1496,6 +1515,12 @@ fun main() {
         "rationalAvatarOrbit01" to { nm, r -> orbitAvatar(nm, r) },
         "rationalAvatarArcs01" to { nm, r -> roundCut(arcs(nm, r, 3, 1, 0)) },
         "rationalAvatarHalftone01" to { nm, r -> roundCut(halftone(nm, r, 3, 2, false, true)) },
+        // Orbit with no ring lines: only the marks turning, at three, four and five rings,
+        // and with radial ticks for marks.
+        "rationalAvatarOrbit02" to { nm, r -> orbitAvatar(nm, r, lines = false) },
+        "rationalAvatarOrbit03" to { nm, r -> orbitAvatar(nm, r, rings = 3, lines = false, mark = 1.3f) },
+        "rationalAvatarOrbit04" to { nm, r -> orbitAvatar(nm, r, rings = 5, lines = false, mark = 0.8f) },
+        "rationalAvatarOrbit05" to { nm, r -> orbitAvatar(nm, r, lines = false, ticks = true) },
     )
 
     // GART_ONLY=Journey,Kit renders only the makers whose names contain one of those

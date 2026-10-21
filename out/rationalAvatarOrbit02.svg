@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<circle cx="500" cy="500" r="64" class="gen-a"/>
+<circle cx="386.86" cy="613.14" r="38" class="gen-i"/>
+<circle cx="386.86" cy="386.86" r="38" class="gen-i"/>
+<circle cx="613.14" cy="613.14" r="38" class="gen-i"/>
+<circle cx="613.14" cy="386.86" r="38" class="gen-i"/>
+<circle cx="273.41" cy="613.29" r="38" class="gen-i"/>
+<circle cx="273.41" cy="386.71" r="38" class="gen-i"/>
+<circle cx="386.71" cy="726.59" r="38" class="gen-i"/>
+<circle cx="386.71" cy="273.41" r="38" class="gen-i"/>
+<circle cx="613.29" cy="726.59" r="38" class="gen-i"/>
+<circle cx="613.29" cy="273.41" r="38" class="gen-i"/>
+<circle cx="726.59" cy="613.29" r="38" class="gen-i"/>
+<circle cx="726.59" cy="386.71" r="38" class="gen-i"/>
+<circle cx="153.33" cy="500" r="46" class="gen-a"/>
+<circle cx="500" cy="846.67" r="46" class="gen-a"/>
+<circle cx="500" cy="153.33" r="46" class="gen-a"/>
+<circle cx="846.67" cy="500" r="46" class="gen-a"/>
+<circle cx="133.9" cy="744.07" r="38" class="gen-i"/>
+<circle cx="133.9" cy="255.93" r="38" class="gen-i"/>
+<circle cx="255.93" cy="866.1" r="38" class="gen-i"/>
+<circle cx="255.93" cy="133.9" r="38" class="gen-i"/>
+<circle cx="744.07" cy="866.1" r="38" class="gen-i"/>
+<circle cx="744.07" cy="133.9" r="38" class="gen-i"/>
+<circle cx="866.1" cy="744.07" r="38" class="gen-i"/>
+<circle cx="866.1" cy="255.93" r="38" class="gen-i"/>
+</svg>

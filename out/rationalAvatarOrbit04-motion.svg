@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}@keyframes rationalAvatarOrbit04-spin{to{transform:rotate(360deg)}}.rationalAvatarOrbit04-m0{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit04-spin 8s linear infinite}.rationalAvatarOrbit04-m1{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit04-spin 20s linear infinite reverse}.rationalAvatarOrbit04-m2{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit04-spin 17s linear infinite}.rationalAvatarOrbit04-m3{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit04-spin 14s linear infinite reverse}.rationalAvatarOrbit04-m4{transform-box:view-box;transform-origin:500px 500px;animation:rationalAvatarOrbit04-spin 20s linear infinite}@media (prefers-reduced-motion:reduce){.rationalAvatarOrbit04-m{animation:none}}</style>
+<circle cx="500" cy="500" r="64" class="gen-a"/>
+<g class="rationalAvatarOrbit04-m rationalAvatarOrbit04-m0">
+<circle cx="356.89" cy="571.55" r="30.4" class="gen-i"/>
+<circle cx="356.89" cy="428.45" r="30.4" class="gen-i"/>
+<circle cx="428.45" cy="643.11" r="30.4" class="gen-i"/>
+<circle cx="428.45" cy="356.89" r="30.4" class="gen-i"/>
+<circle cx="571.55" cy="643.11" r="30.4" class="gen-i"/>
+<circle cx="571.55" cy="356.89" r="30.4" class="gen-i"/>
+<circle cx="643.11" cy="571.55" r="30.4" class="gen-i"/>
+<circle cx="643.11" cy="428.45" r="30.4" class="gen-i"/>
+</g>
+<g class="rationalAvatarOrbit04-m rationalAvatarOrbit04-m1">
+<circle cx="270" cy="500" r="36.8" class="gen-a"/>
+<circle cx="500" cy="730" r="36.8" class="gen-a"/>
+<circle cx="500" cy="270" r="36.8" class="gen-a"/>
+<circle cx="730" cy="500" r="36.8" class="gen-a"/>
+</g>
+<g class="rationalAvatarOrbit04-m rationalAvatarOrbit04-m2">
+<circle cx="250.38" cy="666.41" r="30.4" class="gen-i"/>
+<circle cx="250.38" cy="333.59" r="30.4" class="gen-i"/>
+<circle cx="333.59" cy="749.62" r="30.4" class="gen-i"/>
+<circle cx="333.59" cy="250.38" r="30.4" class="gen-i"/>
+<circle cx="666.41" cy="749.62" r="30.4" class="gen-i"/>
+<circle cx="666.41" cy="250.38" r="30.4" class="gen-i"/>
+<circle cx="749.62" cy="666.41" r="30.4" class="gen-i"/>
+<circle cx="749.62" cy="333.59" r="30.4" class="gen-i"/>
+</g>
+<g class="rationalAvatarOrbit04-m rationalAvatarOrbit04-m3">
+<circle cx="141.05" cy="589.74" r="30.4" class="gen-i"/>
+<circle cx="141.05" cy="410.26" r="30.4" class="gen-i"/>
+<circle cx="410.26" cy="858.95" r="30.4" class="gen-i"/>
+<circle cx="410.26" cy="141.05" r="30.4" class="gen-i"/>
+<circle cx="589.74" cy="858.95" r="30.4" class="gen-i"/>
+<circle cx="589.74" cy="141.05" r="30.4" class="gen-i"/>
+<circle cx="858.95" cy="589.74" r="30.4" class="gen-i"/>
+<circle cx="858.95" cy="410.26" r="30.4" class="gen-i"/>
+</g>
+<g class="rationalAvatarOrbit04-m rationalAvatarOrbit04-m4">
+<circle cx="91.47" cy="663.41" r="30.4" class="gen-i"/>
+<circle cx="91.47" cy="336.59" r="30.4" class="gen-i"/>
+<circle cx="336.59" cy="908.53" r="30.4" class="gen-i"/>
+<circle cx="336.59" cy="91.47" r="30.4" class="gen-i"/>
+<circle cx="663.41" cy="908.53" r="30.4" class="gen-i"/>
+<circle cx="663.41" cy="91.47" r="30.4" class="gen-i"/>
+<circle cx="908.53" cy="663.41" r="30.4" class="gen-i"/>
+<circle cx="908.53" cy="336.59" r="30.4" class="gen-i"/>
+</g>
+</svg>

@@ -2,8 +2,8 @@
 <defs>
   <clipPath id="cut0_0"><rect x="0" y="0" width="2000" height="1000"/></clipPath>
   <clipPath id="cut0_1"><rect x="0" y="1000" width="2000" height="1000"/></clipPath>
-<g id="art" fill="none" stroke="#E9C46A" stroke-linecap="butt">
-  <g stroke-width="28" stroke-dasharray="40 64">
+<g id="art" fill="none" stroke="#1D1F20" stroke-linecap="butt">
+  <g stroke-width="36" stroke-dasharray="60 60">
     <line x1="1470.78" y1="1093.64" x2="1921.94" y2="1183.38"/>
     <line x1="1399.11" y1="1266.67" x2="1781.58" y2="1522.24"/>
     <line x1="1266.67" y1="1399.11" x2="1522.24" y2="1781.58"/>
@@ -21,7 +21,7 @@
     <line x1="1399.11" y1="733.33" x2="1781.58" y2="477.76"/>
     <line x1="1470.78" y1="906.36" x2="1921.94" y2="816.62"/>
   </g>
-  <g stroke-width="44">
+  <g stroke-width="52">
     <line x1="1510.35" y1="1101.52" x2="1534.1" y2="1106.24"/>
     <line x1="1747.81" y1="1148.75" x2="1890.28" y2="1177.09"/>
     <line x1="1540.02" y1="1360.83" x2="1580.28" y2="1387.73"/>
@@ -51,7 +51,7 @@
     <line x1="1502.44" y1="900.06" x2="1526.18" y2="895.34"/>
     <line x1="1668.65" y1="867" x2="1755.72" y2="849.68"/>
   </g>
-  <g stroke-width="60">
+  <g stroke-width="68">
     <line x1="1470.78" y1="1093.64" x2="1510.35" y2="1101.52"/>
     <line x1="1493.05" y1="1329.44" x2="1540.02" y2="1360.83"/>
     <line x1="1129.85" y1="1652.82" x2="1136.15" y2="1684.48"/>
@@ -76,7 +76,7 @@
     <line x1="1647.38" y1="567.43" x2="1680.93" y2="545.02"/>
     <line x1="1470.78" y1="906.36" x2="1502.44" y2="900.06"/>
   </g>
-  <g stroke-width="80">
+  <g stroke-width="92">
     <line x1="1399.11" y1="1266.67" x2="1493.05" y2="1329.44"/>
     <line x1="1136.15" y1="1684.48" x2="1159.77" y2="1803.21"/>
     <line x1="733.33" y1="1399.11" x2="652.62" y2="1519.89"/>
@@ -88,10 +88,10 @@
     <line x1="1387.73" y1="419.72" x2="1459.47" y2="312.36"/>
     <line x1="1546.73" y1="634.69" x2="1647.38" y2="567.43"/>
   </g>
-  <circle cx="1000" cy="1000" r="170" fill="#C84E22" stroke="none"/>
+  <circle cx="1000" cy="1000" r="200" fill="#C84E22" stroke="none"/>
 </g>
 </defs>
-<rect width="2000" height="2000" fill="#161F5E"/>
+<rect width="2000" height="2000" fill="#ECE5D1"/>
 <g clip-path="url(#cut0_0)"><g transform="translate(90 0)">
 <use xlink:href="#art"/>
 </g></g>
