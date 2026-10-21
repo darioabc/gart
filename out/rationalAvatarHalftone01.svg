@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<defs>
+<clipPath id="rationalAvatarHalftone01-c0"><path d="M1000 500A500 500 0 1 1 0 500A500 500 0 1 1 1000 500Z"/></clipPath>
+</defs>
+<g clip-path="url(#rationalAvatarHalftone01-c0)">
+<circle cx="500" cy="500" r="33.14" class="gen-i"/>
+<circle cx="363.33" cy="363.33" r="27.29" class="gen-i"/>
+<circle cx="636.67" cy="363.33" r="27.29" class="gen-i"/>
+<circle cx="363.33" cy="636.67" r="40.93" class="gen-i"/>
+<circle cx="636.67" cy="636.67" r="27.29" class="gen-i"/>
+<circle cx="500" cy="226.67" r="24.45" class="gen-i"/>
+<circle cx="226.67" cy="500" r="36.68" class="gen-i"/>
+<circle cx="773.33" cy="500" r="24.45" class="gen-i"/>
+<circle cx="500" cy="773.33" r="36.68" class="gen-i"/>
+<circle cx="226.67" cy="226.67" r="29.65" class="gen-i"/>
+<circle cx="773.33" cy="226.67" r="29.65" class="gen-i"/>
+<circle cx="226.67" cy="773.33" r="57.06" class="gen-i"/>
+<circle cx="773.33" cy="773.33" r="19.77" class="gen-i"/>
+<circle cx="363.33" cy="90" r="26.29" class="gen-i"/>
+<circle cx="636.67" cy="90" r="26.29" class="gen-i"/>
+<circle cx="90" cy="363.33" r="50.6" class="gen-i"/>
+<circle cx="910" cy="363.33" r="26.29" class="gen-i"/>
+<circle cx="90" cy="636.67" r="26.29" class="gen-i"/>
+<circle cx="910" cy="636.67" r="26.29" class="gen-i"/>
+<circle cx="363.33" cy="910" r="50.6" class="gen-i"/>
+<circle cx="636.67" cy="910" r="17.53" class="gen-i"/>
+<circle cx="90" cy="90" r="9.11" class="gen-i"/>
+<circle cx="910" cy="90" r="17.54" class="gen-i"/>
+<circle cx="90" cy="910" r="9.11" class="gen-i"/>
+<circle cx="910" cy="910" r="9.11" class="gen-i"/>
+</g>
+</svg>

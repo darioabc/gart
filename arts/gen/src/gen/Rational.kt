@@ -572,6 +572,35 @@ private fun orbit(name: String, rng: Random, quarter: Boolean, ticks: Boolean): 
     return Art(name, shapes)
 }
 
+/** Orbit at avatar size, to read at 32 pixels: the same rule, a ring per Gaussian
+ *  prime norm with a mark at the true argument of each prime of that norm, but four
+ *  rings from the smallest norms, marks two pixels across, the origin in the accent,
+ *  and each ring turning in 8 to 20 seconds, neighbours in opposite directions. */
+private fun orbitAvatar(name: String, rng: Random): Art {
+    val c = U / 2
+    val rings = 4
+    val byNorm = sortedMapOf<Long, MutableList<Pair<Int, Int>>>()
+    for (a in -12..12) for (b in -12..12) if (gaussianPrime(a, b)) byNorm.getOrPut(gnorm(a, b)) { mutableListOf() } += a to b
+    val norms = byNorm.keys.drop(rng.nextInt(0, 3)).take(rings)
+    val r0 = 160f
+    val pitch = (440f - r0) / (rings - 1)
+    val shapes = mutableListOf<Shape>(Disc(c, c, 64f, Role.ACCENT))
+    norms.forEachIndexed { k, nm ->
+        val r = r0 + k * pitch
+        shapes += Outline(ring(c, c, r - 10f, r + 10f), evenOdd = true, alpha = 0.3f)
+        val marks = byNorm.getValue(nm).map { (a, b) ->
+            val t = atan2(b.toDouble(), a.toDouble())
+            val onAxis = a == 0 || b == 0
+            Disc(c + r * cos(t).toFloat(), c - r * sin(t).toFloat(), if (onAxis) 46f else 38f, if (onAxis) Role.ACCENT else Role.INK)
+        }
+        shapes += Motion(Spin(c, c, 8f + (nm % 5) * 3f, k % 2 == 1), marks)
+    }
+    return Art(name, shapes)
+}
+
+/** A piece clipped to the disc that fills the square, for a round avatar. */
+private fun roundCut(art: Art): Art = Art(art.name, listOf(ClipGroup(circlePath(U / 2, U / 2, U / 2), false, art.shapes)))
+
 /** De Stijl division: the square cut again and again on a grid, the direction, place
  *  and depth of every cut read from a stream of Gaussian primes. Mode 0 is thick rules
  *  and a few solid cells, 1 grained cells with no rules, 2 a finer cut with hairlines
@@ -1462,6 +1491,11 @@ fun main() {
         "rationalRhombs01" to { nm, r -> rhombs(nm, r) },
         "rationalTwin01" to { nm, r -> twin(nm, r, 22) },
         "rationalKnots01" to { nm, r -> knots(nm, r, 12) },
+        // Avatars: three families at a size that reads at 32 pixels, for the portfolio
+        // assistant. Arcs and Halftone are their own makers on a coarse grid, cut round.
+        "rationalAvatarOrbit01" to { nm, r -> orbitAvatar(nm, r) },
+        "rationalAvatarArcs01" to { nm, r -> roundCut(arcs(nm, r, 3, 1, 0)) },
+        "rationalAvatarHalftone01" to { nm, r -> roundCut(halftone(nm, r, 3, 2, false, true)) },
     )
 
     // GART_ONLY=Journey,Kit renders only the makers whose names contain one of those
