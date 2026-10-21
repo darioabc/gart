@@ -177,6 +177,24 @@ Always look at both sheets yourself before showing them: Skia (light PNG) and th
 browser (dark) differ in places. Thin bands cut by a clip look stepped at small sizes;
 that is the geometry, not a bug.
 
+## Radial rays (RadialRays.kt)
+
+A sibling family in the same package: rays round a disc, dotted, turning solid at
+three widths where a hidden field is positive (`radialRaysNN`), and the same cut into
+bands that slide sideways (`radialRaysShiftNN`; the S in the middle is the disc cut by
+a band edge). The committed set is `GART_SEED=173 GART_SIZE=2000`, a different size
+from the Rational set, and it reproduces byte for byte:
+
+```bash
+GART_SEED=173 GART_SIZE=2000 .claude/skills/generate-art/render.sh arts:gen gen.RadialRaysKt out/
+```
+
+Each shifted piece also writes `radialRaysShiftNN-motion.svg` for the web: no ground,
+the rays and disc on `--gen-ink` and `--gen-accent` (the preset's colours as
+fallback), and each band sliding to the mirror of its offset and back on its own
+period, still on 1x screens and under reduced motion. Folio's quote block uses
+`radialRaysShift05-motion` (Figma 79:52807).
+
 ## Adding a style
 
 1. Write `private fun <style>(name: String, rng: Random, ...params): Art` in

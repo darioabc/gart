@@ -47,7 +47,9 @@ private val SEED: Long = System.getProperty("GART_SEED")?.toLongOrNull()
  * horizontal bands sliding left/right, vertical bands sliding up/down, or both.
  *
  * Every image is written as a vector SVG and as a PNG preview. Both come from the same
- * geometry (ray segments, disc, band cuts); only the PNG gets the grain pass.
+ * geometry (ray segments, disc, band cuts); only the PNG gets the grain pass. Each
+ * shifted piece also gets <name>-motion.svg for the web: themable, no ground, its bands
+ * sliding back and forth ([motionSvg]).
  *
  * All geometry is in units of SIZE, centred on the canvas: (u, v) in [-0.5, 0.5].
  */
@@ -190,6 +192,7 @@ fun main() {
         listOf("radialRays" to emptyList(), "radialRaysShift" to cuts).forEach { (base, cs) ->
             val name = "%s%02d".format(base, i + 1)
             File("$name.svg").writeText(svg(art, cs))
+            if (cs.isNotEmpty()) File("$name-motion.svg").writeText(motionSvg(name, art, cs))
 
             val g = gart.gartvas()
             g.canvas.clear(p.ink.ground)
@@ -374,6 +377,89 @@ private fun StringBuilder.appendCuts(cuts: List<Cut>, depth: Int) {
     cut.bands.forEachIndexed { bi, b ->
         appendLine("""<g clip-path="url(#cut${depth}_$bi)"><g transform="translate(${n(cut.dx(b))} ${n(cut.dy(b))})">""")
         appendCuts(cuts, depth - 1)
+        appendLine("</g></g>")
+    }
+}
+
+// ---- motion ----
+
+/**
+ * The shifted piece for a web page, themable and moving (<name>-motion.svg). No ground,
+ * so it sits on whatever is behind it; the rays and the disc read --gen-ink and
+ * --gen-accent, with the preset's own colours as fallback, and every id and class
+ * carries the piece's name so several pieces can sit inline on one page.
+ *
+ * Each band that is shifted slides from where the still has it to the mirror of that
+ * and back, eased, on its own period, so the bands drift out of step and the pattern
+ * never quite repeats; where a cut crosses the disc, its halves pass through each other
+ * and the S turns over. A band the still leaves in place stays put. The first frame is
+ * the still. Nothing moves under prefers-reduced-motion, nor on screens under 1.5
+ * device pixels per CSS pixel, where the hairline dots would shimmer as they slide.
+ */
+private fun motionSvg(name: String, art: RayArt, cuts: List<Cut>): String {
+    val s = SIZE.toFloat()
+    val sb = StringBuilder()
+    sb.appendLine("""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 $SIZE $SIZE">""")
+    sb.append("<style>")
+    sb.append(".$name-i{stroke:var(--gen-ink,${hex(art.ink.ink)})}.$name-a{fill:var(--gen-accent,${hex(art.ink.accent)})}")
+    val moving = mutableListOf<String>()
+    cuts.forEachIndexed { ci, cut ->
+        cut.bands.forEachIndexed { bi, b ->
+            if (b.off == 0f) return@forEachIndexed
+            val id = "$name-m${ci}_$bi"
+            val from = if (cut.horizontal) "${n(b.off)}px,0" else "0,${n(b.off)}px"
+            val to = if (cut.horizontal) "${n(-b.off)}px,0" else "0,${n(-b.off)}px"
+            sb.append(".$id{transform-box:view-box;animation:$id ${n(period(ci, bi))}s ease-in-out infinite}")
+            sb.append("@keyframes $id{0%,100%{transform:translate($from)}50%{transform:translate($to)}}")
+            moving += ".$id"
+        }
+    }
+    val all = moving.joinToString(",")
+    sb.append("@media (max-resolution:1.5dppx),(-webkit-max-device-pixel-ratio:1.5){$all{animation:none}}")
+    sb.append("@media (prefers-reduced-motion:reduce){$all{animation:none}}")
+    sb.appendLine("</style>")
+    sb.appendLine("<defs>")
+    cuts.forEachIndexed { ci, cut ->
+        cut.bands.forEachIndexed { bi, b ->
+            val r = cut.rect(b, s)
+            sb.appendLine("""  <clipPath id="$name-c${ci}_$bi"><rect x="${n(r.left)}" y="${n(r.top)}" width="${n(r.width)}" height="${n(r.height)}"/></clipPath>""")
+        }
+    }
+    sb.appendLine("""<g id="$name-art" class="$name-i" fill="none" stroke-linecap="butt">""")
+    for (level in 0..3) {
+        val dash = if (level == 0) """ stroke-dasharray="${n(DOT_ON * s)} ${n(DOT_OFF * s)}"""" else ""
+        sb.appendLine("""  <g stroke-width="${n(WIDTHS[level] * s)}"$dash>""")
+        art.segs.filter { it.level == level }.forEach {
+            sb.appendLine("""    <line x1="${n(it.x0)}" y1="${n(it.y0)}" x2="${n(it.x1)}" y2="${n(it.y1)}"/>""")
+        }
+        sb.appendLine("  </g>")
+    }
+    sb.appendLine("""  <circle class="$name-a" cx="${n(art.cx)}" cy="${n(art.cy)}" r="${n(art.discR)}" stroke="none"/>""")
+    sb.appendLine("</g>")
+    sb.appendLine("</defs>")
+    sb.appendMovingCuts(name, cuts, cuts.size - 1)
+    sb.appendLine("</svg>")
+    return sb.toString()
+}
+
+/** A band's period in seconds: 22 to 36, spread by the golden ratio so no two bands
+ *  near each other keep step. */
+private fun period(ci: Int, bi: Int): Float {
+    val x = (bi + 1 + ci * 7) * 0.618034f
+    return 22f + 14f * (x - x.toInt())
+}
+
+/** [appendCuts] for the motion SVG: the shift sits on a class the CSS can animate. */
+private fun StringBuilder.appendMovingCuts(name: String, cuts: List<Cut>, depth: Int) {
+    if (depth < 0) {
+        appendLine("""<use href="#$name-art"/>""")
+        return
+    }
+    val cut = cuts[depth]
+    cut.bands.forEachIndexed { bi, b ->
+        val cls = if (b.off == 0f) "" else """ class="$name-m${depth}_$bi""""
+        appendLine("""<g clip-path="url(#$name-c${depth}_$bi)"><g$cls transform="translate(${n(cut.dx(b))} ${n(cut.dy(b))})">""")
+        appendMovingCuts(name, cuts, depth - 1)
         appendLine("</g></g>")
     }
 }
