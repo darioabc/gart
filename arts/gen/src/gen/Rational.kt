@@ -1515,12 +1515,13 @@ fun main() {
         "rationalAvatarOrbit01" to { nm, r -> orbitAvatar(nm, r) },
         "rationalAvatarArcs01" to { nm, r -> roundCut(arcs(nm, r, 3, 1, 0)) },
         "rationalAvatarHalftone01" to { nm, r -> roundCut(halftone(nm, r, 3, 2, false, true)) },
-        // Orbit with no ring lines: only the marks turning, at three, four and five rings,
-        // and with radial ticks for marks.
+        // Orbit with no ring lines: only the marks turning, at three, four, five and six
+        // rings, and with radial ticks for marks.
         "rationalAvatarOrbit02" to { nm, r -> orbitAvatar(nm, r, lines = false) },
         "rationalAvatarOrbit03" to { nm, r -> orbitAvatar(nm, r, rings = 3, lines = false, mark = 1.3f) },
         "rationalAvatarOrbit04" to { nm, r -> orbitAvatar(nm, r, rings = 5, lines = false, mark = 0.8f) },
         "rationalAvatarOrbit05" to { nm, r -> orbitAvatar(nm, r, lines = false, ticks = true) },
+        "rationalAvatarOrbit06" to { nm, r -> orbitAvatar(nm, r, rings = 6, lines = false, mark = 0.7f) },
     )
 
     // GART_ONLY=Journey,Kit renders only the makers whose names contain one of those
