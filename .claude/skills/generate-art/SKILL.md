@@ -7,6 +7,9 @@ description: Generate a PNG image using the gȧrt generative-art framework. Use 
 
 Scaffold a new gȧrt piece and render it to a PNG — end to end, headless.
 
+> Modernist decorations or process illustrations for the folio site (themable SVG, Gaussian
+> primes) belong to the Rational family: use the `rational` skill instead.
+
 **Two entry modes:**
 
 - **Description given** (e.g. `/generate-art swirling neon flow field`, or any brief

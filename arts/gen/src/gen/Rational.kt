@@ -54,6 +54,10 @@ private val SEED: Long = System.getProperty("GART_SEED")?.toLongOrNull()
  *  - stripes: Swiss-poster discs and fields filled with a barcode read off one row of
  *    the odd sub-lattice, a band for every prime and a hairline for every composite.
  *
+ * Then eight process illustrations in the same vocabulary, for the folio's "How I
+ * work" steps: journey, rounds, versions and drafts (iterating on journeys and
+ * designs), parts, assembly, tree and kit (building components in the repo).
+ *
  * Variance is the Gaussian primes rather than a random draw: a seed only picks where
  * in the plane to look, and everything placed follows from which integers there are
  * prime, their norms and their arguments. Primes off the axes have odd a + b, so the
@@ -208,10 +212,55 @@ private fun circlePath(cx: Float, cy: Float, r: Float) =
 /** A full ring; draw it with evenOdd so the inner circle is a hole. */
 private fun ring(cx: Float, cy: Float, r0: Float, r1: Float) = circlePath(cx, cy, r1) + circlePath(cx, cy, r0)
 
+private fun rectPath(x: Float, y: Float, w: Float, h: Float) = "M${n(x)} ${n(y)}h${n(w)}v${n(h)}h${n(-w)}Z"
+
+/** A rectangular frame [t] thick; draw it with evenOdd. */
+private fun framePath(x: Float, y: Float, w: Float, h: Float, t: Float) =
+    rectPath(x, y, w, h) + rectPath(x + t, y + t, w - 2 * t, h - 2 * t)
+
 private fun polygon(pts: List<Pair<Float, Float>>) =
     pts.mapIndexed { i, (x, y) -> (if (i == 0) "M" else "L") + "${n(x)} ${n(y)}" }.joinToString("") + "Z"
 
-// ---- the five approaches ----
+// ---- the ten approaches ----
+
+/** One Bauhaus tile at (x, y), side m, grown from the prime corners of grid cell
+ *  (c, r): one prime is a quarter disc, two adjacent a half disc, two opposite two
+ *  small quarters, three a disc, four an accent disc. [tex] takes the tile kind (0 the
+ *  four-prime disc, 1 quarters, 2 halves, 3 discs). [force] overrides the role. */
+private fun moduleTile(
+    grid: OddGrid, c: Int, r: Int, x: Float, y: Float, m: Float, tex: (Int) -> Tex?, force: Role? = null,
+): List<Shape> {
+    val shapes = mutableListOf<Shape>()
+    val tl = grid.prime(c, r)
+    val tr = grid.prime(c + 1, r)
+    val br = grid.prime(c + 1, r + 1)
+    val bl = grid.prime(c, r + 1)
+    val n = listOf(tl, tr, br, bl).count { it }
+    val role = force ?: if (grid.norm(c, r) % 13 == 0L) Role.ACCENT else Role.INK
+    when {
+        n == 1 -> shapes += when {
+            tl -> Sector(x, y, m, 0f, 90f, role, tex = tex(1))
+            tr -> Sector(x + m, y, m, 90f, 90f, role, tex = tex(1))
+            br -> Sector(x + m, y + m, m, 180f, 90f, role, tex = tex(1))
+            else -> Sector(x, y + m, m, 270f, 90f, role, tex = tex(1))
+        }
+        n == 2 && tl && tr -> shapes += Sector(x + m / 2, y, m / 2, 0f, 180f, role, tex = tex(2))
+        n == 2 && tr && br -> shapes += Sector(x + m, y + m / 2, m / 2, 90f, 180f, role, tex = tex(2))
+        n == 2 && br && bl -> shapes += Sector(x + m / 2, y + m, m / 2, 180f, 180f, role, tex = tex(2))
+        n == 2 && bl && tl -> shapes += Sector(x, y + m / 2, m / 2, 270f, 180f, role, tex = tex(2))
+        n == 2 && tl && br -> {
+            shapes += Sector(x, y, m / 2, 0f, 90f, role, tex = tex(1))
+            shapes += Sector(x + m, y + m, m / 2, 180f, 90f, role, tex = tex(1))
+        }
+        n == 2 -> {
+            shapes += Sector(x + m, y, m / 2, 90f, 90f, role, tex = tex(1))
+            shapes += Sector(x, y + m, m / 2, 270f, 90f, role, tex = tex(1))
+        }
+        n == 3 -> shapes += Disc(x + m / 2, y + m / 2, m / 2, role, tex = tex(3))
+        n == 4 -> shapes += Disc(x + m / 2, y + m / 2, m / 2, Role.ACCENT, tex = tex(0))
+    }
+    return shapes
+}
 
 /** Bauhaus tiles: each tile grows from its prime corners. */
 private fun modules(name: String, rng: Random, cols: Int, reach: Int, texMode: Int): Art {
@@ -228,37 +277,7 @@ private fun modules(name: String, rng: Random, cols: Int, reach: Int, texMode: I
     }
     val shapes = mutableListOf<Shape>()
     for (r in 0 until cols) for (c in 0 until cols) {
-        val x = margin + c * (m + gap)
-        val y = margin + r * (m + gap)
-        val tl = grid.prime(c, r)
-        val tr = grid.prime(c + 1, r)
-        val br = grid.prime(c + 1, r + 1)
-        val bl = grid.prime(c, r + 1)
-        val n = listOf(tl, tr, br, bl).count { it }
-        val accent = grid.norm(c, r) % 13 == 0L
-        val role = if (accent) Role.ACCENT else Role.INK
-        when {
-            n == 1 -> shapes += when {
-                tl -> Sector(x, y, m, 0f, 90f, role, tex = tex(1))
-                tr -> Sector(x + m, y, m, 90f, 90f, role, tex = tex(1))
-                br -> Sector(x + m, y + m, m, 180f, 90f, role, tex = tex(1))
-                else -> Sector(x, y + m, m, 270f, 90f, role, tex = tex(1))
-            }
-            n == 2 && tl && tr -> shapes += Sector(x + m / 2, y, m / 2, 0f, 180f, role, tex = tex(2))
-            n == 2 && tr && br -> shapes += Sector(x + m, y + m / 2, m / 2, 90f, 180f, role, tex = tex(2))
-            n == 2 && br && bl -> shapes += Sector(x + m / 2, y + m, m / 2, 180f, 180f, role, tex = tex(2))
-            n == 2 && bl && tl -> shapes += Sector(x, y + m / 2, m / 2, 270f, 180f, role, tex = tex(2))
-            n == 2 && tl && br -> {
-                shapes += Sector(x, y, m / 2, 0f, 90f, role, tex = tex(1))
-                shapes += Sector(x + m, y + m, m / 2, 180f, 90f, role, tex = tex(1))
-            }
-            n == 2 -> {
-                shapes += Sector(x + m, y, m / 2, 90f, 90f, role, tex = tex(1))
-                shapes += Sector(x, y + m, m / 2, 270f, 90f, role, tex = tex(1))
-            }
-            n == 3 -> shapes += Disc(x + m / 2, y + m / 2, m / 2, role, tex = tex(3))
-            n == 4 -> shapes += Disc(x + m / 2, y + m / 2, m / 2, Role.ACCENT, tex = tex(0))
-        }
+        shapes += moduleTile(grid, c, r, margin + c * (m + gap), margin + r * (m + gap), m, ::tex)
     }
     return Art(name, shapes)
 }
@@ -492,36 +511,10 @@ private fun division(name: String, rng: Random, mode: Int): Art {
     val margin = 90f
     val units = if (mode == 2) 24 else 12
     val g = (U - 2 * margin) / units
-    val primes = primesNear(rng.nextInt(-300, 300), rng.nextInt(-300, 300), 300)
+    val stream = PrimeStream(primesNear(rng.nextInt(-300, 300), rng.nextInt(-300, 300), 300))
     val ts = rng.nextInt(1, 999)
-    var next = 0
-    fun draw() = primes[next++ % primes.size]
-    data class Cell(val x: Int, val y: Int, val w: Int, val h: Int, val depth: Int)
-    data class Cut(val vertical: Boolean, val at: Int, val from: Int, val to: Int)
-    val leaves = mutableListOf<Cell>()
-    val cuts = mutableListOf<Cut>()
-    val maxDepth = if (mode == 2) 7 else 4
-    val fractions = floatArrayOf(1 / 3f, 1 / 2f, 2 / 3f, 1 / 4f, 3 / 4f, 2 / 5f, 3 / 5f)
-    fun split(c: Cell) {
-        val (a, b) = draw()
-        if (c.depth >= maxDepth || (c.depth >= 2 && gnorm(a, b) % 3 == 0L)) { leaves += c; return }
-        val vertical = when {
-            c.w >= 2 * c.h -> true
-            c.h >= 2 * c.w -> false
-            else -> Math.floorMod(a, 2) == 0
-        }
-        val len = if (vertical) c.w else c.h
-        if (len < 2) { leaves += c; return }
-        val at = (fractions[Math.floorMod(b, fractions.size)] * len).toInt().coerceIn(1, len - 1)
-        if (vertical) {
-            cuts += Cut(true, c.x + at, c.y, c.y + c.h)
-            split(Cell(c.x, c.y, at, c.h, c.depth + 1)); split(Cell(c.x + at, c.y, c.w - at, c.h, c.depth + 1))
-        } else {
-            cuts += Cut(false, c.y + at, c.x, c.x + c.w)
-            split(Cell(c.x, c.y, c.w, at, c.depth + 1)); split(Cell(c.x, c.y + at, c.w, c.h - at, c.depth + 1))
-        }
-    }
-    split(Cell(0, 0, units, units, 0))
+    fun draw() = stream.draw()
+    val (leaves, cuts) = divide(stream, units, if (mode == 2) 7 else 4)
     fun u(v: Int) = margin + v * g
     val shapes = mutableListOf<Shape>()
     // Fills: the largest cell whose prime falls right takes the accent, a few others ink.
@@ -542,17 +535,64 @@ private fun division(name: String, rng: Random, mode: Int): Art {
     }
     if (mode != 1) {
         val t = if (mode == 0) 12f else 3f
-        for (cut in cuts) {
-            val from = u(cut.from) - t / 2; val len = (cut.to - cut.from) * g + t
-            shapes += if (cut.vertical) Box(u(cut.at) - t / 2, from, t, len) else Box(from, u(cut.at) - t / 2, len, t)
-        }
-        val side = U - 2 * margin + t
-        shapes += Box(margin - t / 2, margin - t / 2, side, t)
-        shapes += Box(margin - t / 2, U - margin - t / 2, side, t)
-        shapes += Box(margin - t / 2, margin - t / 2, t, side)
-        shapes += Box(U - margin - t / 2, margin - t / 2, t, side)
+        shapes += rules(cuts, margin, g, t)
     }
     return Art(name, shapes)
+}
+
+/** The rules of a division: one per cut, plus the frame, each [t] thick. */
+private fun rules(cuts: List<DivCut>, margin: Float, g: Float, t: Float): List<Shape> {
+    fun u(v: Int) = margin + v * g
+    val shapes = mutableListOf<Shape>()
+    for (cut in cuts) {
+        val from = u(cut.from) - t / 2; val len = (cut.to - cut.from) * g + t
+        shapes += if (cut.vertical) Box(u(cut.at) - t / 2, from, t, len) else Box(from, u(cut.at) - t / 2, len, t)
+    }
+    val side = U - 2 * margin + t
+    shapes += Box(margin - t / 2, margin - t / 2, side, t)
+    shapes += Box(margin - t / 2, U - margin - t / 2, side, t)
+    shapes += Box(margin - t / 2, margin - t / 2, t, side)
+    shapes += Box(U - margin - t / 2, margin - t / 2, t, side)
+    return shapes
+}
+
+/** Primes read one after another, wrapping round. */
+private class PrimeStream(private val primes: List<Pair<Int, Int>>) {
+    private var next = 0
+    fun draw() = primes[next++ % primes.size]
+}
+
+/** A cell and a cut of a division, in grid units. */
+private data class DivCell(val x: Int, val y: Int, val w: Int, val h: Int, val depth: Int)
+private data class DivCut(val vertical: Boolean, val at: Int, val from: Int, val to: Int)
+
+/** Cuts a [units] square again and again: each cut's direction, place and whether to
+ *  stop come from the next prime in [stream]. Long cells cut across their length. */
+private fun divide(stream: PrimeStream, units: Int, maxDepth: Int): Pair<List<DivCell>, List<DivCut>> {
+    val leaves = mutableListOf<DivCell>()
+    val cuts = mutableListOf<DivCut>()
+    val fractions = floatArrayOf(1 / 3f, 1 / 2f, 2 / 3f, 1 / 4f, 3 / 4f, 2 / 5f, 3 / 5f)
+    fun split(c: DivCell) {
+        val (a, b) = stream.draw()
+        if (c.depth >= maxDepth || (c.depth >= 2 && gnorm(a, b) % 3 == 0L)) { leaves += c; return }
+        val vertical = when {
+            c.w >= 2 * c.h -> true
+            c.h >= 2 * c.w -> false
+            else -> Math.floorMod(a, 2) == 0
+        }
+        val len = if (vertical) c.w else c.h
+        if (len < 2) { leaves += c; return }
+        val at = (fractions[Math.floorMod(b, fractions.size)] * len).toInt().coerceIn(1, len - 1)
+        if (vertical) {
+            cuts += DivCut(true, c.x + at, c.y, c.y + c.h)
+            split(DivCell(c.x, c.y, at, c.h, c.depth + 1)); split(DivCell(c.x + at, c.y, c.w - at, c.h, c.depth + 1))
+        } else {
+            cuts += DivCut(false, c.y + at, c.x, c.x + c.w)
+            split(DivCell(c.x, c.y, c.w, at, c.depth + 1)); split(DivCell(c.x, c.y + at, c.w, c.h - at, c.depth + 1))
+        }
+    }
+    split(DivCell(0, 0, units, units, 0))
+    return leaves to cuts
 }
 
 /** A halftone screen over the odd sub-lattice. A prime is a full dot; any other point
@@ -654,6 +694,304 @@ private fun stripes(name: String, rng: Random, mode: Int): Art {
                 barcode(grid, 1, 18, true, cx - cr, cx + cr, cy - cr, cy + cr, false, null).map {
                     (it as Box).copy(role = Role.ACCENT)
                 }, grain(ts + 1))
+        }
+    }
+    return Art(name, shapes)
+}
+
+// ---- process illustrations (folio "How I work") ----
+// Each reads one step of a design process in the same vocabulary: iterating on
+// journeys and designs (journey, rounds, versions, drafts) and building components in
+// the repo (parts, assembly, tree, kit).
+
+/** Iterating, as a journey: the Truchet arcs as fine lines, and the longest open path
+ *  through them, edge to edge, as a wide accent band with a dot at each end. */
+private fun journey(name: String, rng: Random, cols: Int): Art {
+    val margin = 90f
+    val m = (U - 2 * margin) / cols
+    val grid = oddGrid(rng, 200)
+    // Edge midpoints are the graph's nodes: the top edge of tile (c, r) is H(c, r), its
+    // left edge V(c, r). Each arc joins two of them.
+    fun h(c: Int, r: Int) = r * cols + c
+    fun v(c: Int, r: Int) = (cols + 1) * cols + r * (cols + 1) + c
+    fun at(node: Int): Pair<Float, Float> {
+        val hs = (cols + 1) * cols
+        return if (node < hs) (margin + (node % cols) * m + m / 2) to (margin + (node / cols) * m)
+        else (margin + ((node - hs) % (cols + 1)) * m) to (margin + ((node - hs) / (cols + 1)) * m + m / 2)
+    }
+    data class Arc(val cx: Float, val cy: Float, val start: Float, val a: Int, val b: Int)
+    val arcs = mutableListOf<Arc>()
+    for (r in 0 until cols) for (c in 0 until cols) {
+        val x = margin + c * m
+        val y = margin + r * m
+        if (grid.prime(c, r) != grid.prime(c + 1, r + 1)) {
+            arcs += Arc(x + m, y, 90f, h(c, r), v(c + 1, r))
+            arcs += Arc(x, y + m, 270f, h(c, r + 1), v(c, r))
+        } else {
+            arcs += Arc(x, y, 0f, h(c, r), v(c, r))
+            arcs += Arc(x + m, y + m, 180f, h(c, r + 1), v(c + 1, r))
+        }
+    }
+    val touching = mutableMapOf<Int, MutableList<Int>>()
+    arcs.forEachIndexed { i, a -> touching.getOrPut(a.a) { mutableListOf() } += i; touching.getOrPut(a.b) { mutableListOf() } += i }
+    // Components: every node meets at most two arcs, so each is a loop or an open path
+    // whose ends sit on the boundary.
+    val seen = BooleanArray(arcs.size)
+    var best = emptyList<Int>()
+    var ends = emptyList<Int>()
+    for (i in arcs.indices) {
+        if (seen[i]) continue
+        val comp = mutableListOf<Int>()
+        val queue = ArrayDeque(listOf(i)); seen[i] = true
+        while (queue.isNotEmpty()) {
+            val k = queue.removeFirst(); comp += k
+            for (node in listOf(arcs[k].a, arcs[k].b)) for (j in touching.getValue(node)) if (!seen[j]) { seen[j] = true; queue += j }
+        }
+        val open = comp.flatMap { listOf(arcs[it].a, arcs[it].b) }.filter { touching.getValue(it).size == 1 }
+        if (open.isNotEmpty() && comp.size > best.size) { best = comp; ends = open }
+    }
+    val shapes = mutableListOf<Shape>()
+    val line = m * 0.035f
+    arcs.forEachIndexed { i, a ->
+        if (i !in best) shapes += Outline(ringSector(a.cx, a.cy, m / 2 - line, m / 2 + line, a.start, 90f))
+    }
+    val band = m * 0.13f
+    for (i in best) {
+        val a = arcs[i]
+        shapes += Outline(ringSector(a.cx, a.cy, m / 2 - band, m / 2 + band, a.start, 90f), role = Role.ACCENT)
+    }
+    for (e in ends) { val (x, y) = at(e); shapes += Disc(x, y, band * 1.6f, Role.ACCENT) }
+    return Art(name, shapes)
+}
+
+/** Iterating, as rounds: square frames, each the last one shrunk toward a point the
+ *  primes pick, stippled denser round by round, ending on a solid accent square. */
+private fun rounds(name: String, rng: Random, count: Int): Art {
+    val primes = primesNear(rng.nextInt(20, 300), rng.nextInt(1, 300), count + 2)
+    val ts = rng.nextInt(1, 999)
+    val s0 = U - 180f
+    val tx = U / 2 + (Math.floorMod(primes[0].first, 5) - 2) * 70f
+    val ty = U / 2 + (Math.floorMod(primes[0].second, 5) - 2) * 70f
+    val shapes = mutableListOf<Shape>()
+    var f = 1f
+    for (k in 0..count) {
+        val size = s0 * f
+        val x = tx + (90f - tx) * f
+        val y = ty + (90f - ty) * f
+        if (k == count) {
+            shapes += Box(x, y, size, size, Role.ACCENT)
+        } else {
+            val t = max(8f, size * 0.075f)
+            shapes += Outline(framePath(x, y, size, size, t), evenOdd = true, tex = stipple(0.32f + 0.62f * k / (count - 1), ts + k))
+        }
+        val (a, b) = primes[k + 1]
+        f *= 0.7f + (gnorm(a, b) % 5) * 0.025f
+    }
+    return Art(name, shapes)
+}
+
+/** Iterating, as versions: a contact sheet of nine panels, each the same window of
+ *  Bauhaus tiles moved one step along the lattice, so shapes walk from panel to panel.
+ *  The last panel, the one kept, is in the accent. */
+private fun versions(name: String, rng: Random): Art {
+    val margin = 90f
+    val gutter = 30f
+    val panel = (U - 2 * margin - 2 * gutter) / 3
+    val pad = 16f
+    val gap = 4f
+    val m = (panel - 2 * pad - 2 * gap) / 3
+    val grid = oddGrid(rng, 60)
+    val shapes = mutableListOf<Shape>()
+    for (k in 0 until 9) {
+        val px = margin + (k % 3) * (panel + gutter)
+        val py = margin + (k / 3) * (panel + gutter)
+        shapes += Outline(framePath(px, py, panel, panel, 1.5f), evenOdd = true, alpha = 0.35f)
+        for (r in 0 until 3) for (c in 0 until 3) {
+            shapes += moduleTile(grid, c + k, r, px + pad + c * (m + gap), py + pad + r * (m + gap), m, { null },
+                force = if (k == 8) Role.ACCENT else Role.INK)
+        }
+    }
+    return Art(name, shapes)
+}
+
+/** Iterating, as drafts: the same square laid down again and again in translucent
+ *  grain, each draft nearer the final place, the final one in the accent. Offsets
+ *  shrink each round and turn by the golden angle from the argument of successive
+ *  primes, so the drafts circle in on the final place rather than trail behind it. */
+private fun drafts(name: String, rng: Random, count: Int): Art {
+    val primes = primesNear(rng.nextInt(-200, 200), rng.nextInt(-200, 200), count)
+    val ts = rng.nextInt(1, 999)
+    val side = 380f
+    val fx = (U - side) / 2
+    val fy = (U - side) / 2
+    val shapes = mutableListOf<Shape>()
+    for (k in 0 until count) {
+        val last = k == count - 1
+        val (a, b) = primes[k]
+        val t = atan2(b.toDouble(), a.toDouble()) + k * 2.39996
+        val d = if (last) 0f else 200f * Math.pow(0.66, k.toDouble()).toFloat()
+        shapes += Box(fx + d * cos(t).toFloat(), fy + d * sin(t).toFloat(), side, side,
+            if (last) Role.ACCENT else Role.INK, if (last) 0.88f else 0.15f, grain(ts + k))
+    }
+    return Art(name, shapes)
+}
+
+/** Building, as parts: Truchet tiles pulled apart into separate pieces, each in a
+ *  hairline slot. A few lift out of their slots, the first in the accent. */
+private fun parts(name: String, rng: Random, cols: Int): Art {
+    val margin = 90f
+    val gap = 30f
+    val m = (U - 2 * margin - (cols - 1) * gap) / cols
+    val grid = oddGrid(rng, 200)
+    val lift = m * 0.17f
+    val lifted = (0 until cols * cols).filter { grid.norm(it % cols, it / cols) % 5 == 0L }.ifEmpty { listOf(cols * cols / 2) }
+    val shapes = mutableListOf<Shape>()
+    val band = m * 0.12f
+    for (r in 0 until cols) for (c in 0 until cols) {
+        val i = r * cols + c
+        var x = margin + c * (m + gap)
+        var y = margin + r * (m + gap)
+        shapes += Outline(framePath(x, y, m, m, 1.5f), evenOdd = true, alpha = 0.35f)
+        if (i in lifted) { x += lift; y -= lift }
+        val role = if (i == lifted.first()) Role.ACCENT else Role.INK
+        val corners = if (grid.prime(c, r) != grid.prime(c + 1, r + 1)) listOf(Triple(x + m, y, 90f), Triple(x, y + m, 270f))
+        else listOf(Triple(x, y, 0f), Triple(x + m, y + m, 180f))
+        for ((cx, cy, start) in corners) shapes += Outline(ringSector(cx, cy, m / 2 - band, m / 2 + band, start, 90f), role = role)
+    }
+    return Art(name, shapes)
+}
+
+/** Building, as assembly: a De Stijl division whose cells hold parts fitted to their
+ *  shape (a disc, a quarter from a corner, a half on the long side, a solid or
+ *  stippled block), the largest round part in the accent. */
+private fun assembly(name: String, rng: Random): Art {
+    val margin = 90f
+    val units = 12
+    val g = (U - 2 * margin) / units
+    val stream = PrimeStream(primesNear(rng.nextInt(-300, 300), rng.nextInt(-300, 300), 300))
+    val ts = rng.nextInt(1, 999)
+    val (leaves, cuts) = divide(stream, units, 5)
+    val t = 6f
+    val kinds = leaves.map { val (a, b) = stream.draw(); (gnorm(a, b) % 6).toInt() to Math.floorMod(a, 4) }
+    val accent = leaves.indices.filter { kinds[it].first <= 2 }.maxByOrNull { min(leaves[it].w, leaves[it].h) }
+    val shapes = mutableListOf<Shape>()
+    leaves.forEachIndexed { i, c ->
+        val pad = t / 2 + 10f
+        val x = margin + c.x * g + pad; val y = margin + c.y * g + pad
+        val w = c.w * g - 2 * pad; val h = c.h * g - 2 * pad
+        val role = if (i == accent) Role.ACCENT else Role.INK
+        val (kind, corner) = kinds[i]
+        when (kind) {
+            0 -> shapes += Disc(x + w / 2, y + h / 2, min(w, h) / 2, role)
+            1 -> {
+                val r = min(w, h)
+                shapes += when (corner) {
+                    0 -> Sector(x, y, r, 0f, 90f, role)
+                    1 -> Sector(x + w, y, r, 90f, 90f, role)
+                    2 -> Sector(x + w, y + h, r, 180f, 90f, role)
+                    else -> Sector(x, y + h, r, 270f, 90f, role)
+                }
+            }
+            2 -> shapes += if (w >= h) Sector(x + w / 2, y + h, min(w / 2, h), 180f, 180f, role)
+                else Sector(x, y + h / 2, min(h / 2, w), 270f, 180f, role)
+            3 -> shapes += Box(x, y, w, h, Role.INK)
+            4 -> shapes += Box(x, y, w, h, Role.INK, tex = stipple(0.55f, ts + i % 4))
+        }
+    }
+    shapes += rules(cuts, margin, g, t)
+    return Art(name, shapes)
+}
+
+/** Building, as a repo tree: rows of a file tree, each indented one level deeper,
+ *  level, or back out as the primes along its lattice row say. Folders are squares,
+ *  files discs, each with a bar for its name; hairline guides join a folder to its
+ *  children. The deepest file is the new component, in the accent. */
+private fun tree(name: String, rng: Random, rows: Int): Art {
+    val my = 110f
+    val pitch = (U - 2 * my) / (rows - 1)
+    val step = 64f
+    val grid = oddGrid(rng, 300)
+    val depth = IntArray(rows)
+    for (k in 1 until rows) depth[k] = when {
+        (grid.prime(k, 0) || grid.prime(k, 1)) && depth[k - 1] < 4 -> depth[k - 1] + 1
+        grid.prime(k, 2) -> depth[k - 1]
+        else -> max(0, depth[k - 1] - 1)
+    }
+    fun x(d: Int) = 120f + d * step
+    fun y(k: Int) = my + k * pitch
+    val folder = BooleanArray(rows) { k -> k + 1 < rows && depth[k + 1] > depth[k] }
+    val newest = (0 until rows).filter { !folder[it] }.maxByOrNull { depth[it] } ?: rows - 1
+    val shapes = mutableListOf<Shape>()
+    val mark = pitch * 0.42f
+    val hair = 1.6f
+    for (k in 0 until rows) {
+        if (!folder[k]) continue
+        val kids = (k + 1 until rows).takeWhile { depth[it] > depth[k] }.filter { depth[it] == depth[k] + 1 }
+        val gx = x(depth[k])
+        shapes += Box(gx - hair / 2, y(k) + mark / 2, hair, y(kids.last()) - y(k) - mark / 2, Role.INK, 0.45f)
+        for (c in kids) shapes += Box(gx, y(c) - hair / 2, step - mark / 2 - 8f, hair, Role.INK, 0.45f)
+    }
+    for (k in 0 until rows) {
+        val role = if (k == newest) Role.ACCENT else Role.INK
+        val cx = x(depth[k])
+        shapes += if (folder[k]) Box(cx - mark / 2, y(k) - mark / 2, mark, mark, role) else Disc(cx, y(k), mark * 0.4f, role)
+        val start = cx + mark / 2 + 14f
+        val len = min(150f + (grid.norm(k, 3) % 11) * 38f, U - 110f - start)
+        val th = pitch * 0.22f
+        shapes += Box(start, y(k) - th / 2, len, th, role)
+    }
+    return Art(name, shapes)
+}
+
+/** Building, as a kit: a specimen sheet of the parts, a family to a row (discs,
+ *  halves, quarters, blocks), each in a hairline cell. The primes turn each row,
+ *  stipple some parts and pick the one accent. */
+private fun kit(name: String, rng: Random): Art {
+    val margin = 110f
+    val gap = 26f
+    val cell = (U - 2 * margin - 3 * gap) / 4
+    val pad = 20f
+    val grid = oddGrid(rng, 120)
+    val ts = rng.nextInt(1, 999)
+    val pick = Math.floorMod(grid.a(0, 0) * 7 + grid.b(0, 0), 16)
+    val shapes = mutableListOf<Shape>()
+    for (r in 0 until 4) {
+        val turn = Math.floorMod(grid.b(r, 0), 4)
+        for (c in 0 until 4) {
+            val cx0 = margin + c * (cell + gap)
+            val cy0 = margin + r * (cell + gap)
+            shapes += Outline(framePath(cx0, cy0, cell, cell, 1.5f), evenOdd = true, alpha = 0.35f)
+            val x = cx0 + pad; val y = cy0 + pad; val s = cell - 2 * pad
+            val role = if (r * 4 + c == pick) Role.ACCENT else Role.INK
+            val tex = if (role == Role.INK && grid.prime(r, c + 1)) stipple(0.62f, ts + r) else null
+            val v = (c + turn) % 4
+            shapes += when (r) {
+                0 -> when (v) {
+                    0 -> Disc(x + s / 2, y + s / 2, s / 2, role, tex = tex)
+                    1 -> Outline(ring(x + s / 2, y + s / 2, s * 0.3f, s / 2), evenOdd = true, role = role, tex = tex)
+                    2 -> Disc(x + s / 2, y + s / 2, s * 0.3f, role, tex = tex)
+                    else -> Outline(ring(x + s / 2, y + s / 2, s * 0.44f, s / 2) + circlePath(x + s / 2, y + s / 2, s * 0.3f), evenOdd = true, role = role, tex = tex)
+                }
+                // A half disc standing on one side of the cell.
+                1 -> when (v) {
+                    0 -> Sector(x + s / 2, y + s, s / 2, 180f, 180f, role, tex = tex)
+                    1 -> Sector(x, y + s / 2, s / 2, 270f, 180f, role, tex = tex)
+                    2 -> Sector(x + s / 2, y, s / 2, 0f, 180f, role, tex = tex)
+                    else -> Sector(x + s, y + s / 2, s / 2, 90f, 180f, role, tex = tex)
+                }
+                2 -> when (v) {
+                    0 -> Sector(x, y, s, 0f, 90f, role, tex = tex)
+                    1 -> Sector(x + s, y, s, 90f, 90f, role, tex = tex)
+                    2 -> Sector(x + s, y + s, s, 180f, 90f, role, tex = tex)
+                    else -> Sector(x, y + s, s, 270f, 90f, role, tex = tex)
+                }
+                else -> when (v) {
+                    0 -> Box(x, y, s, s, role, tex = tex)
+                    1 -> Outline(framePath(x, y, s, s, s * 0.18f), evenOdd = true, role = role, tex = tex)
+                    2 -> Box(x, y + s / 4, s, s / 2, role, tex = tex)
+                    else -> Box(x + s / 4, y, s / 2, s, role, tex = tex)
+                }
+            }
         }
     }
     return Art(name, shapes)
@@ -777,10 +1115,26 @@ fun main() {
         "rationalStripes01" to { nm, r -> stripes(nm, r, 0) },
         "rationalStripes02" to { nm, r -> stripes(nm, r, 1) },
         "rationalStripes03" to { nm, r -> stripes(nm, r, 2) },
+        "rationalJourney01" to { nm, r -> journey(nm, r, 9) },
+        "rationalRounds01" to { nm, r -> rounds(nm, r, 7) },
+        "rationalVersions01" to { nm, r -> versions(nm, r) },
+        "rationalDrafts01" to { nm, r -> drafts(nm, r, 6) },
+        "rationalParts01" to { nm, r -> parts(nm, r, 5) },
+        "rationalAssembly01" to { nm, r -> assembly(nm, r) },
+        "rationalTree01" to { nm, r -> tree(nm, r, 15) },
+        "rationalKit01" to { nm, r -> kit(nm, r) },
     )
 
+    // GART_ONLY=Journey,Kit renders only the makers whose names contain one of those
+    // words. Every maker still takes its seed from the master in order, so a subset
+    // renders exactly as it does in a full run.
+    val only = System.getenv("GART_ONLY")?.split(',')?.map { it.trim() }?.filter { it.isNotEmpty() }
+    var rendered = 0
     makers.forEachIndexed { i, (name, make) ->
-        val art = make(name, Random(master.nextLong()))
+        val seed = master.nextLong()
+        if (only != null && only.none { name.contains(it, ignoreCase = true) }) return@forEachIndexed
+        rendered++
+        val art = make(name, Random(seed))
         File("$name.svg").writeText(svg(art))
 
         // The preview: the same SVG with the light palette baked in, rendered by Skia,
@@ -794,5 +1148,5 @@ fun main() {
         gart.saveImage(out, "$name.png")
         println("  [${i + 1}/${makers.size}] $name: ${art.shapes.size} shapes")
     }
-    println("done: ${makers.size} svg + png pairs")
+    println("done: $rendered svg + png pairs")
 }

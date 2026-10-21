@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<defs>
+<clipPath id="rationalStripes01-c0"><path d="M860 500A360 360 0 1 1 140 500A360 360 0 1 1 860 500Z"/></clipPath>
+</defs>
+<g clip-path="url(#rationalStripes01-c0)">
+<rect x="140" y="144.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="156.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="167.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="178.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="189.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="201.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="212.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="219.88" width="720" height="9" class="gen-i"/>
+<rect x="140" y="234.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="242.38" width="720" height="9" class="gen-i"/>
+<rect x="140" y="257.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="268.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="276.13" width="720" height="9" class="gen-i"/>
+<rect x="140" y="291.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="302.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="313.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="324.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="336.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="347.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="354.88" width="720" height="9" class="gen-i"/>
+<rect x="140" y="369.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="381.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="388.63" width="720" height="9" class="gen-i"/>
+<rect x="140" y="403.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="411.13" width="720" height="9" class="gen-i"/>
+<rect x="140" y="426.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="437.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="448.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="459.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="471.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="482.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="493.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="504.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="516.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="523.63" width="720" height="9" class="gen-i"/>
+<rect x="140" y="538.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="549.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="561.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="572.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="583.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="594.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="606.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="617.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="624.88" width="720" height="9" class="gen-i"/>
+<rect x="140" y="639.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="651.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="662.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="673.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="681.13" width="720" height="9" class="gen-a"/>
+<rect x="140" y="692.38" width="720" height="9" class="gen-a"/>
+<rect x="140" y="707.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="714.88" width="720" height="9" class="gen-i"/>
+<rect x="140" y="729.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="741.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="752.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="763.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="774.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="786.2" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="797.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="808.7" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="819.95" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="827.38" width="720" height="9" class="gen-i"/>
+<rect x="140" y="842.45" width="720" height="1.35" class="gen-i"/>
+<rect x="140" y="853.7" width="720" height="1.35" class="gen-i"/>
+</g>
+</svg>

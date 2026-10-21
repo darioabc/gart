@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<defs>
+<filter id="rationalDivision02-t86h4f55s235" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="235" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalDivision02-t86h4f55s236" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="236" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalDivision02-t86h4f55s237" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="237" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalDivision02-t86h4f55s238" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="238" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalDivision02-t86h4f55s239" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="239" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+</defs>
+<rect x="95" y="95" width="195" height="58.33" class="gen-i" fill-opacity="0.18" filter="url(#rationalDivision02-t86h4f55s235)"/>
+<rect x="95" y="163.33" width="195" height="126.67" class="gen-i" fill-opacity="0.86" filter="url(#rationalDivision02-t86h4f55s236)"/>
+<rect x="95" y="300" width="58.33" height="331.67" class="gen-i" fill-opacity="0.86" filter="url(#rationalDivision02-t86h4f55s237)"/>
+<rect x="163.33" y="300" width="126.67" height="331.67" class="gen-i" fill-opacity="0.86" filter="url(#rationalDivision02-t86h4f55s238)"/>
+<rect x="95" y="710" width="58.33" height="195" class="gen-i" fill-opacity="0.86" filter="url(#rationalDivision02-t86h4f55s235)"/>
+<rect x="163.33" y="641.67" width="126.67" height="58.33" class="gen-i" fill-opacity="0.3" filter="url(#rationalDivision02-t86h4f55s236)"/>
+<rect x="163.33" y="710" width="126.67" height="195" class="gen-i" fill-opacity="0.18" filter="url(#rationalDivision02-t86h4f55s237)"/>
+<rect x="300" y="95" width="263.33" height="195" class="gen-i" fill-opacity="0.3" filter="url(#rationalDivision02-t86h4f55s238)"/>
+<rect x="573.33" y="95" width="331.67" height="195" class="gen-a" filter="url(#rationalDivision02-t86h4f55s235)"/>
+<rect x="300" y="300" width="263.33" height="195" class="gen-i" fill-opacity="0.18" filter="url(#rationalDivision02-t86h4f55s235)"/>
+<rect x="573.33" y="300" width="331.67" height="195" class="gen-i" fill-opacity="0.18" filter="url(#rationalDivision02-t86h4f55s236)"/>
+<rect x="300" y="505" width="195" height="126.67" class="gen-i" fill-opacity="0.1" filter="url(#rationalDivision02-t86h4f55s237)"/>
+<rect x="300" y="641.67" width="195" height="263.33" class="gen-i" fill-opacity="0.86" filter="url(#rationalDivision02-t86h4f55s238)"/>
+<rect x="505" y="505" width="263.33" height="400" class="gen-i" fill-opacity="0.86" filter="url(#rationalDivision02-t86h4f55s239)"/>
+<rect x="778.33" y="505" width="126.67" height="400" class="gen-i" fill-opacity="0.18" filter="url(#rationalDivision02-t86h4f55s235)"/>
+</svg>

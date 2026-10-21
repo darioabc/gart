@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}</style>
+<defs>
+<filter id="rationalDrafts01-t86h4f55s650" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="650" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalDrafts01-t86h4f55s651" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="651" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalDrafts01-t86h4f55s652" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="652" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalDrafts01-t86h4f55s653" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="653" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalDrafts01-t86h4f55s654" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="654" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+<filter id="rationalDrafts01-t86h4f55s655" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="655" stitchTiles="stitch" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 -1.57" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+</defs>
+<rect x="169" y="168.16" width="380" height="380" class="gen-i" fill-opacity="0.15" filter="url(#rationalDrafts01-t86h4f55s650)"/>
+<rect x="441.89" y="315.38" width="380" height="380" class="gen-i" fill-opacity="0.15" filter="url(#rationalDrafts01-t86h4f55s651)"/>
+<rect x="242.1" y="364.58" width="380" height="380" class="gen-i" fill-opacity="0.15" filter="url(#rationalDrafts01-t86h4f55s652)"/>
+<rect x="318.36" y="253.11" width="380" height="380" class="gen-i" fill-opacity="0.15" filter="url(#rationalDrafts01-t86h4f55s653)"/>
+<rect x="331.28" y="341.42" width="380" height="380" class="gen-i" fill-opacity="0.15" filter="url(#rationalDrafts01-t86h4f55s654)"/>
+<rect x="310" y="310" width="380" height="380" class="gen-a" fill-opacity="0.88" filter="url(#rationalDrafts01-t86h4f55s655)"/>
+</svg>
