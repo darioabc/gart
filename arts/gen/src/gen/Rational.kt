@@ -13,6 +13,7 @@ import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.pow
 import kotlin.math.sin
 import kotlin.math.sqrt
 import kotlin.random.Random
@@ -574,8 +575,11 @@ private fun orbit(name: String, rng: Random, quarter: Boolean, ticks: Boolean): 
 
 /** Orbit at avatar size, to read at 32 pixels: the same rule, a ring per Gaussian
  *  prime norm with a mark at the true argument of each prime of that norm, but a few
- *  rings from the smallest norms, marks two pixels across, the origin in the accent,
- *  and each ring turning in 8 to 20 seconds, neighbours in opposite directions.
+ *  rings from the smallest norms, marks two pixels across, the origin in the accent.
+ *  Each ring turns at its own pace, Kepler's way: the period grows as the radius to
+ *  the power 1.5, about 6 seconds a turn at the inner ring and 27 at the outer, so
+ *  the inner rings run ahead and the marks keep shearing past each other; neighbours
+ *  turn in opposite directions.
  *  [lines] draws each ring faintly under its marks; [mark] scales the marks; [ticks]
  *  draws each as a short radial bar instead of a dot. */
 private fun orbitAvatar(
@@ -612,7 +616,7 @@ private fun orbitAvatar(
                 Disc(px, py, (if (onAxis) 46f else 38f) * mark, role)
             }
         }
-        shapes += Motion(Spin(c, c, 8f + (nm % 5) * 3f, k % 2 == 1), marks)
+        shapes += Motion(Spin(c, c, 6f * (r / r0).toDouble().pow(1.5).toFloat(), k % 2 == 1), marks)
     }
     return Art(name, shapes)
 }
