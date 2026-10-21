@@ -1,0 +1,351 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+<style>.gen-i{fill:var(--gen-ink,#1d1f20)}.gen-a{fill:var(--gen-accent,#c84e22)}@keyframes rationalOrbit01-spin{to{transform:rotate(360deg)}}.rationalOrbit01-m0{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 27.02s linear infinite}.rationalOrbit01-m1{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 45.32s linear infinite reverse}.rationalOrbit01-m2{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 44.01s linear infinite}.rationalOrbit01-m3{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 75.39s linear infinite reverse}.rationalOrbit01-m4{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 56.5s linear infinite}.rationalOrbit01-m5{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 75.3s linear infinite reverse}.rationalOrbit01-m6{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 59.14s linear infinite}.rationalOrbit01-m7{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 75.24s linear infinite reverse}.rationalOrbit01-m8{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 122.23s linear infinite}.rationalOrbit01-m9{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 105.28s linear infinite reverse}.rationalOrbit01-m10{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 80.56s linear infinite}.rationalOrbit01-m11{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 120.27s linear infinite reverse}.rationalOrbit01-m12{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 159.71s linear infinite}.rationalOrbit01-m13{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 112.72s linear infinite reverse}.rationalOrbit01-m14{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 118.97s linear infinite}.rationalOrbit01-m15{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 150.25s linear infinite reverse}.rationalOrbit01-m16{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 157.75s linear infinite}.rationalOrbit01-m17{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 118.03s linear infinite reverse}.rationalOrbit01-m18{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 143.95s linear infinite}.rationalOrbit01-m19{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 225.29s linear infinite reverse}.rationalOrbit01-m20{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 156.44s linear infinite}.rationalOrbit01-m21{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 139.45s linear infinite reverse}.rationalOrbit01-m22{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 202.72s linear infinite}.rationalOrbit01-m23{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 262.77s linear infinite reverse}.rationalOrbit01-m24{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 155.51s linear infinite}.rationalOrbit01-m25{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 281.51s linear infinite reverse}.rationalOrbit01-m26{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 193.92s linear infinite}.rationalOrbit01-m27{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 171.57s linear infinite reverse}.rationalOrbit01-m28{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 247.69s linear infinite}.rationalOrbit01-m29{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 318.98s linear infinite reverse}.rationalOrbit01-m30{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 187.63s linear infinite}.rationalOrbit01-m31{transform-box:view-box;transform-origin:500px 500px;animation:rationalOrbit01-spin 337.72s linear infinite reverse}@media (prefers-reduced-motion:reduce){.rationalOrbit01-m{animation:none}}</style>
+<path d="M561 500A61 61 0 1 1 439 500A61 61 0 1 1 561 500ZM559.4 500A59.4 59.4 0 1 1 440.6 500A59.4 59.4 0 1 1 559.4 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m0">
+<circle cx="450.68" cy="534.52" r="4.06" class="gen-i"/>
+<circle cx="450.68" cy="465.48" r="4.06" class="gen-i"/>
+<circle cx="465.48" cy="549.32" r="4.06" class="gen-i"/>
+<circle cx="465.48" cy="450.68" r="4.06" class="gen-i"/>
+<circle cx="534.52" cy="549.32" r="4.06" class="gen-i"/>
+<circle cx="534.52" cy="450.68" r="4.06" class="gen-i"/>
+<circle cx="549.32" cy="534.52" r="4.06" class="gen-i"/>
+<circle cx="549.32" cy="465.48" r="4.06" class="gen-i"/>
+</g>
+<path d="M572.93 500A72.93 72.93 0 1 1 427.07 500A72.93 72.93 0 1 1 572.93 500ZM571.33 500A71.33 71.33 0 1 1 428.67 500A71.33 71.33 0 1 1 571.33 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m1">
+<circle cx="436.68" cy="534.54" r="4.06" class="gen-i"/>
+<circle cx="436.68" cy="465.46" r="4.06" class="gen-i"/>
+<circle cx="465.46" cy="563.32" r="4.06" class="gen-i"/>
+<circle cx="465.46" cy="436.68" r="4.06" class="gen-i"/>
+<circle cx="534.54" cy="563.32" r="4.06" class="gen-i"/>
+<circle cx="534.54" cy="436.68" r="4.06" class="gen-i"/>
+<circle cx="563.32" cy="534.54" r="4.06" class="gen-i"/>
+<circle cx="563.32" cy="465.46" r="4.06" class="gen-i"/>
+</g>
+<path d="M584.86 500A84.86 84.86 0 1 1 415.14 500A84.86 84.86 0 1 1 584.86 500ZM583.26 500A83.26 83.26 0 1 1 416.74 500A83.26 83.26 0 1 1 583.26 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m2">
+<circle cx="416.92" cy="512.78" r="4.06" class="gen-i"/>
+<circle cx="416.92" cy="487.22" r="4.06" class="gen-i"/>
+<circle cx="487.22" cy="583.08" r="4.06" class="gen-i"/>
+<circle cx="487.22" cy="416.92" r="4.06" class="gen-i"/>
+<circle cx="512.78" cy="583.08" r="4.06" class="gen-i"/>
+<circle cx="512.78" cy="416.92" r="4.06" class="gen-i"/>
+<circle cx="583.08" cy="512.78" r="4.06" class="gen-i"/>
+<circle cx="583.08" cy="487.22" r="4.06" class="gen-i"/>
+</g>
+<path d="M596.79 500A96.79 96.79 0 1 1 403.21 500A96.79 96.79 0 1 1 596.79 500ZM595.19 500A95.19 95.19 0 1 1 404.81 500A95.19 95.19 0 1 1 595.19 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m3">
+<circle cx="428.65" cy="564.21" r="4.06" class="gen-i"/>
+<circle cx="428.65" cy="435.79" r="4.06" class="gen-i"/>
+<circle cx="435.79" cy="571.35" r="4.06" class="gen-i"/>
+<circle cx="435.79" cy="428.65" r="4.06" class="gen-i"/>
+<circle cx="564.21" cy="571.35" r="4.06" class="gen-i"/>
+<circle cx="564.21" cy="428.65" r="4.06" class="gen-i"/>
+<circle cx="571.35" cy="564.21" r="4.06" class="gen-i"/>
+<circle cx="571.35" cy="435.79" r="4.06" class="gen-i"/>
+</g>
+<path d="M608.72 500A108.72 108.72 0 1 1 391.28 500A108.72 108.72 0 1 1 608.72 500ZM607.12 500A107.12 107.12 0 1 1 392.88 500A107.12 107.12 0 1 1 607.12 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m4">
+<circle cx="406.78" cy="554.38" r="4.06" class="gen-i"/>
+<circle cx="406.78" cy="445.62" r="4.06" class="gen-i"/>
+<circle cx="445.62" cy="593.22" r="4.06" class="gen-i"/>
+<circle cx="445.62" cy="406.78" r="4.06" class="gen-i"/>
+<circle cx="554.38" cy="593.22" r="4.06" class="gen-i"/>
+<circle cx="554.38" cy="406.78" r="4.06" class="gen-i"/>
+<circle cx="593.22" cy="554.38" r="4.06" class="gen-i"/>
+<circle cx="593.22" cy="445.62" r="4.06" class="gen-i"/>
+</g>
+<path d="M620.65 500A120.65 120.65 0 1 1 379.35 500A120.65 120.65 0 1 1 620.65 500ZM619.05 500A119.05 119.05 0 1 1 380.95 500A119.05 119.05 0 1 1 619.05 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m5">
+<circle cx="380.46" cy="508.54" r="4.06" class="gen-i"/>
+<circle cx="380.46" cy="491.46" r="4.06" class="gen-i"/>
+<circle cx="491.46" cy="619.54" r="4.06" class="gen-i"/>
+<circle cx="491.46" cy="380.46" r="4.06" class="gen-i"/>
+<circle cx="508.54" cy="619.54" r="4.06" class="gen-i"/>
+<circle cx="508.54" cy="380.46" r="4.06" class="gen-i"/>
+<circle cx="619.54" cy="508.54" r="4.06" class="gen-i"/>
+<circle cx="619.54" cy="491.46" r="4.06" class="gen-i"/>
+</g>
+<path d="M632.57 500A132.57 132.57 0 1 1 367.43 500A132.57 132.57 0 1 1 632.57 500ZM630.97 500A130.97 130.97 0 1 1 369.03 500A130.97 130.97 0 1 1 630.97 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m6">
+<circle cx="369.38" cy="517.42" r="4.06" class="gen-i"/>
+<circle cx="369.38" cy="482.58" r="4.06" class="gen-i"/>
+<circle cx="482.58" cy="630.62" r="4.06" class="gen-i"/>
+<circle cx="482.58" cy="369.38" r="4.06" class="gen-i"/>
+<circle cx="517.42" cy="630.62" r="4.06" class="gen-i"/>
+<circle cx="517.42" cy="369.38" r="4.06" class="gen-i"/>
+<circle cx="630.62" cy="517.42" r="4.06" class="gen-i"/>
+<circle cx="630.62" cy="482.58" r="4.06" class="gen-i"/>
+</g>
+<path d="M644.5 500A144.5 144.5 0 1 1 355.5 500A144.5 144.5 0 1 1 644.5 500ZM642.9 500A142.9 142.9 0 1 1 357.1 500A142.9 142.9 0 1 1 642.9 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m7">
+<circle cx="377.61" cy="575.31" r="4.06" class="gen-i"/>
+<circle cx="377.61" cy="424.69" r="4.06" class="gen-i"/>
+<circle cx="424.69" cy="622.39" r="4.06" class="gen-i"/>
+<circle cx="424.69" cy="377.61" r="4.06" class="gen-i"/>
+<circle cx="575.31" cy="622.39" r="4.06" class="gen-i"/>
+<circle cx="575.31" cy="377.61" r="4.06" class="gen-i"/>
+<circle cx="622.39" cy="575.31" r="4.06" class="gen-i"/>
+<circle cx="622.39" cy="424.69" r="4.06" class="gen-i"/>
+</g>
+<path d="M656.43 500A156.43 156.43 0 1 1 343.57 500A156.43 156.43 0 1 1 656.43 500ZM654.83 500A154.83 154.83 0 1 1 345.17 500A154.83 154.83 0 1 1 654.83 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m8">
+<circle cx="349.62" cy="540.1" r="4.06" class="gen-i"/>
+<circle cx="349.62" cy="459.9" r="4.06" class="gen-i"/>
+<circle cx="459.9" cy="650.38" r="4.06" class="gen-i"/>
+<circle cx="459.9" cy="349.62" r="4.06" class="gen-i"/>
+<circle cx="540.1" cy="650.38" r="4.06" class="gen-i"/>
+<circle cx="540.1" cy="349.62" r="4.06" class="gen-i"/>
+<circle cx="650.38" cy="540.1" r="4.06" class="gen-i"/>
+<circle cx="650.38" cy="459.9" r="4.06" class="gen-i"/>
+</g>
+<path d="M668.36 500A168.36 168.36 0 1 1 331.64 500A168.36 168.36 0 1 1 668.36 500ZM666.76 500A166.76 166.76 0 1 1 333.24 500A166.76 166.76 0 1 1 666.76 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m9">
+<circle cx="332.77" cy="510.45" r="4.06" class="gen-i"/>
+<circle cx="332.77" cy="489.55" r="4.06" class="gen-i"/>
+<circle cx="489.55" cy="667.23" r="4.06" class="gen-i"/>
+<circle cx="489.55" cy="332.77" r="4.06" class="gen-i"/>
+<circle cx="510.45" cy="667.23" r="4.06" class="gen-i"/>
+<circle cx="510.45" cy="332.77" r="4.06" class="gen-i"/>
+<circle cx="667.23" cy="510.45" r="4.06" class="gen-i"/>
+<circle cx="667.23" cy="489.55" r="4.06" class="gen-i"/>
+</g>
+<path d="M680.29 500A180.29 180.29 0 1 1 319.71 500A180.29 180.29 0 1 1 680.29 500ZM678.69 500A178.69 178.69 0 1 1 321.31 500A178.69 178.69 0 1 1 678.69 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m10">
+<circle cx="357.73" cy="609.44" r="4.06" class="gen-i"/>
+<circle cx="357.73" cy="390.56" r="4.06" class="gen-i"/>
+<circle cx="390.56" cy="642.27" r="4.06" class="gen-i"/>
+<circle cx="390.56" cy="357.73" r="4.06" class="gen-i"/>
+<circle cx="609.44" cy="642.27" r="4.06" class="gen-i"/>
+<circle cx="609.44" cy="357.73" r="4.06" class="gen-i"/>
+<circle cx="642.27" cy="609.44" r="4.06" class="gen-i"/>
+<circle cx="642.27" cy="390.56" r="4.06" class="gen-i"/>
+</g>
+<path d="M692.22 500A192.22 192.22 0 1 1 307.78 500A192.22 192.22 0 1 1 692.22 500ZM690.62 500A190.62 190.62 0 1 1 309.38 500A190.62 190.62 0 1 1 690.62 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m11">
+<circle cx="338.98" cy="603.51" r="4.06" class="gen-i"/>
+<circle cx="338.98" cy="396.49" r="4.06" class="gen-i"/>
+<circle cx="396.49" cy="661.02" r="4.06" class="gen-i"/>
+<circle cx="396.49" cy="338.98" r="4.06" class="gen-i"/>
+<circle cx="603.51" cy="661.02" r="4.06" class="gen-i"/>
+<circle cx="603.51" cy="338.98" r="4.06" class="gen-i"/>
+<circle cx="661.02" cy="603.51" r="4.06" class="gen-i"/>
+<circle cx="661.02" cy="396.49" r="4.06" class="gen-i"/>
+</g>
+<path d="M704.15 500A204.15 204.15 0 1 1 295.85 500A204.15 204.15 0 1 1 704.15 500ZM702.55 500A202.55 202.55 0 1 1 297.45 500A202.55 202.55 0 1 1 702.55 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m12">
+<circle cx="305.91" cy="560.65" r="4.06" class="gen-i"/>
+<circle cx="305.91" cy="439.35" r="4.06" class="gen-i"/>
+<circle cx="439.35" cy="694.09" r="4.06" class="gen-i"/>
+<circle cx="439.35" cy="305.91" r="4.06" class="gen-i"/>
+<circle cx="560.65" cy="694.09" r="4.06" class="gen-i"/>
+<circle cx="560.65" cy="305.91" r="4.06" class="gen-i"/>
+<circle cx="694.09" cy="560.65" r="4.06" class="gen-i"/>
+<circle cx="694.09" cy="439.35" r="4.06" class="gen-i"/>
+</g>
+<path d="M716.08 500A216.08 216.08 0 1 1 283.92 500A216.08 216.08 0 1 1 716.08 500ZM714.48 500A214.48 214.48 0 1 1 285.52 500A214.48 214.48 0 1 1 714.48 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m13">
+<circle cx="286.2" cy="525.15" r="4.06" class="gen-i"/>
+<circle cx="286.2" cy="474.85" r="4.06" class="gen-i"/>
+<circle cx="474.85" cy="713.8" r="4.06" class="gen-i"/>
+<circle cx="474.85" cy="286.2" r="4.06" class="gen-i"/>
+<circle cx="525.15" cy="713.8" r="4.06" class="gen-i"/>
+<circle cx="525.15" cy="286.2" r="4.06" class="gen-i"/>
+<circle cx="713.8" cy="525.15" r="4.06" class="gen-i"/>
+<circle cx="713.8" cy="474.85" r="4.06" class="gen-i"/>
+</g>
+<path d="M728.01 500A228.01 228.01 0 1 1 271.99 500A228.01 228.01 0 1 1 728.01 500ZM726.41 500A226.41 226.41 0 1 1 273.59 500A226.41 226.41 0 1 1 726.41 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m14">
+<circle cx="333.05" cy="654.11" r="4.06" class="gen-i"/>
+<circle cx="333.05" cy="345.89" r="4.06" class="gen-i"/>
+<circle cx="345.89" cy="666.95" r="4.06" class="gen-i"/>
+<circle cx="345.89" cy="333.05" r="4.06" class="gen-i"/>
+<circle cx="654.11" cy="666.95" r="4.06" class="gen-i"/>
+<circle cx="654.11" cy="333.05" r="4.06" class="gen-i"/>
+<circle cx="666.95" cy="654.11" r="4.06" class="gen-i"/>
+<circle cx="666.95" cy="345.89" r="4.06" class="gen-i"/>
+</g>
+<path d="M739.94 500A239.94 239.94 0 1 1 260.06 500A239.94 239.94 0 1 1 739.94 500ZM738.34 500A238.34 238.34 0 1 1 261.66 500A238.34 238.34 0 1 1 738.34 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m15">
+<circle cx="311.96" cy="647.74" r="4.06" class="gen-i"/>
+<circle cx="311.96" cy="352.26" r="4.06" class="gen-i"/>
+<circle cx="352.26" cy="688.04" r="4.06" class="gen-i"/>
+<circle cx="352.26" cy="311.96" r="4.06" class="gen-i"/>
+<circle cx="647.74" cy="688.04" r="4.06" class="gen-i"/>
+<circle cx="647.74" cy="311.96" r="4.06" class="gen-i"/>
+<circle cx="688.04" cy="647.74" r="4.06" class="gen-i"/>
+<circle cx="688.04" cy="352.26" r="4.06" class="gen-i"/>
+</g>
+<path d="M751.86 500A251.86 251.86 0 1 1 248.14 500A251.86 251.86 0 1 1 751.86 500ZM750.26 500A250.26 250.26 0 1 1 249.74 500A250.26 250.26 0 1 1 750.26 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m16">
+<circle cx="281.18" cy="623.09" r="4.06" class="gen-i"/>
+<circle cx="281.18" cy="376.91" r="4.06" class="gen-i"/>
+<circle cx="376.91" cy="718.82" r="4.06" class="gen-i"/>
+<circle cx="376.91" cy="281.18" r="4.06" class="gen-i"/>
+<circle cx="623.09" cy="718.82" r="4.06" class="gen-i"/>
+<circle cx="623.09" cy="281.18" r="4.06" class="gen-i"/>
+<circle cx="718.82" cy="623.09" r="4.06" class="gen-i"/>
+<circle cx="718.82" cy="376.91" r="4.06" class="gen-i"/>
+</g>
+<path d="M763.79 500A263.79 263.79 0 1 1 236.21 500A263.79 263.79 0 1 1 763.79 500ZM762.19 500A262.19 262.19 0 1 1 237.81 500A262.19 262.19 0 1 1 762.19 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m17">
+<circle cx="246.6" cy="570.39" r="4.06" class="gen-i"/>
+<circle cx="246.6" cy="429.61" r="4.06" class="gen-i"/>
+<circle cx="429.61" cy="753.4" r="4.06" class="gen-i"/>
+<circle cx="429.61" cy="246.6" r="4.06" class="gen-i"/>
+<circle cx="570.39" cy="753.4" r="4.06" class="gen-i"/>
+<circle cx="570.39" cy="246.6" r="4.06" class="gen-i"/>
+<circle cx="753.4" cy="570.39" r="4.06" class="gen-i"/>
+<circle cx="753.4" cy="429.61" r="4.06" class="gen-i"/>
+</g>
+<path d="M775.72 500A275.72 275.72 0 1 1 224.28 500A275.72 275.72 0 1 1 775.72 500ZM774.12 500A274.12 274.12 0 1 1 225.88 500A274.12 274.12 0 1 1 774.12 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m18">
+<circle cx="251.24" cy="617.06" r="4.06" class="gen-i"/>
+<circle cx="251.24" cy="382.94" r="4.06" class="gen-i"/>
+<circle cx="382.94" cy="748.76" r="4.06" class="gen-i"/>
+<circle cx="382.94" cy="251.24" r="4.06" class="gen-i"/>
+<circle cx="617.06" cy="748.76" r="4.06" class="gen-i"/>
+<circle cx="617.06" cy="251.24" r="4.06" class="gen-i"/>
+<circle cx="748.76" cy="617.06" r="4.06" class="gen-i"/>
+<circle cx="748.76" cy="382.94" r="4.06" class="gen-i"/>
+</g>
+<path d="M787.65 500A287.65 287.65 0 1 1 212.35 500A287.65 287.65 0 1 1 787.65 500ZM786.05 500A286.05 286.05 0 1 1 213.95 500A286.05 286.05 0 1 1 786.05 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m19">
+<circle cx="213.15" cy="500" r="5.01" class="gen-a"/>
+<circle cx="500" cy="786.85" r="5.01" class="gen-a"/>
+<circle cx="500" cy="213.15" r="5.01" class="gen-a"/>
+<circle cx="786.85" cy="500" r="5.01" class="gen-a"/>
+</g>
+<path d="M799.58 500A299.58 299.58 0 1 1 200.42 500A299.58 299.58 0 1 1 799.58 500ZM797.98 500A297.98 297.98 0 1 1 202.02 500A297.98 297.98 0 1 1 797.98 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m20">
+<circle cx="221.54" cy="608.29" r="4.06" class="gen-i"/>
+<circle cx="221.54" cy="391.71" r="4.06" class="gen-i"/>
+<circle cx="391.71" cy="778.46" r="4.06" class="gen-i"/>
+<circle cx="391.71" cy="221.54" r="4.06" class="gen-i"/>
+<circle cx="608.29" cy="778.46" r="4.06" class="gen-i"/>
+<circle cx="608.29" cy="221.54" r="4.06" class="gen-i"/>
+<circle cx="778.46" cy="608.29" r="4.06" class="gen-i"/>
+<circle cx="778.46" cy="391.71" r="4.06" class="gen-i"/>
+</g>
+<path d="M811.51 500A311.51 311.51 0 1 1 188.49 500A311.51 311.51 0 1 1 811.51 500ZM809.91 500A309.91 309.91 0 1 1 190.09 500A309.91 309.91 0 1 1 809.91 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m21">
+<circle cx="232.19" cy="657.54" r="4.06" class="gen-i"/>
+<circle cx="232.19" cy="342.46" r="4.06" class="gen-i"/>
+<circle cx="342.46" cy="767.81" r="4.06" class="gen-i"/>
+<circle cx="342.46" cy="232.19" r="4.06" class="gen-i"/>
+<circle cx="657.54" cy="767.81" r="4.06" class="gen-i"/>
+<circle cx="657.54" cy="232.19" r="4.06" class="gen-i"/>
+<circle cx="767.81" cy="657.54" r="4.06" class="gen-i"/>
+<circle cx="767.81" cy="342.46" r="4.06" class="gen-i"/>
+</g>
+<path d="M823.44 500A323.44 323.44 0 1 1 176.56 500A323.44 323.44 0 1 1 823.44 500ZM821.84 500A321.84 321.84 0 1 1 178.16 500A321.84 321.84 0 1 1 821.84 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m22">
+<circle cx="192.34" cy="597.16" r="4.06" class="gen-i"/>
+<circle cx="192.34" cy="402.84" r="4.06" class="gen-i"/>
+<circle cx="402.84" cy="807.66" r="4.06" class="gen-i"/>
+<circle cx="402.84" cy="192.34" r="4.06" class="gen-i"/>
+<circle cx="597.16" cy="807.66" r="4.06" class="gen-i"/>
+<circle cx="597.16" cy="192.34" r="4.06" class="gen-i"/>
+<circle cx="807.66" cy="597.16" r="4.06" class="gen-i"/>
+<circle cx="807.66" cy="402.84" r="4.06" class="gen-i"/>
+</g>
+<path d="M835.37 500A335.37 335.37 0 1 1 164.63 500A335.37 335.37 0 1 1 835.37 500ZM833.77 500A333.77 333.77 0 1 1 166.23 500A333.77 333.77 0 1 1 833.77 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m23">
+<circle cx="165.85" cy="516.71" r="4.06" class="gen-i"/>
+<circle cx="165.85" cy="483.29" r="4.06" class="gen-i"/>
+<circle cx="483.29" cy="834.15" r="4.06" class="gen-i"/>
+<circle cx="483.29" cy="165.85" r="4.06" class="gen-i"/>
+<circle cx="516.71" cy="834.15" r="4.06" class="gen-i"/>
+<circle cx="516.71" cy="165.85" r="4.06" class="gen-i"/>
+<circle cx="834.15" cy="516.71" r="4.06" class="gen-i"/>
+<circle cx="834.15" cy="483.29" r="4.06" class="gen-i"/>
+</g>
+<path d="M847.3 500A347.3 347.3 0 1 1 152.7 500A347.3 347.3 0 1 1 847.3 500ZM845.7 500A345.7 345.7 0 1 1 154.3 500A345.7 345.7 0 1 1 845.7 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m24">
+<circle cx="157.34" cy="551.4" r="4.06" class="gen-i"/>
+<circle cx="157.34" cy="448.6" r="4.06" class="gen-i"/>
+<circle cx="448.6" cy="842.66" r="4.06" class="gen-i"/>
+<circle cx="448.6" cy="157.34" r="4.06" class="gen-i"/>
+<circle cx="551.4" cy="842.66" r="4.06" class="gen-i"/>
+<circle cx="551.4" cy="157.34" r="4.06" class="gen-i"/>
+<circle cx="842.66" cy="551.4" r="4.06" class="gen-i"/>
+<circle cx="842.66" cy="448.6" r="4.06" class="gen-i"/>
+</g>
+<path d="M859.23 500A359.23 359.23 0 1 1 140.77 500A359.23 359.23 0 1 1 859.23 500ZM857.63 500A357.63 357.63 0 1 1 142.37 500A357.63 357.63 0 1 1 857.63 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m25">
+<circle cx="237.97" cy="744.56" r="4.06" class="gen-i"/>
+<circle cx="237.97" cy="255.44" r="4.06" class="gen-i"/>
+<circle cx="255.44" cy="762.03" r="4.06" class="gen-i"/>
+<circle cx="255.44" cy="237.97" r="4.06" class="gen-i"/>
+<circle cx="744.56" cy="762.03" r="4.06" class="gen-i"/>
+<circle cx="744.56" cy="237.97" r="4.06" class="gen-i"/>
+<circle cx="762.03" cy="744.56" r="4.06" class="gen-i"/>
+<circle cx="762.03" cy="255.44" r="4.06" class="gen-i"/>
+</g>
+<path d="M871.15 500A371.15 371.15 0 1 1 128.85 500A371.15 371.15 0 1 1 871.15 500ZM869.55 500A369.55 369.55 0 1 1 130.45 500A369.55 369.55 0 1 1 869.55 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m26">
+<circle cx="197.43" cy="713.58" r="4.06" class="gen-i"/>
+<circle cx="197.43" cy="286.42" r="4.06" class="gen-i"/>
+<circle cx="286.42" cy="802.57" r="4.06" class="gen-i"/>
+<circle cx="286.42" cy="197.43" r="4.06" class="gen-i"/>
+<circle cx="713.58" cy="802.57" r="4.06" class="gen-i"/>
+<circle cx="713.58" cy="197.43" r="4.06" class="gen-i"/>
+<circle cx="802.57" cy="713.58" r="4.06" class="gen-i"/>
+<circle cx="802.57" cy="286.42" r="4.06" class="gen-i"/>
+</g>
+<path d="M883.08 500A383.08 383.08 0 1 1 116.92 500A383.08 383.08 0 1 1 883.08 500ZM881.48 500A381.48 381.48 0 1 1 118.52 500A381.48 381.48 0 1 1 881.48 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m27">
+<circle cx="139.18" cy="626.29" r="4.06" class="gen-i"/>
+<circle cx="139.18" cy="373.71" r="4.06" class="gen-i"/>
+<circle cx="373.71" cy="860.82" r="4.06" class="gen-i"/>
+<circle cx="373.71" cy="139.18" r="4.06" class="gen-i"/>
+<circle cx="626.29" cy="860.82" r="4.06" class="gen-i"/>
+<circle cx="626.29" cy="139.18" r="4.06" class="gen-i"/>
+<circle cx="860.82" cy="626.29" r="4.06" class="gen-i"/>
+<circle cx="860.82" cy="373.71" r="4.06" class="gen-i"/>
+</g>
+<path d="M895.01 500A395.01 395.01 0 1 1 104.99 500A395.01 395.01 0 1 1 895.01 500ZM893.41 500A393.41 393.41 0 1 1 106.59 500A393.41 393.41 0 1 1 893.41 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m28">
+<circle cx="112.75" cy="573.76" r="4.06" class="gen-i"/>
+<circle cx="112.75" cy="426.24" r="4.06" class="gen-i"/>
+<circle cx="426.24" cy="887.25" r="4.06" class="gen-i"/>
+<circle cx="426.24" cy="112.75" r="4.06" class="gen-i"/>
+<circle cx="573.76" cy="887.25" r="4.06" class="gen-i"/>
+<circle cx="573.76" cy="112.75" r="4.06" class="gen-i"/>
+<circle cx="887.25" cy="573.76" r="4.06" class="gen-i"/>
+<circle cx="887.25" cy="426.24" r="4.06" class="gen-i"/>
+</g>
+<path d="M906.94 500A406.94 406.94 0 1 1 93.06 500A406.94 406.94 0 1 1 906.94 500ZM905.34 500A405.34 405.34 0 1 1 94.66 500A405.34 405.34 0 1 1 905.34 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m29">
+<circle cx="140.6" cy="689.16" r="4.06" class="gen-i"/>
+<circle cx="140.6" cy="310.84" r="4.06" class="gen-i"/>
+<circle cx="310.84" cy="859.4" r="4.06" class="gen-i"/>
+<circle cx="310.84" cy="140.6" r="4.06" class="gen-i"/>
+<circle cx="689.16" cy="859.4" r="4.06" class="gen-i"/>
+<circle cx="689.16" cy="140.6" r="4.06" class="gen-i"/>
+<circle cx="859.4" cy="689.16" r="4.06" class="gen-i"/>
+<circle cx="859.4" cy="310.84" r="4.06" class="gen-i"/>
+</g>
+<path d="M918.87 500A418.87 418.87 0 1 1 81.13 500A418.87 418.87 0 1 1 918.87 500ZM917.27 500A417.27 417.27 0 1 1 82.73 500A417.27 417.27 0 1 1 917.27 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m30">
+<circle cx="92.33" cy="592.65" r="4.06" class="gen-i"/>
+<circle cx="92.33" cy="407.35" r="4.06" class="gen-i"/>
+<circle cx="407.35" cy="907.67" r="4.06" class="gen-i"/>
+<circle cx="407.35" cy="92.33" r="4.06" class="gen-i"/>
+<circle cx="592.65" cy="907.67" r="4.06" class="gen-i"/>
+<circle cx="592.65" cy="92.33" r="4.06" class="gen-i"/>
+<circle cx="907.67" cy="592.65" r="4.06" class="gen-i"/>
+<circle cx="907.67" cy="407.35" r="4.06" class="gen-i"/>
+</g>
+<path d="M930.8 500A430.8 430.8 0 1 1 69.2 500A430.8 430.8 0 1 1 930.8 500ZM929.2 500A429.2 429.2 0 1 1 70.8 500A429.2 429.2 0 1 1 929.2 500Z" fill-rule="evenodd" class="gen-i" fill-opacity="0.3"/>
+<g class="rationalOrbit01-m rationalOrbit01-m31">
+<circle cx="123.23" cy="707.23" r="4.06" class="gen-i"/>
+<circle cx="123.23" cy="292.77" r="4.06" class="gen-i"/>
+<circle cx="292.77" cy="876.77" r="4.06" class="gen-i"/>
+<circle cx="292.77" cy="123.23" r="4.06" class="gen-i"/>
+<circle cx="707.23" cy="876.77" r="4.06" class="gen-i"/>
+<circle cx="707.23" cy="123.23" r="4.06" class="gen-i"/>
+<circle cx="876.77" cy="707.23" r="4.06" class="gen-i"/>
+<circle cx="876.77" cy="292.77" r="4.06" class="gen-i"/>
+</g>
+</svg>

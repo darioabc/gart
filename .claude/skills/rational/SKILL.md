@@ -69,6 +69,28 @@ rust `#c84e22` on paper `#ece5d1`; dark is cream `#f2f0eb` and rust `#ec8f62` on
 `<use>`): as an `<img>` or a CSS background it cannot see the page's custom properties
 and stays in the light fallback. Figma imports it in the light fallback too.
 
+## Motion
+
+A piece can also be written as `out/<name>-motion.svg`: the same file with CSS
+animation inside. Wrap shapes in `Motion(anim, shapes, extra)`: `Spin(cx, cy,
+seconds, reverse)` turns the group about a point, `Drift(dx, dy, seconds)` slides it
+one span and loops (put a copy one span behind in `extra`, drawn only in motion;
+`scroll()` does that for barcode bands). The still SVG and the PNG flatten the group
+away, so adding motion never changes them: check with `cmp` as for a refactor.
+
+The motion CSS is a class per moving group (`<name>-m<i>`, `transform-box:
+view-box` so origins and translations are in viewBox units), keyframes named after
+the piece, and `@media (prefers-reduced-motion:reduce){.<name>-m{animation:none}}`,
+which leaves the still frame. Classes, not inline styles, so that rule can win.
+Inline in a page the `<style>` applies document-wide, hence the prefixes.
+
+Pace it for a background: Orbit's rings move 6 to 14 units a second along the ring
+(a turn takes 30 s to 7 min), neighbours in opposite directions; Stripes scroll 10
+units a second. Today Orbit 01 and 03 (not the quarter, which turning would empty)
+and Stripes 01 and 02 have motion. gart can also record frames to MP4 or GIF
+(`Movie.kt`, `video/`), but a video cannot take the page's colours, so the web uses
+the SVG.
+
 ## Shapes and textures
 
 `Box`, `Disc`, `Sector` (a pie slice, degrees clockwise from +x), `Outline` (any path,

@@ -192,7 +192,28 @@ private data class ClipGroup(
     override val alpha: Float = 1f
 }
 
+/** Shapes that move in the motion SVG (<name>-motion.svg): a CSS animation on their
+ *  group, off under prefers-reduced-motion. The still SVG and the PNG draw [shapes]
+ *  where they stand at time zero and leave the group out, so they are unchanged.
+ *  [extra] is drawn only in motion, for the copy a loop scrolls in from. */
+private data class Motion(val anim: Anim, val shapes: List<Shape>, val extra: List<Shape> = emptyList()) : Shape {
+    override val role: Role = Role.INK
+    override val alpha: Float = 1f
+    override val tex: Tex? = null
+}
+
+private sealed interface Anim { val seconds: Float }
+
+/** A full turn about (cx, cy) every [seconds], clockwise unless [reverse]. */
+private data class Spin(val cx: Float, val cy: Float, override val seconds: Float, val reverse: Boolean) : Anim
+
+/** A slide by (dx, dy) every [seconds], then a jump back: seamless when the group
+ *  carries a copy of itself one (dx, dy) behind. */
+private data class Drift(val dx: Float, val dy: Float, override val seconds: Float) : Anim
+
 private class Art(val name: String, val shapes: List<Shape>)
+
+private fun hasMotion(list: List<Shape>): Boolean = list.any { it is Motion || (it is ClipGroup && hasMotion(it.shapes)) }
 
 private fun pt(cx: Float, cy: Float, r: Float, deg: Float): String {
     val t = Math.toRadians(deg.toDouble())
@@ -483,6 +504,7 @@ private fun orbit(name: String, rng: Random, quarter: Boolean, ticks: Boolean): 
     val shapes = mutableListOf<Shape>()
     norms.forEachIndexed { k, nm ->
         val r = r0 + k * pitch
+        val marks = mutableListOf<Shape>()
         if (!ticks) {
             shapes += if (quarter) Outline(ringSector(cx, cy, r - 0.8f, r + 0.8f, 270f, 90f), alpha = 0.3f)
             else Outline(ring(cx, cy, r - 0.8f, r + 0.8f), evenOdd = true, alpha = 0.3f)
@@ -498,16 +520,21 @@ private fun orbit(name: String, rng: Random, quarter: Boolean, ticks: Boolean): 
             if (ticks && !onAxis) {
                 val h = pitch * 0.42f
                 val w = pitch * 0.2f
-                shapes += Outline(polygon(listOf(
+                marks += Outline(polygon(listOf(
                     px - h * ux - w * uy to py - h * uy + w * ux,
                     px + h * ux - w * uy to py + h * uy + w * ux,
                     px + h * ux + w * uy to py + h * uy - w * ux,
                     px - h * ux + w * uy to py - h * uy - w * ux,
                 )))
             } else {
-                shapes += Disc(px, py, pitch * (if (onAxis) 0.42f else 0.34f), if (onAxis) Role.ACCENT else Role.INK)
+                marks += Disc(px, py, pitch * (if (onAxis) 0.42f else 0.34f), if (onAxis) Role.ACCENT else Role.INK)
             }
         }
+        // In motion each ring's marks turn about the centre, neighbours in opposite
+        // directions, at a pace along the ring of 6 to 14 units a second set by the
+        // ring's norm. The quarter stays still: turning would carry it out of frame.
+        shapes += if (quarter) marks
+        else listOf(Motion(Spin(cx, cy, (2 * Math.PI * r / (6 + (nm % 5) * 2)).toFloat(), k % 2 == 1), marks))
     }
     return Art(name, shapes)
 }
@@ -675,6 +702,11 @@ private fun barcode(
     }
 }
 
+/** Bands that, in motion, scroll by one span (dx, dy) at 10 units a second and loop,
+ *  with a copy of themselves one span behind. */
+private fun scroll(bands: List<Shape>, dx: Float, dy: Float): Motion =
+    Motion(Drift(dx, dy, sqrt(dx * dx + dy * dy) / 10f), bands, bands.map { (it as Box).copy(x = it.x - dx, y = it.y - dy) })
+
 /** Swiss-poster forms filled with barcodes. Mode 0 is one disc of horizontal bands, 1
  *  two half discs, one banded each way, 2 a square of bands with a disc cut out of it
  *  and banded across in the accent, all with printed grain. */
@@ -685,15 +717,15 @@ private fun stripes(name: String, rng: Random, mode: Int): Art {
     when (mode) {
         0 -> {
             val r = 360f
-            shapes += ClipGroup(circlePath(U / 2, U / 2, r), false,
-                barcode(grid, 0, 64, false, U / 2 - r, U / 2 + r, U / 2 - r, U / 2 + r, true, null))
+            val bands = barcode(grid, 0, 64, false, U / 2 - r, U / 2 + r, U / 2 - r, U / 2 + r, true, null)
+            shapes += ClipGroup(circlePath(U / 2, U / 2, r), false, listOf(scroll(bands, 0f, -2 * r)))
         }
         1 -> {
             val r = 300f
             val left = "M${n(U / 2)} ${n(380f - r)}A${n(r)} ${n(r)} 0 0 0 ${n(U / 2)} ${n(380f + r)}Z"
             val right = "M${n(U / 2)} ${n(620f - r)}A${n(r)} ${n(r)} 0 0 1 ${n(U / 2)} ${n(620f + r)}Z"
-            shapes += ClipGroup(left, false, barcode(grid, 0, 30, true, U / 2 - r, U / 2, 80f, 680f, true, null))
-            shapes += ClipGroup(right, false, barcode(grid, 1, 54, false, 620f - r, 620f + r, U / 2, U / 2 + r, false, null))
+            shapes += ClipGroup(left, false, listOf(scroll(barcode(grid, 0, 30, true, U / 2 - r, U / 2, 80f, 680f, true, null), r, 0f)))
+            shapes += ClipGroup(right, false, listOf(scroll(barcode(grid, 1, 54, false, 620f - r, 620f + r, U / 2, U / 2 + r, false, null), 0f, 2 * r)))
         }
         else -> {
             val s0 = 110f; val s1 = U - 110f
@@ -1182,16 +1214,25 @@ private fun knots(name: String, rng: Random, cols: Int): Art {
  *  custom properties with the light palette as fallback, ids prefixed with the art's
  *  name so several can sit inline on one page. Baked (ink given): literal colours on a
  *  ground, sized for the PNG preview. */
-private fun svg(art: Art, baked: PaperInk? = null): String {
+private fun svg(art: Art, baked: PaperInk? = null, motion: Boolean = false): String {
     val sb = StringBuilder()
     val size = if (baked != null) """ width="$SIZE" height="$SIZE"""" else ""
     sb.appendLine("""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${U.toInt()} ${U.toInt()}"$size>""")
     if (baked == null) {
-        sb.appendLine("""<style>.gen-i{fill:var(--gen-ink,${LIGHT.ink})}.gen-a{fill:var(--gen-accent,${LIGHT.accent})}</style>""")
+        sb.append("""<style>.gen-i{fill:var(--gen-ink,${LIGHT.ink})}.gen-a{fill:var(--gen-accent,${LIGHT.accent})}""")
+        if (motion) sb.append(motionCss(art))
+        sb.appendLine("</style>")
     } else {
         sb.appendLine("""<rect width="${U.toInt()}" height="${U.toInt()}" fill="${baked.ground}"/>""")
     }
-    fun flat(list: List<Shape>): List<Shape> = list.flatMap { if (it is ClipGroup) flat(it.shapes) + it else listOf(it) }
+    fun flat(list: List<Shape>): List<Shape> = list.flatMap {
+        when (it) {
+            is ClipGroup -> flat(it.shapes) + it
+            is Motion -> flat(it.shapes) + (if (motion) flat(it.extra) else emptyList())
+            else -> listOf(it)
+        }
+    }
+    val moving = motions(art.shapes)
     val texes = flat(art.shapes).mapNotNull { it.tex }.distinct()
     val clips = art.shapes.filterIsInstance<ClipGroup>()
     if (texes.isNotEmpty() || clips.isNotEmpty()) {
@@ -1212,6 +1253,14 @@ private fun svg(art: Art, baked: PaperInk? = null): String {
         sb.appendLine("</defs>")
     }
     fun draw(s: Shape) {
+        if (s is Motion) {
+            if (!motion) { s.shapes.forEach(::draw); return }
+            sb.appendLine("""<g class="${art.name}-m ${art.name}-m${moving.indexOf(s)}">""")
+            s.shapes.forEach(::draw)
+            s.extra.forEach(::draw)
+            sb.appendLine("</g>")
+            return
+        }
         if (s is ClipGroup) {
             val filter = s.tex?.let { """<g filter="url(#${art.name}-${it.id})">""" } ?: ""
             sb.appendLine("""<g clip-path="url(#${art.name}-c${clips.indexOf(s)})">$filter""")
@@ -1233,12 +1282,43 @@ private fun svg(art: Art, baked: PaperInk? = null): String {
                 is Disc -> """<circle cx="${n(s.cx)}" cy="${n(s.cy)}" r="${n(s.r)}" $attrs/>"""
                 is Sector -> """<path d="${sectorPath(s)}" $attrs/>"""
                 is Outline -> """<path d="${s.d}"${if (s.evenOdd) """ fill-rule="evenodd"""" else ""} $attrs/>"""
-                is ClipGroup -> ""
+                is ClipGroup, is Motion -> ""
             }
         )
     }
     art.shapes.forEach(::draw)
     sb.appendLine("</svg>")
+    return sb.toString()
+}
+
+private fun motions(list: List<Shape>): List<Motion> = list.flatMap {
+    when (it) {
+        is Motion -> listOf(it)
+        is ClipGroup -> motions(it.shapes)
+        else -> emptyList()
+    }
+}
+
+/** The motion SVG's animation rules: a class per moving group (transforms in user
+ *  units about the viewBox), keyframes named after the piece so several pieces can sit
+ *  inline on one page, and everything still under prefers-reduced-motion. */
+private fun motionCss(art: Art): String {
+    val sb = StringBuilder()
+    val name = art.name
+    val moving = motions(art.shapes)
+    if (moving.any { it.anim is Spin }) sb.append("@keyframes $name-spin{to{transform:rotate(360deg)}}")
+    moving.forEachIndexed { i, m ->
+        val a = m.anim
+        sb.append(".$name-m$i{transform-box:view-box;")
+        when (a) {
+            is Spin -> sb.append("transform-origin:${n(a.cx)}px ${n(a.cy)}px;animation:$name-spin ${n(a.seconds)}s linear infinite${if (a.reverse) " reverse" else ""}}")
+            is Drift -> {
+                sb.append("animation:$name-d$i ${n(a.seconds)}s linear infinite}")
+                sb.append("@keyframes $name-d$i{to{transform:translate(${n(a.dx)}px,${n(a.dy)}px)}}")
+            }
+        }
+    }
+    sb.append("@media (prefers-reduced-motion:reduce){.$name-m{animation:none}}")
     return sb.toString()
 }
 
@@ -1321,6 +1401,7 @@ fun main() {
         rendered++
         val art = make(name, Random(seed))
         File("$name.svg").writeText(svg(art))
+        if (hasMotion(art.shapes)) File("$name-motion.svg").writeText(svg(art, motion = true))
 
         // The preview: the same SVG with the light palette baked in, rendered by Skia,
         // then a light grain for the paper.
